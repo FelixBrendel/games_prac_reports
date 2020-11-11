@@ -1,4 +1,78 @@
-* test
+#+OPTIONS: toc:nil title:nil
 
+\title{Game Idea Proposal: Hex}
+\author{Felix Brendel \and Jonas Helms \and Van Minh Pham}
+\date{November 2020}
+\maketitle
+\clearpage
+#+TOC: headlines 1
+\clearpage
+* Game Description
+# overview of game, overall gameplay
+# include background or storyline associated with the game
+# ~2-3 pages of text
+# ~3 pages of mocked-up screenshots and/or sketches (pencil sketches are fine)
+# highlight relation of theme (wet & slippery)
+# justify every decision
 
-alskdjalksjdal
+Notes:
+- Hex is a tile-based puzzle game
+- in each level the player moves a cube from start tile to finish tile
+- multiple floor-types:
+  - slippery floor:
+	- cube cannot change moving direction after button input until obstacle is hit
+	- cube does not change the orientation of the cube
+  - floors with grip:
+	- on one button press cube moves only once
+	- cube turns with each movement
+- add mechanics every few levels -> steady learning curve:
+  - cube is colored differently on every side
+  - cube needs to be in a specific orientation on the finish tile
+  - cube can be folded open:
+	- bridge slippery tiles
+	- multiple finish tiles one which all cube sides have to be in the end
+  - player has to set tile types themselves
+- so far no story or context, just fun puzzling for the sake of fun puzzling
+  -> more freedom for ideas, not bound to setting or story
+  -> bigger emphasis on simplicity
+
+* Technical Achievement
+# detail core technical item (1+)
+
+Notes:
+- Vulkan
+- procedural levels
+- physically based rendering
+- additional fancy shaders
+
+* Big Idea Bullseye
+[insert bullseye image]
+* Development Schedule
+
+\textbf{Layers of Development}:
+1. Functional Minimum:
+   - levels (including start and finish tiles)
+   - movement of cube
+   - slippery floor type
+2. Low Target:
+   - floors with grip
+   - have sides differently colored
+   - finish condition: cube must land on a specific side on the finish tile
+3. Desirable Target:
+   - cube can be folded open
+   - multiple finish tiles
+4. High Target:
+   - have players set floors to floor types themselves
+5. Extras:
+   - ???
+\textbf{Timeline}: Excel Sheet?\\
+\textbf{Task Distribution}: Table?
+
+* Assessment
+# main strength, target audience, world view for design, criteria for success
+
+Notes:
+- all about simplicity, no bombast
+- easy accessibility
+- just fun & cozy puzzle people can play from time to time
+- we hope for people to calm down when figuring out solutions for trickier levels
