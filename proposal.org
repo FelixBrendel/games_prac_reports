@@ -71,8 +71,19 @@ Notes:
 * Assessment
 # main strength, target audience, world view for design, criteria for success
 
-Notes:
-- all about simplicity, no bombast
-- easy accessibility
-- just fun & cozy puzzle people can play from time to time
-- we hope for people to calm down when figuring out solutions for trickier levels
+Hex is designed to be a cozy and fun puzzle game for people to enjoy regardless 
+of prior experiences of puzzle games or even video games in general.
+To achieve that, the game will have to be easily accessible not requiring a lot of
+prior knowledge. Later levels will add more and more mechanics effectively raising 
+the difficulty level which hopefully will keep players invested. 
+The difficulty curve in form of the levels provides one of the biggest challenges 
+in the development as a sudden difficulty spike can lead to a lot of frustration 
+while low curve may bore players. \\
+Although we intend to provide players with healthy challenges along the levels, 
+we generally want Hex to be a relaxing game to be played from time to time.
+
+# Notes:
+# - all about simplicity, no bombast
+# - easy accessibility
+# - just fun & cozy puzzle people can play from time to time
+# - we hope for people to calm down when figuring out solutions for trickier levels
