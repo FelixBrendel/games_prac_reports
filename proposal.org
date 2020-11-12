@@ -99,8 +99,66 @@ Notes:
    - different world designs
 *Timeline*: Excel Sheet?
 
+** Task Distributions
+For every milestone we schedule the following:
+#+attr_latex: :align |c|c|c|
+|-----------------------+--------+-------------|
+| Task                  | Member | Spent hours |
+|-----------------------+--------+-------------|
+| Project documentation | All    |           3 |
+|-----------------------+--------+-------------|
+| Presentation          | All    |           2 |
+|-----------------------+--------+-------------|
 
-*Task Distribution*: Table?
+In general:
+#+attr_latex: :align |c|l|c|c|
+|---------------+-------------------------------+-----------+---------------|
+| Category      | Tasks                         | Member(s) | Planned hours |
+|---------------+-------------------------------+-----------+---------------|
+| Brainstorming |                               | All       |             3 |
+|---------------+-------------------------------+-----------+---------------|
+| Engine Work   | Implementation of the         | All       |           200 |
+|               | 3D graphics engine for        |           |               |
+|               | loading meshes, animations    |           |               |
+|               | ...                           |           |               |
+|---------------+-------------------------------+-----------+---------------|
+| Inputs        | Ensure movement of cube       | Minh      |            15 |
+|               | through buttons presses       |           |               |
+|---------------+-------------------------------+-----------+---------------|
+| Gameplay      | - Cube can be moved           | Minh      |            25 |
+|               | - Cube can be folded open     | Felix     |               |
+|---------------+-------------------------------+-----------+---------------|
+| Win Condition | Cube has to land on finish    | Minh      |            30 |
+|               | tile                          | Felix     |               |
+|               | + on a specific side          |           |               |
+|               | + on multiple finish tiles    |           |               |
+|               | at the same time (by folding  |           |               |
+|               | open)                         |           |               |
+|---------------+-------------------------------+-----------+---------------|
+| Level Design  | Designing puzzles,            | Felix     |            40 |
+|               | challenges                    | Jonas     |               |
+|---------------+-------------------------------+-----------+---------------|
+| Physics       | Ensure different movement     | All       |            15 |
+|               | behavior on different tiles   |           |               |
+|---------------+-------------------------------+-----------+---------------|
+| Art           | - Create different animations | Felix     |            60 |
+|               | for different events          | Jonas     |               |
+|               | - Particle effects            |           |               |
+|               | - Original music              |           |               |
+|---------------+-------------------------------+-----------+---------------|
+| UI            | - Convey basic information    | Jonas     |            10 |
+|               | to player                     |           |               |
+|               | - Keep it rather simplistic   |           |               |
+|---------------+-------------------------------+-----------+---------------|
+| Playtesting   | Testing and fixing            | All       |            10 |
+|---------------+-------------------------------+-----------+---------------|
+| Trailer       |                               | All       |            30 |
+|---------------+-------------------------------+-----------+---------------|
+| Additional    | - Different world designs     | All       | leftover time |
+| Content       | - Players setting floors to   |           |               |
+|               | specific type themselves      |           |               |
+|               | ...                           |           |               |
+|---------------+-------------------------------+-----------+---------------|
 
 * Assessment
 # main strength, target audience, world view for design, criteria for success
