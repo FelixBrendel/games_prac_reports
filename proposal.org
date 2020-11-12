@@ -1,5 +1,6 @@
 #+macro: insert_game_name_here qubie or quboi
 #+macro: insert_team_name_here funfKöpp
+#+LATEX_HEADER: \usepackage[margin=1in]{geometry}
 #+title: Game Idea Proposal: {{{game_name}}}
 #+author: Felix Brendel, Jonas Helms, Van Minh Pham
 #+latex_header: \renewcommand{\familydefault}{\sfdefault}
@@ -74,7 +75,7 @@ Notes:
 4. High Target:
    - have players set floors to floor types themselves
 5. Extras:
-   - ???
+   - different world designs
 *Timeline*: Excel Sheet?
 
 
