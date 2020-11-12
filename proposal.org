@@ -39,13 +39,17 @@ Notes:
 
 * Technical Achievement
 # detail core technical item (1+)
+As part of the development of Hex our group will develop our own Game Engine. The game engine will use the Vulkan Graphics API to implement a rendering pipeline. Vulkan is a new API developed by the Khronos Group (maintainer of OpenGL) which allows us a very low  level control of the GPU.
+
 
 Notes:
 - Vulkan
 - procedural levels
 - physically based rendering
 - additional fancy shaders
-
+- very minimalistic and pure, just like God's own Game Engine
+- no c++ standard library
+- no bloat allowed
 * Big Idea Bullseye
 [insert bullseye image]
 * Development Schedule
