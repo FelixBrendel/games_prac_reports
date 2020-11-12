@@ -1,12 +1,13 @@
-#+OPTIONS: toc:nil title:nil
+#+macro: game_name Hex
+#+title: Game Idea Proposal: {{{game_name}}}
+#+author: Felix Brendel, Jonas Helms, Van Minh Pham
 
-\title{Game Idea Proposal: Hex}
-\author{Felix Brendel \and Jonas Helms \and Van Minh Pham}
-\date{November 2020}
-\maketitle
-\clearpage
-#+TOC: headlines 1
-\clearpage
+# +latex: \author{Felix Brendel \and Jonas Helms \and Van Minh Pham}
+# +latex: \date{November 2020}
+# +latex: \maketitle
+# +latex: \clearpage
+
+
 * Game Description
 # overview of game, overall gameplay
 # include background or storyline associated with the game
@@ -16,21 +17,21 @@
 # justify every decision
 
 Notes:
-- Hex is a tile-based puzzle game
+- {{{game_name}}} is a tile-based puzzle game
 - in each level the player moves a cube from start tile to finish tile
 - multiple floor-types:
   - slippery floor:
-	- cube cannot change moving direction after button input until obstacle is hit
-	- cube does not change the orientation of the cube
+    - cube cannot change moving direction after button input until obstacle is hit
+    - cube does not change the orientation of the cube
   - floors with grip:
-	- on one button press cube moves only once
-	- cube turns with each movement
+    - on one button press cube moves only once
+    - cube turns with each movement
 - add mechanics every few levels -> steady learning curve:
   - cube is colored differently on every side
   - cube needs to be in a specific orientation on the finish tile
   - cube can be folded open:
-	- bridge slippery tiles
-	- multiple finish tiles one which all cube sides have to be in the end
+    - bridge slippery tiles
+    - multiple finish tiles one which all cube sides have to be in the end
   - player has to set tile types themselves
 - so far no story or context, just fun puzzling for the sake of fun puzzling
   -> more freedom for ideas, not bound to setting or story
@@ -49,7 +50,7 @@ Notes:
 [insert bullseye image]
 * Development Schedule
 
-\textbf{Layers of Development}:
+*Layers of Development*:
 1. Functional Minimum:
    - levels (including start and finish tiles)
    - movement of cube
@@ -65,22 +66,25 @@ Notes:
    - have players set floors to floor types themselves
 5. Extras:
    - ???
-\textbf{Timeline}: Excel Sheet?\\
-\textbf{Task Distribution}: Table?
+*Timeline*: Excel Sheet?
+
+
+*Task Distribution*: Table?
 
 * Assessment
 # main strength, target audience, world view for design, criteria for success
 
-Hex is designed to be a cozy and fun puzzle game for people to enjoy regardless 
-of prior experiences of puzzle games or even video games in general.
-To achieve that, the game will have to be easily accessible not requiring a lot of
-prior knowledge. Later levels will add more and more mechanics effectively raising 
-the difficulty level which hopefully will keep players invested. 
-The difficulty curve in form of the levels provides one of the biggest challenges 
-in the development as a sudden difficulty spike can lead to a lot of frustration 
-while low curve may bore players. \\
+{{{game_name}}} is designed to be a cozy and fun puzzle game for people to enjoy
+regardless of prior experiences of puzzle games or even video games in general.
+To achieve that, the game will have to be easily accessible not requiring a lot
+of prior knowledge. Later levels will add more and more mechanics effectively
+raising the difficulty level which hopefully will keep players invested. The
+difficulty curve in form of the levels provides one of the biggest challenges in
+the development as a sudden difficulty spike can lead to a lot of frustration
+while low curve may bore players.
+
 Although we intend to provide players with healthy challenges along the levels, 
-we generally want Hex to be a relaxing game to be played from time to time.
+we generally want {{{game_name}}} to be a relaxing game to be played from time to time.
 
 # Notes:
 # - all about simplicity, no bombast
