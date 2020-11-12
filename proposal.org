@@ -1,4 +1,4 @@
-#+macro: game_name Hex
+#+macro: game_name qubie or quboi
 #+title: Game Idea Proposal: {{{game_name}}}
 #+author: Felix Brendel, Jonas Helms, Van Minh Pham
 
@@ -39,7 +39,10 @@ Notes:
 
 * Technical Achievement
 # detail core technical item (1+)
-As part of the development of Hex our group will develop our own Game Engine. The game engine will use the Vulkan Graphics API to implement a rendering pipeline. Vulkan is a new API developed by the Khronos Group (maintainer of OpenGL) which allows us a very low  level control of the GPU.
+As part of the development of {{{game_name}}} our group will develop our own
+Game Engine. The game engine will use the Vulkan Graphics API to implement a
+rendering pipeline. Vulkan is a new API developed by the Khronos Group
+(maintainer of OpenGL) which allows us a very low level control of the GPU.
 
 
 Notes:
