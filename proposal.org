@@ -1,6 +1,8 @@
-#+macro: game_name qubie or quboi
+#+macro: insert_game_name_here qubie or quboi
+#+macro: insert_team_name_here funfKöpp
 #+title: Game Idea Proposal: {{{game_name}}}
 #+author: Felix Brendel, Jonas Helms, Van Minh Pham
+#+latex_header: \renewcommand{\familydefault}{\sfdefault}
 
 # +latex: \author{Felix Brendel \and Jonas Helms \and Van Minh Pham}
 # +latex: \date{November 2020}
@@ -17,7 +19,7 @@
 # justify every decision
 
 Notes:
-- {{{game_name}}} is a tile-based puzzle game
+- {{{insert_game_name_here}}} is a tile-based puzzle game
 - in each level the player moves a cube from start tile to finish tile
 - multiple floor-types:
   - slippery floor:
@@ -39,7 +41,7 @@ Notes:
 
 * Technical Achievement
 # detail core technical item (1+)
-As part of the development of {{{game_name}}} our group will develop our own
+As part of the development of {{{insert_game_name_here}}} our group will develop our own
 Game Engine. The game engine will use the Vulkan Graphics API to implement a
 rendering pipeline. Vulkan is a new API developed by the Khronos Group
 (maintainer of OpenGL) which allows us a very low level control of the GPU.
@@ -81,7 +83,7 @@ Notes:
 * Assessment
 # main strength, target audience, world view for design, criteria for success
 
-{{{game_name}}} is designed to be a cozy and fun puzzle game for people to enjoy
+{{{insert_game_name_here}}} is designed to be a cozy and fun puzzle game for people to enjoy
 regardless of prior experiences of puzzle games or even video games in general.
 To achieve that, the game will have to be easily accessible not requiring a lot
 of prior knowledge. Later levels will add more and more mechanics effectively
@@ -91,7 +93,7 @@ the development as a sudden difficulty spike can lead to a lot of frustration
 while low curve may bore players.
 
 Although we intend to provide players with healthy challenges along the levels, 
-we generally want {{{game_name}}} to be a relaxing game to be played from time to time.
+we generally want {{{insert_game_name_here}}} to be a relaxing game to be played from time to time.
 
 # Notes:
 # - all about simplicity, no bombast
