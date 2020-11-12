@@ -1,11 +1,49 @@
 #+macro: game_name Hex
+#+macro: team_name FunfKopp
+
+#+latex_header: \renewcommand{\familydefault}{\sfdefault}
+
 #+title: Game Idea Proposal: {{{game_name}}}
 #+author: Felix Brendel, Jonas Helms, Van Minh Pham
+#+date: November 2020
 
-# +latex: \author{Felix Brendel \and Jonas Helms \and Van Minh Pham}
-# +latex: \date{November 2020}
-# +latex: \maketitle
-# +latex: \clearpage
+#+options: html-postamble:nil
+#+latex: \clearpage
+
+* Game Description
+We as the team {{{team_name}}} believe that great games build on simple
+concepts. A perfect example for such a game is [[https://en.wikipedia.org/wiki/Portal_(video_game)][Portal]] (Valve, 2007). It builds
+on the concept of portals that connect two positions in the game world. When the
+players moves through one, they will come out of the other one. Using this, the
+game is devided into levels, each with a starting point and a target the players
+have to reach.
+
+Just having this concept -- teleporting to another position -- alone however, is
+not enough to create an intersting game. Starting from the simple concept one
+can begin to shape the game mechanics by exploring different ideas. In the case
+of Portal they might have looked like this:
+
+ 1. What if the players could place the portals thmeselves?
+    - Give the players a portal gun and let them shoot the walls to place
+      portals on them
+ 2. What if there are some surfaces, the players cannot place portals on?
+    - If players can place portals everywhere, it might be hard to create
+      challenging levels
+ 3. What if some levels require the players to transport objects in the levels to
+    solve them?
+    - Let players pick up and carry a object
+ 4. What if there are some barriers, that when moved through, destroy the
+    carried object?
+    - Letting the players carry the objects freely through the level might make
+      the levels too easy
+
+It is interesting to note, that it seems that idea 2 and 4 are direct responses
+to the ideas 1 and 3. Seeing this we also wanted to design our game in a similar
+fashion.
+
+Our game concept follows the given theme /wet and slippery/: The players should
+slide around on the floor.
+
 
 
 * Game Description
@@ -83,8 +121,9 @@ difficulty curve in form of the levels provides one of the biggest challenges in
 the development as a sudden difficulty spike can lead to a lot of frustration
 while low curve may bore players.
 
-Although we intend to provide players with healthy challenges along the levels, 
-we generally want {{{game_name}}} to be a relaxing game to be played from time to time.
+Although we intend to provide players with healthy challenges along the levels,
+we generally want {{{game_name}}} to be a relaxing game to be played from time
+to time.
 
 # Notes:
 # - all about simplicity, no bombast
