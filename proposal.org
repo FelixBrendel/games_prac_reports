@@ -5,10 +5,31 @@
 #+author: Felix Brendel, Jonas Helms, Van Minh Pham
 #+latex_header: \renewcommand{\familydefault}{\sfdefault}
 
-# +latex: \author{Felix Brendel \and Jonas Helms \and Van Minh Pham}
-# +latex: \date{November 2020}
-# +latex: \maketitle
-# +latex: \clearpage
+#+begin_export latex
+\begin{titlepage}
+\begin{center}
+\vspace*{2 cm}
+\huge
+\textbf{\thetitle}
+
+\vspace{1cm}
+\Large
+Team \textit{5Kopf}:
+
+\vspace{0.2cm}
+Felix Brendel \\ Jonas Helms \\ Van Minh Pham
+
+\vspace{2cm}
+\large
+November 2020
+
+\end{center}
+\end{titlepage}
+
+\clearpage
+\tableofcontents
+\clearpage
+#+end_export
 
 
 * Game Description
