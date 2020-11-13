@@ -1,22 +1,51 @@
-#+macro: game_name Hex
-#+macro: team_name FunfKopp
+#+options: title:nil toc:nil html-postamble:nil
+#+macro: insert_game_name_here qubie or quboi
+#+macro: insert_team_name_here funfKöpp
 
+#+author: Felix Brendel, Jonas Helms, Van Minh Pham
+#+title: Game Idea Proposal: {{{insert_game_name_here}}}
+
+#+latex_header: \usepackage[margin=1in]{geometry}
+#+latex_header: \usepackage{titling}
 #+latex_header: \renewcommand{\familydefault}{\sfdefault}
 
-#+title: Game Idea Proposal: {{{game_name}}}
-#+author: Felix Brendel, Jonas Helms, Van Minh Pham
-#+date: November 2020
+#+begin_export latex
+\begin{titlepage}
+\begin{center}
+\vspace*{2 cm}
+\huge
+\textbf{\thetitle}
 
-#+options: html-postamble:nil
-#+latex: \clearpage
+\vspace{1cm}
+\Large
+Team \textit{5Kopf}:
+
+\vspace{0.2cm}
+Felix Brendel \\ Jonas Helms \\ Van Minh Pham
+
+\vspace{2cm}
+\large
+November 2020
+
+\end{center}
+\tableofcontents
+\end{titlepage}
+\clearpage
+#+end_export
 
 * Game Description
-We as the team {{{team_name}}} believe that great games build on simple
-concepts. A perfect example for such a game is [[https://en.wikipedia.org/wiki/Portal_(video_game)][Portal]] (Valve, 2007). It builds
-on the concept of portals that connect two positions in the game world. When the
-players moves through one, they will come out of the other one. Using this, the
-game is devided into levels, each with a starting point and a target the players
-have to reach.
+
+We as the team {{{insert_team_name_here}}} believe that great games build on
+simple concepts. A perfect example for such a game is [[https://en.wikipedia.org/wiki/Portal_(video_game)][Portal]] (Valve, 2007). The
+games magazine GameStar even ranked it number one in the list of the 250 best pc
+games of all time, which they published as the special edition 01/2020.
+
+** Game design of Portal
+
+Protal builds on the concept of portals that connect two positions in the game
+world. When the players moves through one, they will come out of the other one.
+Using this, the game is devided into levels, each with a starting point and a
+target the players have to reach.
 
 Just having this concept -- teleporting to another position -- alone however, is
 not enough to create an intersting game. Starting from the simple concept one
@@ -28,25 +57,81 @@ of Portal they might have looked like this:
       portals on them
  2. What if there are some surfaces, the players cannot place portals on?
     - If players can place portals everywhere, it might be hard to create
-      challenging levels
- 3. What if some levels require the players to transport objects in the levels to
-    solve them?
-    - Let players pick up and carry a object
+      challenging levels, so also use surfaces, where no portalas can be placed
+      on
+ 3. What if some levels require the players to transport objects in the levels
+    to solve them?
+    - Let players pick up and carry one object at a time. This also harmonizes
+      with the the Portal mechanic, as players can carry objects through the
+      portal, adding depth to the game design.
  4. What if there are some barriers, that when moved through, destroy the
     carried object?
     - Letting the players carry the objects freely through the level might make
-      the levels too easy
+      the levels too easy, so use barriers where the players cannot carry
+      objects through; they will have to find another way
 
-It is interesting to note, that it seems that idea 2 and 4 are direct responses
-to the ideas 1 and 3. Seeing this we also wanted to design our game in a similar
-fashion.
+It is interesting to note, that idea 2 and 4 seem to be direct responses to the
+ideas 1 and 3.
 
-Our game concept follows the given theme /wet and slippery/: The players should
-slide around on the floor.
+#+attr_latex: :width 0.4\textwidth
+#+caption: The layered design of the game portal
+[[./images/design_portal.png]]
+
+** Game design of {{{insert_game_name_here}}}
+
+Seeing this we also wanted to design our game in a similar fashion. Our game
+concept follows the given theme /wet and slippery/: *The players should slide
+around on a slippery floor*[fn:slippery]. This is our main mechanic.
 
 
+We decided with this mechanic the most fitting game would be a puzzle game where
+the player controls a simple object. We had to make some descisons here:
 
-* Game Description
+[fn:slippery] Of course the word slippery is a bit vague. We thought about what
+    it means to us if something is "sippery" or "wet". We came up with these
+    simple definitions: Slippery is an attribut of a surface which implies that
+    the surface friction is low and the attribute slippery can only be observed
+    when another object is touching and sliding on it. "Wet" on the other hand
+    is to us the sensation you feel when you touched a liquid. Usually it is
+    connected to a reduced surface friction of wet objects.
+
+***  2D vs 3D
+
+It was clear, that a 3D game would fit better to the setting of this practical
+course. However we also really liked the idea of 3D puzzle games
+
+*** What kind of object should the player control?
+
+ - A sphere      :: There are some games that successfully use spheres as the
+   players' characters, however it seemed that a sphere would not feel like
+   slipping on the ground, it would rather be a rolling motion.
+ - A cube        :: Could be a good option
+ - A tetrahedron :: Could be a good option
+
+Of course, as with Portal, we need to ask ourselves explorative questions to
+experiment with additional mechanics.
+
+*** What if not the whole ground is slippery?
+
+If there are some sections on the ground that are not slippery, we could make
+the cube flip on it's side instead. We can make this an additional game
+mechanic, where the sides of the cubes are different in some way -- maybe they
+are colored differently, or have different shapes on them. Then we could let the
+finish tile only acrivate when the cube reaches it *and* is oriented correctly.
+
+*** What if the cube could unfold?
+
+We wanted to add only one more mechanic to our game -- one more ability that the
+player has, that will let us design more deep and interesting puzzles.
+
+#+caption: The unfolding of the cube, following the player's inputs of =up, right, right, up, right=
+[[./images/unfolding_blender2.png]]
+
+** Setting of {{{insert_game_name_here}}}
+------
+
+
+* COMMENT Game Description
 # overview of game, overall gameplay
 # include background or storyline associated with the game
 # ~2-3 pages of text
@@ -55,7 +140,7 @@ slide around on the floor.
 # justify every decision
 
 Notes:
-- {{{game_name}}} is a tile-based puzzle game
+- {{{insert_game_name_here}}} is a tile-based puzzle game
 - in each level the player moves a cube from start tile to finish tile
 - multiple floor-types:
   - slippery floor:
@@ -77,13 +162,20 @@ Notes:
 
 * Technical Achievement
 # detail core technical item (1+)
+As part of the development of {{{insert_game_name_here}}} our group will develop our own
+Game Engine. The game engine will use the Vulkan Graphics API to implement a
+rendering pipeline. Vulkan is a new API developed by the Khronos Group
+(maintainer of OpenGL) which allows us a very low level control of the GPU.
+
 
 Notes:
 - Vulkan
 - procedural levels
 - physically based rendering
 - additional fancy shaders
-
+- very minimalistic and pure, just like God's own Game Engine
+- no c++ standard library
+- no bloat allowed
 * Big Idea Bullseye
 [insert bullseye image]
 * Development Schedule
@@ -103,7 +195,7 @@ Notes:
 4. High Target:
    - have players set floors to floor types themselves
 5. Extras:
-   - ???
+   - different world designs
 *Timeline*: Excel Sheet?
 
 
@@ -112,7 +204,7 @@ Notes:
 * Assessment
 # main strength, target audience, world view for design, criteria for success
 
-{{{game_name}}} is designed to be a cozy and fun puzzle game for people to enjoy
+{{{insert_game_name_here}}} is designed to be a cozy and fun puzzle game for people to enjoy
 regardless of prior experiences of puzzle games or even video games in general.
 To achieve that, the game will have to be easily accessible not requiring a lot
 of prior knowledge. Later levels will add more and more mechanics effectively
@@ -122,8 +214,8 @@ the development as a sudden difficulty spike can lead to a lot of frustration
 while low curve may bore players.
 
 Although we intend to provide players with healthy challenges along the levels,
-we generally want {{{game_name}}} to be a relaxing game to be played from time
-to time.
+we generally want {{{insert_game_name_here}}} to be a relaxing game to be played
+from time to time.
 
 # Notes:
 # - all about simplicity, no bombast
