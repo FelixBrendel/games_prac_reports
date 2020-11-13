@@ -1,4 +1,4 @@
-#+options: title:nil toc:nil html-postamble:nil
+#+options:  html-postamble:nil
 #+macro: insert_game_name_here qubie or quboi
 #+macro: insert_team_name_here funfKöpp
 
@@ -85,7 +85,8 @@ around on a slippery floor*[fn:slippery]. This is our main mechanic.
 
 
 We decided with this mechanic the most fitting game would be a puzzle game where
-the player controls a simple object. We had to make some descisons here:
+the player controls a simple object. This is where we had to make some
+descisions.
 
 [fn:slippery] Of course the word slippery is a bit vague. We thought about what
     it means to us if something is "sippery" or "wet". We came up with these
@@ -117,29 +118,38 @@ If there are some sections on the ground that are not slippery, we could make
 the cube flip on it's side instead. We can make this an additional game
 mechanic, where the sides of the cubes are different in some way -- maybe they
 are colored differently, or have different shapes on them. Then we could let the
-finish tile only acrivate when the cube reaches it *and* is oriented correctly.
+finish tile only activate when the cube reaches it *and* is oriented correctly.
 
 *** What if the cube could unfold?
 
-We wanted to add only one more mechanic to our game -- one more ability that the
-player has, that will let us design more deep and interesting puzzles.
+TODO(FELIX): say why we use a cube.
 
+We wanted to add only one more mechanic to our game -- one more ability that the
+player has, that will let us design more deep and interesting puzzles. A sample
+unfolding can be seen in Figure [[fig:unfolding_blender]].
+
+#+name: fig:unfolding_blender
 #+caption: The unfolding of the cube, following the player's inputs of =up, right, right, up, right=
 [[./images/unfolding_blender2.png]]
 
-** Setting of {{{insert_game_name_here}}}
-------
 
+Note also, that inherently from the fundamental geometric princaples, there is a
+limited amout of valid unfoldings. An illustration of all possible unfoldings
+can be seen in Figure [[fig:unfoldings_scheme]]. This is the kind of complexity in a
+puzzle game we really want to highlight. Everybody can imagine a cube flipping
+over and think about which side will be facing upwards or downwards, but using
+this complexity -- which is really accessible to everybody -- we can then design
+levels that require the player to plan ahead their movement and flips and
+unfolds throughout the level.
 
-* COMMENT Game Description
-# overview of game, overall gameplay
-# include background or storyline associated with the game
-# ~2-3 pages of text
-# ~3 pages of mocked-up screenshots and/or sketches (pencil sketches are fine)
-# highlight relation of theme (wet & slippery)
-# justify every decision
+#+name: fig:unfoldings_scheme
+#+caption: All possible
+#+attr_latex: :width 0.4\textwidth
+[[./images/unfolding_schemes.png]]
 
-Notes:
+*** Bring it all together
+TODO(Felix) explain the details one more time
+
 - {{{insert_game_name_here}}} is a tile-based puzzle game
 - in each level the player moves a cube from start tile to finish tile
 - multiple floor-types:
@@ -160,19 +170,45 @@ Notes:
   -> more freedom for ideas, not bound to setting or story
   -> bigger emphasis on simplicity
 
+
+** Setting of {{{insert_game_name_here}}}
+
+TODO(FELIX): this
+
+** Sample level
+
+TODO(FELIX): this
+
 * Technical Achievement
 # detail core technical item (1+)
-As part of the development of {{{insert_game_name_here}}} our group will develop our own
-Game Engine. The game engine will use the Vulkan Graphics API to implement a
-rendering pipeline. Vulkan is a new API developed by the Khronos Group
-(maintainer of OpenGL) which allows us a very low level control of the GPU.
+As part of the development of {{{insert_game_name_here}}} our group will develop
+our own Game Engine. The game engine will use the Vulkan Graphics API to
+implement a rendering pipeline. Vulkan is a new API developed by the Khronos
+Group (maintainer of OpenGL) with a focus on overhead reduction and was released
+in 2016. Using Vulkan has several advantages such as the ability to run on all
+operating systems and devices, explicit control over memory management and a
+decreased CPU workload due to reduced driver overhead and batching. Furthermore
+Vulkan pre-compiles shaders into its own binary format called SPIR-V instead of
+compiling the shaders at runtime. This allows the use of a larger number of
+different shaders per scene and reduces application load times. The decision to
+use the Vulkan API was made due the general design goal of the Game Engine which
+is to keep the overhead minimal and thus increase the perfomance. Other design
+decisions that were made for the development of the engine is the omission of
+the C++ standard library and using the Vulkan loader to assign the function
+pointers after compiling instead of linking. The first steps for the engine
+implementation after the graphics pipeline will be the handling of the memory
+allocation and mesh/texture loading. After that we want to implement an
+animation system and a very basic interface. As one of the last parts of the
+engine we want to implement a physically based rendering system and make use of
+some of the perfomance we have saved in the first place.
 
 
 Notes:
 - Vulkan
-- procedural levels
+- Parts of the engine: animation, particle, TheBrendeLoader
+- (procedural levels)
 - physically based rendering
-- additional fancy shaders
+- make extensive use of different vertex-shaders
 - very minimalistic and pure, just like God's own Game Engine
 - no c++ standard library
 - no bloat allowed
@@ -182,24 +218,86 @@ Notes:
 
 *Layers of Development*:
 1. Functional Minimum:
-   - levels (including start and finish tiles)
+   - One basic level(including start and finish tiles)
    - movement of cube
    - slippery floor type
+   - Engine Goals: Graphics pipeline, loading meshes, textures, animation system, interface, particle system, tangent space normals
 2. Low Target:
    - floors with grip
    - have sides differently colored
    - finish condition: cube must land on a specific side on the finish tile
+   - Load Levels from .txt file
 3. Desirable Target:
    - cube can be folded open
    - multiple finish tiles
 4. High Target:
-   - have players set floors to floor types themselves
+   - different worlds
+   - implementation of physically based rendering
 5. Extras:
-   - different world designs
+   - have players set floors to floor types themselves
+
 *Timeline*: Excel Sheet?
 
+** Task Distributions
+For every milestone we schedule the following:
+#+attr_latex: :align |c|c|c|
+|-----------------------+--------+-------------|
+| Task                  | Member | Spent hours |
+|-----------------------+--------+-------------|
+| Project documentation | All    |           3 |
+|-----------------------+--------+-------------|
+| Presentation          | All    |           2 |
+|-----------------------+--------+-------------|
 
-*Task Distribution*: Table?
+In general:
+#+attr_latex: :align |c|l|c|c|
+|---------------+-------------------------------+-----------+---------------|
+| Category      | Tasks                         | Member(s) | Planned hours |
+|---------------+-------------------------------+-----------+---------------|
+| Brainstorming |                               | All       |             3 |
+|---------------+-------------------------------+-----------+---------------|
+| Engine Work   | Implementation of the         | All       |           200 |
+|               | 3D graphics engine for        |           |               |
+|               | loading meshes, animations    |           |               |
+|               | ...                           |           |               |
+|---------------+-------------------------------+-----------+---------------|
+| Inputs        | Ensure movement of cube       | Minh      |            15 |
+|               | through buttons presses       |           |               |
+|---------------+-------------------------------+-----------+---------------|
+| Gameplay      | - Cube can be moved           | Minh      |            25 |
+|               | - Cube can be folded open     | Felix     |               |
+|---------------+-------------------------------+-----------+---------------|
+| Win Condition | Cube has to land on finish    | Minh      |            30 |
+|               | tile                          | Felix     |               |
+|               | + on a specific side          |           |               |
+|               | + on multiple finish tiles    |           |               |
+|               | at the same time (by folding  |           |               |
+|               | open)                         |           |               |
+|---------------+-------------------------------+-----------+---------------|
+| Level Design  | Designing puzzles,            | Felix     |            40 |
+|               | challenges                    | Jonas     |               |
+|---------------+-------------------------------+-----------+---------------|
+| Physics       | Ensure different movement     | All       |            15 |
+|               | behavior on different tiles   |           |               |
+|---------------+-------------------------------+-----------+---------------|
+| Art           | - Create different animations | Felix     |            60 |
+|               | for different events          | Jonas     |               |
+|               | - Particle effects            |           |               |
+|               | - Original music              |           |               |
+|---------------+-------------------------------+-----------+---------------|
+| UI            | - Convey basic information    | Jonas     |            10 |
+|               | to player                     |           |               |
+|               | - Keep it rather simplistic   |           |               |
+|---------------+-------------------------------+-----------+---------------|
+| Playtesting   | Testing and fixing            | All       |            10 |
+|---------------+-------------------------------+-----------+---------------|
+| Trailer       |                               | All       |            30 |
+|---------------+-------------------------------+-----------+---------------|
+| Additional    | - Different world designs     | All       | leftover time |
+| Content       | - Players setting floors to   |           |               |
+|               | specific type themselves      |           |               |
+|               | ...                           |           |               |
+|---------------+-------------------------------+-----------+---------------|
 
 * Assessment
 # main strength, target audience, world view for design, criteria for success
