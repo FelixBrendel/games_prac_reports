@@ -42,17 +42,34 @@ Notes:
 
 * Technical Achievement
 # detail core technical item (1+)
-As part of the development of {{{insert_game_name_here}}} our group will develop our own
-Game Engine. The game engine will use the Vulkan Graphics API to implement a
-rendering pipeline. Vulkan is a new API developed by the Khronos Group
-(maintainer of OpenGL) which allows us a very low level control of the GPU.
+As part of the development of {{{insert_game_name_here}}} our group will develop
+our own Game Engine. The game engine will use the Vulkan Graphics API to
+implement a rendering pipeline. Vulkan is a new API developed by the Khronos
+Group (maintainer of OpenGL) with a focus on overhead reduction and was released
+in 2016. Using Vulkan has several advantages such as the ability to run on all
+operating systems and devices, explicit control over memory management and a
+decreased CPU workload due to reduced driver overhead and batching. Furthermore
+Vulkan pre-compiles shaders into its own binary format called SPIR-V instead of
+compiling the shaders at runtime. This allows the use of a larger number of
+different shaders per scene and reduces application load times. The decision to
+use the Vulkan API was made due the general design goal of the Game Engine which
+is to keep the overhead minimal and thus increase the perfomance. Other design
+decisions that were made for the development of the engine is the omission of
+the C++ standard library and using the Vulkan loader to assign the function
+pointers after compiling instead of linking. The first steps for the engine
+implementation after the graphics pipeline will be the handling of the memory
+allocation and mesh/texture loading. After that we want to implement an
+animation system and a very basic interface. As one of the last parts of the
+engine we want to implement a physically based rendering system and make use of
+some of the perfomance we have saved in the first place.
 
 
 Notes:
 - Vulkan
-- procedural levels
+- Parts of the engine: animation, particle, TheBrendeLoader
+- (procedural levels)
 - physically based rendering
-- additional fancy shaders
+- make extensive use of different vertex-shaders
 - very minimalistic and pure, just like God's own Game Engine
 - no c++ standard library
 - no bloat allowed
@@ -62,20 +79,24 @@ Notes:
 
 *Layers of Development*:
 1. Functional Minimum:
-   - levels (including start and finish tiles)
+   - One basic level(including start and finish tiles)
    - movement of cube
    - slippery floor type
+   - Engine Goals: Graphics pipeline, loading meshes, textures, animation system, interface, particle system, tangent space normals
 2. Low Target:
    - floors with grip
    - have sides differently colored
    - finish condition: cube must land on a specific side on the finish tile
+   - Load Levels from .txt file
 3. Desirable Target:
    - cube can be folded open
    - multiple finish tiles
 4. High Target:
-   - have players set floors to floor types themselves
+   - different worlds
+   - implementation of physically based rendering
 5. Extras:
-   - different world designs
+   - have players set floors to floor types themselves
+
 *Timeline*: Excel Sheet?
 
 
