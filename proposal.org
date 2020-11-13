@@ -5,10 +5,31 @@
 #+author: Felix Brendel, Jonas Helms, Van Minh Pham
 #+latex_header: \renewcommand{\familydefault}{\sfdefault}
 
-# +latex: \author{Felix Brendel \and Jonas Helms \and Van Minh Pham}
-# +latex: \date{November 2020}
-# +latex: \maketitle
-# +latex: \clearpage
+#+begin_export latex
+\begin{titlepage}
+\begin{center}
+\vspace*{2 cm}
+\huge
+\textbf{\thetitle}
+
+\vspace{1cm}
+\Large
+Team \textit{5Kopf}:
+
+\vspace{0.2cm}
+Felix Brendel \\ Jonas Helms \\ Van Minh Pham
+
+\vspace{2cm}
+\large
+November 2020
+
+\end{center}
+\end{titlepage}
+
+\clearpage
+\tableofcontents
+\clearpage
+#+end_export
 
 
 * Game Description
@@ -99,8 +120,66 @@ Notes:
 
 *Timeline*: Excel Sheet?
 
+** Task Distributions
+For every milestone we schedule the following:
+#+attr_latex: :align |c|c|c|
+|-----------------------+--------+-------------|
+| Task                  | Member | Spent hours |
+|-----------------------+--------+-------------|
+| Project documentation | All    |           3 |
+|-----------------------+--------+-------------|
+| Presentation          | All    |           2 |
+|-----------------------+--------+-------------|
 
-*Task Distribution*: Table?
+In general:
+#+attr_latex: :align |c|l|c|c|
+|---------------+-------------------------------+-----------+---------------|
+| Category      | Tasks                         | Member(s) | Planned hours |
+|---------------+-------------------------------+-----------+---------------|
+| Brainstorming |                               | All       |             3 |
+|---------------+-------------------------------+-----------+---------------|
+| Engine Work   | Implementation of the         | All       |           200 |
+|               | 3D graphics engine for        |           |               |
+|               | loading meshes, animations    |           |               |
+|               | ...                           |           |               |
+|---------------+-------------------------------+-----------+---------------|
+| Inputs        | Ensure movement of cube       | Minh      |            15 |
+|               | through buttons presses       |           |               |
+|---------------+-------------------------------+-----------+---------------|
+| Gameplay      | - Cube can be moved           | Minh      |            25 |
+|               | - Cube can be folded open     | Felix     |               |
+|---------------+-------------------------------+-----------+---------------|
+| Win Condition | Cube has to land on finish    | Minh      |            30 |
+|               | tile                          | Felix     |               |
+|               | + on a specific side          |           |               |
+|               | + on multiple finish tiles    |           |               |
+|               | at the same time (by folding  |           |               |
+|               | open)                         |           |               |
+|---------------+-------------------------------+-----------+---------------|
+| Level Design  | Designing puzzles,            | Felix     |            40 |
+|               | challenges                    | Jonas     |               |
+|---------------+-------------------------------+-----------+---------------|
+| Physics       | Ensure different movement     | All       |            15 |
+|               | behavior on different tiles   |           |               |
+|---------------+-------------------------------+-----------+---------------|
+| Art           | - Create different animations | Felix     |            60 |
+|               | for different events          | Jonas     |               |
+|               | - Particle effects            |           |               |
+|               | - Original music              |           |               |
+|---------------+-------------------------------+-----------+---------------|
+| UI            | - Convey basic information    | Jonas     |            10 |
+|               | to player                     |           |               |
+|               | - Keep it rather simplistic   |           |               |
+|---------------+-------------------------------+-----------+---------------|
+| Playtesting   | Testing and fixing            | All       |            10 |
+|---------------+-------------------------------+-----------+---------------|
+| Trailer       |                               | All       |            30 |
+|---------------+-------------------------------+-----------+---------------|
+| Additional    | - Different world designs     | All       | leftover time |
+| Content       | - Players setting floors to   |           |               |
+|               | specific type themselves      |           |               |
+|               | ...                           |           |               |
+|---------------+-------------------------------+-----------+---------------|
 
 * Assessment
 # main strength, target audience, world view for design, criteria for success
