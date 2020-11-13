@@ -1,6 +1,7 @@
 #+macro: insert_game_name_here qubie or quboi
 #+macro: insert_team_name_here funfKöpp
 #+LATEX_HEADER: \usepackage[margin=1in]{geometry}
+#+LATEX_HEADER: \usepackage{titling}
 #+title: Game Idea Proposal: {{{insert_game_name_here}}}
 #+author: Felix Brendel, Jonas Helms, Van Minh Pham
 #+latex_header: \renewcommand{\familydefault}{\sfdefault}
