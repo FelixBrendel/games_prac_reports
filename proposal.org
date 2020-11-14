@@ -1,6 +1,6 @@
-#+options:  html-postamble:nil
+#+options:  html-postamble:nil toc:nil title:nil
 #+macro: insert_game_name_here qubie or quboi
-#+macro: insert_team_name_here funfKöpp
+#+macro: insert_team_name_here FünfKopf
 
 #+author: Felix Brendel, Jonas Helms, Van Minh Pham
 #+title: Game Idea Proposal: {{{insert_game_name_here}}}
@@ -18,7 +18,7 @@
 
 \vspace{1cm}
 \Large
-Team \textit{5Kopf}:
+Team \textit{FünfKopf}:
 
 \vspace{0.2cm}
 Felix Brendel \\ Jonas Helms \\ Van Minh Pham
@@ -120,9 +120,12 @@ mechanic, where the sides of the cubes are different in some way -- maybe they
 are colored differently, or have different shapes on them. Then we could let the
 finish tile only activate when the cube reaches it *and* is oriented correctly.
 
-*** What if the cube could unfold?
+*** What if the object could unfold?
 
-TODO(FELIX): say why we use a cube.
+The two objects we considred, cubes and tetrahedrons can unfold, onto a two
+dimensional plane. For a cube the unfoldings would lie on a regular square grid,
+while the unfoldings of a tetrahedron lie on a regular triangle tiling. For this
+game we first consider the cube as a base shape, as it allows for
 
 We wanted to add only one more mechanic to our game -- one more ability that the
 player has, that will let us design more deep and interesting puzzles. A sample
@@ -261,10 +264,10 @@ In general:
 |               | loading meshes, animations    |           |               |
 |               | ...                           |           |               |
 |---------------+-------------------------------+-----------+---------------|
-| Inputs        | Ensure movement of cube       | Minh      |            15 |
+| Inputs        | Ensure movement of cube       | Minh      |            20 |
 |               | through buttons presses       |           |               |
 |---------------+-------------------------------+-----------+---------------|
-| Gameplay      | - Cube can be moved           | Minh      |            25 |
+| Gameplay      | - Cube can be moved           | Minh      |            30 |
 |               | - Cube can be folded open     | Felix     |               |
 |---------------+-------------------------------+-----------+---------------|
 | Win Condition | Cube has to land on finish    | Minh      |            30 |
