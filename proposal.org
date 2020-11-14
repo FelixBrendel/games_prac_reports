@@ -37,17 +37,17 @@ November 2020
 
 We as the team {{{insert_team_name_here}}} believe that great games build on
 simple concepts. A perfect example for such a game is [[https://en.wikipedia.org/wiki/Portal_(video_game)][Portal]] (Valve, 2007). The
-game magazine GameStar even ranked it number one in the list of the 250 best pc
+game magazine GameStar even ranked it number one on the list of the 250 best pc
 games of all time, which they published as the special edition issue 01/2020.
 
 ** Game design of Portal
 
 Portal builds on the concept of portals that connect two positions in the game
-world. When the players moves through one, they will come out of the other one.
-Using this, the game is divided into levels, each with a starting point and a
-target the players have to reach.
+world. When the players enter one portal, they instantly appear at the location
+of the other portal. Using this, the game is divided into levels, each with a
+specific starting point and target the players have to reach.
 
-Just having this concept -- teleporting to another position -- alone however, is
+Just this basic concept -- teleporting to another position -- alone however, is
 not enough to create an interesting game. Starting from the simple concept one
 can begin to shape the game mechanics by exploring different ideas. In the case
 of Portal they might have looked like this:
