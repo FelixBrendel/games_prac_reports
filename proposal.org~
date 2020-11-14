@@ -37,17 +37,17 @@ November 2020
 
 We as the team {{{insert_team_name_here}}} believe that great games build on
 simple concepts. A perfect example for such a game is [[https://en.wikipedia.org/wiki/Portal_(video_game)][Portal]] (Valve, 2007). The
-game magazine GameStar even ranked it number one in the list of the 250 best pc
+game magazine GameStar even ranked it number one on the list of the 250 best pc
 games of all time, which they published as the special edition issue 01/2020.
 
 ** Game design of Portal
 
 Portal builds on the concept of portals that connect two positions in the game
-world. When the players moves through one, they will come out of the other one.
-Using this, the game is divided into levels, each with a starting point and a
-target the players have to reach.
+world. When the players enter one portal, they instantly appear at the location
+of the other portal. Using this, the game is divided into levels, each with a
+specific starting point and target the players have to reach.
 
-Just having this concept -- teleporting to another position -- alone however, is
+Just this basic concept -- teleporting to another position -- alone however, is
 not enough to create an interesting game. Starting from the simple concept one
 can begin to shape the game mechanics by exploring different ideas. In the case
 of Portal they might have looked like this:
@@ -256,7 +256,7 @@ One goal of the Hight Target of our project (Layer 4) is to increase the
 graphical fidelity of our game by implementating a physically based rendering
 system. The term "physically based renderer" is purpously left ambigious as we
 want to check out how many components of a physically based renderer we can
-implement while still keeping a smooth performance on Minh "Sepp" Van Pham's
+implement while still keeping a smooth performance on Van Minh "Sepp" Pham's
 crappy ass laptop. Using his laptop as a benchmark goal should provide a highly
 competetive milestone aswell as a proof of concept to our current investors that
 we at {{{insert_team_name_here}}} have the potential to tackle the solution
@@ -264,10 +264,11 @@ of world peace and overall global human solidarity.
 
 
 * Big Idea Bullseye
-[insert bullseye image]
+#+attr_latex: :width 0.5\textwidth
+[[./images/bullseye.png]]
 * Development Schedule
 
-*Layers of Development*:
+** Layers of Development
 1. Functional Minimum:
    - One basic level(including start and finish tiles)
    - movement of cube
@@ -286,8 +287,6 @@ of world peace and overall global human solidarity.
    - implementation of physically based rendering
 5. Extras:
    - have players set floors to floor types themselves
-
-*Timeline*: Excel Sheet?
 
 ** Task Distributions
 For every milestone we schedule the following:

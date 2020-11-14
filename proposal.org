@@ -1,6 +1,6 @@
 #+options:  html-postamble:nil toc:nil title:nil
 #+macro: insert_game_name_here qubie or quboi
-#+macro: insert_team_name_here FÃ¼nfKopf
+#+macro: insert_team_name_here FünfKopf
 
 #+author: Felix Brendel, Jonas Helms, Van Minh Pham
 #+title: Game Idea Proposal: {{{insert_game_name_here}}}
@@ -18,7 +18,7 @@
 
 \vspace{1cm}
 \Large
-Team \textit{FÃ¼nfKopf}:
+Team \textit{FünfKopf}:
 
 \vspace{0.2cm}
 Felix Brendel \\ Jonas Helms \\ Van Minh Pham
