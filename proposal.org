@@ -42,13 +42,13 @@ games of all time, which they published as the special edition 01/2020.
 
 ** Game design of Portal
 
-Protal builds on the concept of portals that connect two positions in the game
+Portal builds on the concept of portals that connect two positions in the game
 world. When the players moves through one, they will come out of the other one.
 Using this, the game is devided into levels, each with a starting point and a
 target the players have to reach.
 
 Just having this concept -- teleporting to another position -- alone however, is
-not enough to create an intersting game. Starting from the simple concept one
+not enough to create an interesting game. Starting from the simple concept one
 can begin to shape the game mechanics by exploring different ideas. In the case
 of Portal they might have looked like this:
 
@@ -174,44 +174,89 @@ TODO(Felix) explain the details one more time
 ** Setting of {{{insert_game_name_here}}}
 
 TODO(FELIX): this
-
+** Visual Design of {{{insert_game_name_here}}}
+- minimal interface -> need for intuitive controls and gameplay
 ** Sample level
 
 TODO(FELIX): this
 
 * Technical Achievement
 # detail core technical item (1+)
-As part of the development of {{{insert_game_name_here}}} our group will develop
-our own Game Engine. The game engine will use the Vulkan Graphics API to
-implement a rendering pipeline. Vulkan is a new API developed by the Khronos
-Group (maintainer of OpenGL) with a focus on overhead reduction and was released
-in 2016. Using Vulkan has several advantages such as the ability to run on all
-operating systems and devices, explicit control over memory management and a
-decreased CPU workload due to reduced driver overhead and batching. Furthermore
+** Introduction
+The secondary big bullseye idea for our project is to develop our game idea in
+our own game engine. Our group always wanted to build their own game engine from
+scratch and we thought that this practical provided the perfect opportunity to
+put this into reality. The fact that we can use the second mandatory practical
+course to further expand on the engine only affirmed this notion as we are then
+able to segment the development of the engine over two semesters and can leave
+more focus to the development of the game and it's optimization.
+**  Motivation
+The main motivation to build our own engine stems from the fact that we believe
+that we can then provide better optimization and reduce the overhead for our
+games on all levels of the engine, from the graphics pipeline to resource
+allocation and garbage collection. Furthermore we believe that building a game
+engine from the ground up presents a perfect learning opportunity, especially
+when trying to find suitable optimizations that fit our design philosophy.
+
+** Game Engine
+In the following sections we will provide a small overview of the components of
+the game engine that we want to develop for this semesters project and how we
+try to optimize these. Furthermore we will go over the features of the game
+engine that we will most likely tackle in the follow-up project and how we solve
+the interim solutions for this semesters game.
+
+*** Graphics pipeline
+The game engine will use the Vulkan Graphics API to implement a rendering
+pipeline. Vulkan is a new API developed by the Khronos Group (maintainer of
+OpenGL) with a focus on overhead reduction and was released in 2016. Using
+Vulkan provides a low-level control over the graphics pipeline when compared to
+other Graphics API's and has several advantages that also align with our overall
+philosophy in the design of the engine:
+- The ability to run on all operating systems and devices
+- Explicit control over memory management
+- Decreased CPU workload due to reduced driver overhead and batching
+- Making use of the driver independent Vulkan Loader to access Vulkan API entry
+  points
+
+The Vulkan Loader is responsible for transmitting Vulkan API calls to the
+appropriate graphcis driver. This means that we just have to connect to the
+Vulkan loader in our engine and do not have to worry about drivers. Furthermore
 Vulkan pre-compiles shaders into its own binary format called SPIR-V instead of
 compiling the shaders at runtime. This allows the use of a larger number of
-different shaders per scene and reduces application load times. The decision to
-use the Vulkan API was made due the general design goal of the Game Engine which
-is to keep the overhead minimal and thus increase the perfomance. Other design
-decisions that were made for the development of the engine is the omission of
-the C++ standard library and using the Vulkan loader to assign the function
-pointers after compiling instead of linking. The first steps for the engine
-implementation after the graphics pipeline will be the handling of the memory
-allocation and mesh/texture loading. After that we want to implement an
-animation system and a very basic interface. As one of the last parts of the
-engine we want to implement a physically based rendering system and make use of
-some of the perfomance we have saved in the first place.
+different shaders per scene and reduces application load times. We want to
+utilise the ability to use a high amount of different shaders and put this
+feature into to Extras for the game development(Layer 5) but we will most likely
+first employ this in the follow-up project.
+
+*** Overhead reduction in the engine
+The game engine is developed in the C++ language that all of our team members
+are familiar with due to our TUM Bachelor courses such as Game Engine Design. We
+have also taken further steps into the direction of our core concept of overhead
+reduction by omitting the C++ standard library.
+*** Resource & Scene loading
+To increase the performance of the engine we want to make sure that the loading
+of resources such as a texture map or a mesh is never done redundantly, which is
+likely the case in a puzzle game as key components are similar between different
+scenes. In order to implement this we created a hashmap for all loaded files to
+cross check whether the pathfile has already been used and then just reuse the
+already loaded file. This means that we will only load the diff between two
+levels which will reduce load time and creates a smoother game player experience
+for the player.
+*** Garbage collection
+*** Animation system
+*** Particle System
+*** Physically base rendering
+One goal of the Hight Target of our project (Layer 4) is to increase the
+graphical fidelity of our game by implementating a physically based rendering
+system. The term "physically based renderer" is purpously left ambigious as we
+want to check out how many components of a physically based renderer we can
+implement while still keeping a smooth performance on Minh "Sepp" Van Pham's
+crappy ass laptop. Using his laptop as a benchmark goal should provide a highly
+competetive milestone aswell as a proof of concept to our current investors that
+we at {{{insert_team_name_here}}} have the potential to tackle the solution
+of world peace and overall global human solidarity.
 
 
-Notes:
-- Vulkan
-- Parts of the engine: animation, particle, TheBrendeLoader
-- (procedural levels)
-- physically based rendering
-- make extensive use of different vertex-shaders
-- very minimalistic and pure, just like God's own Game Engine
-- no c++ standard library
-- no bloat allowed
 * Big Idea Bullseye
 [insert bullseye image]
 * Development Schedule
@@ -252,7 +297,7 @@ For every milestone we schedule the following:
 In general:
 #+attr_latex: :align |c|l|c|c|
 |---------------+-------------------------------+-----------+---------------|
-| Category      | Tasks                         | Member(s) | Planned hours |
+| Components    | Tasks                         | Member(s) | Planned hours |
 |---------------+-------------------------------+-----------+---------------|
 | Brainstorming |                               | All       |             3 |
 |---------------+-------------------------------+-----------+---------------|
