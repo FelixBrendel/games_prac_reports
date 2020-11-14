@@ -256,7 +256,7 @@ One goal of the Hight Target of our project (Layer 4) is to increase the
 graphical fidelity of our game by implementating a physically based rendering
 system. The term "physically based renderer" is purpously left ambigious as we
 want to check out how many components of a physically based renderer we can
-implement while still keeping a smooth performance on Van Minh "Sepp" Pham's
+implement while still keeping a smooth performance on Minh "Sepp" Van Pham's
 crappy ass laptop. Using his laptop as a benchmark goal should provide a highly
 competetive milestone aswell as a proof of concept to our current investors that
 we at {{{insert_team_name_here}}} have the potential to tackle the solution
@@ -264,11 +264,10 @@ of world peace and overall global human solidarity.
 
 
 * Big Idea Bullseye
-#+attr_latex: :width 0.5\textwidth
-[[./images/bullseye.png]]
+[insert bullseye image]
 * Development Schedule
 
-** Layers of Development
+*Layers of Development*:
 1. Functional Minimum:
    - One basic level(including start and finish tiles)
    - movement of cube
@@ -287,6 +286,8 @@ of world peace and overall global human solidarity.
    - implementation of physically based rendering
 5. Extras:
    - have players set floors to floor types themselves
+
+*Timeline*: Excel Sheet?
 
 ** Task Distributions
 For every milestone we schedule the following:

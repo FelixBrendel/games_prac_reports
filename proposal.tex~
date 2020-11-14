@@ -1,0 +1,465 @@
+% Created 2020-11-14 Sa 16:30
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{titling}
+\renewcommand{\familydefault}{\sfdefault}
+\author{Felix Brendel, Jonas Helms, Van Minh Pham}
+\date{\today}
+\title{Game Idea Proposal: qubie or quboi}
+\hypersetup{
+ pdfauthor={Felix Brendel, Jonas Helms, Van Minh Pham},
+ pdftitle={Game Idea Proposal: qubie or quboi},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 26.0.90 (Org mode 9.1.2)}, 
+ pdflang={English}}
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+\vspace*{2 cm}
+\huge
+\textbf{\thetitle}
+
+\vspace{1cm}
+\Large
+Team \textit{FünfKopf}:
+
+\vspace{0.2cm}
+Felix Brendel \\ Jonas Helms \\ Van Minh Pham
+
+\vspace{2cm}
+\large
+November 2020
+
+\end{center}
+\tableofcontents
+\end{titlepage}
+\clearpage
+
+\section{Game Description}
+\label{sec:org300ef6f}
+
+We as the team FünfKopf believe that great games build on
+simple concepts. A perfect example for such a game is \href{https://en.wikipedia.org/wiki/Portal\_(video\_game)}{Portal} (Valve, 2007). The
+game magazine GameStar even ranked it number one in the list of the 250 best pc
+games of all time, which they published as the special edition issue 01/2020.
+
+\subsection{Game design of Portal}
+\label{sec:org9cac274}
+
+Portal builds on the concept of portals that connect two positions in the game
+world. When the players moves through one, they will come out of the other one.
+Using this, the game is divided into levels, each with a starting point and a
+target the players have to reach.
+
+Just having this concept -- teleporting to another position -- alone however, is
+not enough to create an interesting game. Starting from the simple concept one
+can begin to shape the game mechanics by exploring different ideas. In the case
+of Portal they might have looked like this:
+
+\begin{enumerate}
+\item What if the players could place the portals thmeselves?
+\begin{itemize}
+\item Give the players a portal gun and let them shoot the walls to place
+portals on them
+\end{itemize}
+\item What if there are some surfaces, the players cannot place portals on?
+\begin{itemize}
+\item If players can place portals everywhere, it might be hard to create
+challenging levels, so also use surfaces, where no portalas can be placed
+on
+\end{itemize}
+\item What if some levels require the players to transport objects in the levels
+to solve them?
+\begin{itemize}
+\item Let players pick up and carry one object at a time. This also harmonizes
+with the the Portal mechanic, as players can carry objects through the
+portal, adding depth to the game design.
+\end{itemize}
+\item What if there are some barriers, that when moved through, destroy the
+carried object?
+\begin{itemize}
+\item Letting the players carry the objects freely through the level might make
+the levels too easy, so use barriers where the players cannot carry
+objects through; they will have to find another way
+\end{itemize}
+\end{enumerate}
+
+It is interesting to note, that idea 2 and 4 seem to be direct responses to the
+ideas 1 and 3.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.4\textwidth]{./images/design_portal.png}
+\caption{The layered design of the game portal}
+\end{figure}
+
+\subsection{Game design of qubie or quboi}
+\label{sec:org4ef6664}
+
+Seeing this we also wanted to design our game in a similar fashion. Our game
+concept follows the given theme \emph{wet and slippery}: \textbf{The players should slide
+around on a slippery floor}\footnote{Of course the word slippery is a bit vague. We thought about what
+it means to us if something is "sippery" or "wet". We came up with these
+simple definitions: Slippery is an attribut of a surface which implies that
+the surface friction is low and the attribute slippery can only be observed
+when another object is touching and sliding on it. "Wet" on the other hand
+is to us the sensation you feel when you touched a liquid. Usually it is
+connected to a reduced surface friction of wet objects.}. This is our main mechanic.
+
+
+We decided with this mechanic the most fitting game would be a puzzle game where
+the player controls a simple object. This is where we had to make some
+descisions.
+
+\subsubsection{2D vs 3D}
+\label{sec:orgfcc73f1}
+
+It was clear, that a 3D game would fit better to the setting of this practical
+course. However we also really liked the idea of 3D puzzle games
+
+\subsubsection{What kind of object should the player control?}
+\label{sec:orge67c506}
+
+\begin{description}
+\item[{A sphere     }] There are some games that successfully use spheres as the
+players' characters, however it seemed that a sphere would not feel like
+slipping on the ground, it would rather be a rolling motion.
+\item[{A cube       }] Could be a good option
+\item[{A tetrahedron}] Could be a good option
+\end{description}
+
+Of course, as with Portal, we need to ask ourselves explorative questions to
+experiment with additional mechanics.
+
+\subsubsection{What if not the whole ground is slippery?}
+\label{sec:orgacca89a}
+
+If there are some sections on the ground that are not slippery, we could make
+the cube flip on it's side instead. We can make this an additional game
+mechanic, where the sides of the cubes are different in some way -- maybe they
+are colored differently, or have different shapes on them. Then we could let the
+finish tile only activate when the cube reaches it \textbf{and} is oriented correctly.
+
+\subsubsection{What if the object could unfold?}
+\label{sec:org9c95275}
+
+The two objects we considred, cubes and tetrahedrons can unfold, onto a two
+dimensional plane. For a cube the unfoldings would lie on a regular square grid,
+while the unfoldings of a tetrahedron lie on a regular triangle tiling. For this
+game we first consider the cube as a base shape, as it allows for
+
+We wanted to add only one more mechanic to our game -- one more ability that the
+player has, that will let us design more deep and interesting puzzles. A sample
+unfolding can be seen in Figure \ref{fig:org0e0b32c}.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=.9\linewidth]{./images/unfolding_blender2.png}
+\caption{\label{fig:org0e0b32c}
+The unfolding of the cube, following the player's inputs of \texttt{up, right, right, up, right}}
+\end{figure}
+
+
+Note also, that inherently from the fundamental geometric princaples, there is a
+limited amout of valid unfoldings. An illustration of all possible unfoldings
+can be seen in Figure \ref{fig:org9ac6814}. This is the kind of complexity in a
+puzzle game we really want to highlight. Everybody can imagine a cube flipping
+over and think about which side will be facing upwards or downwards, but using
+this complexity -- which is really accessible to everybody -- we can then design
+levels that require the player to plan ahead their movement and flips and
+unfolds throughout the level.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.4\textwidth]{./images/unfolding_schemes.png}
+\caption{\label{fig:org9ac6814}
+All possible}
+\end{figure}
+
+\subsubsection{Bring it all together}
+\label{sec:org432ded8}
+TODO(Felix) explain the details one more time
+
+\begin{itemize}
+\item qubie or quboi is a tile-based puzzle game
+\item in each level the player moves a cube from start tile to finish tile
+\item multiple floor-types:
+\begin{itemize}
+\item slippery floor:
+\begin{itemize}
+\item cube cannot change moving direction after button input until obstacle is hit
+\item cube does not change the orientation of the cube
+\end{itemize}
+\item floors with grip:
+\begin{itemize}
+\item on one button press cube moves only once
+\item cube turns with each movement
+\end{itemize}
+\end{itemize}
+\item add mechanics every few levels -> steady learning curve:
+\begin{itemize}
+\item cube is colored differently on every side
+\item cube needs to be in a specific orientation on the finish tile
+\item cube can be folded open:
+\begin{itemize}
+\item bridge slippery tiles
+\item multiple finish tiles one which all cube sides have to be in the end
+\end{itemize}
+\item player has to set tile types themselves
+\end{itemize}
+\item so far no story or context, just fun puzzling for the sake of fun puzzling
+-> more freedom for ideas, not bound to setting or story
+-> bigger emphasis on simplicity
+\end{itemize}
+
+
+\subsection{Setting of qubie or quboi}
+\label{sec:org50fd442}
+
+TODO(FELIX): this
+\subsection{Visual Design of qubie or quboi}
+\label{sec:org9dee20a}
+\begin{itemize}
+\item minimal interface -> need for intuitive controls and gameplay
+\end{itemize}
+\subsection{Audio Design of qubie or quboi}
+\label{sec:org230c66a}
+
+\subsection{Sample level}
+\label{sec:org327613e}
+
+TODO(FELIX): this
+
+\section{Technical Achievement}
+\label{sec:orgb39d74d}
+\subsection{Introduction}
+\label{sec:orgf47ccaa}
+The central secondary big bullseye idea for our project is to develop our game idea in
+our own game engine. Our group always wanted to build their own game engine from
+scratch and we thought that this practical provided the perfect opportunity to
+put this into reality. The fact that we can use the second mandatory practical
+course to further expand on the engine only affirmed this notion as we are then
+able to segment the development of the engine over two semesters and can leave
+more focus to the development of the game and it's optimization.
+\subsection{Motivation}
+\label{sec:org263da9a}
+The main motivation to build our own engine stems from the fact that we believe
+that we can then provide better optimization and reduce the overhead for our
+games on all levels of the engine, from the graphics pipeline to resource
+allocation and garbage collection. Furthermore we believe that building a game
+engine from the ground up presents a perfect learning opportunity, especially
+when trying to find suitable optimizations that fit our design philosophy.
+
+\subsection{Game Engine}
+\label{sec:org624de4f}
+In the following sections we will provide a small overview of the components of
+the game engine that we want to develop for this semesters project and how we
+try to optimize these. Furthermore we will go over the features of the game
+engine that we will most likely tackle in the follow-up project and how we solve
+the interim solutions for this semesters game.
+
+\subsubsection{Graphics pipeline}
+\label{sec:orga597dae}
+The game engine will use the Vulkan Graphics API to implement a rendering
+pipeline. Vulkan is a new API developed by the Khronos Group (maintainer of
+OpenGL) with a focus on overhead reduction and was released in 2016. Using
+Vulkan provides a low-level control over the graphics pipeline when compared to
+other Graphics API's and has several advantages that also align with our overall
+philosophy in the design of the engine:
+\begin{itemize}
+\item The ability to run on all operating systems and devices
+\item Explicit control over memory management
+\item Decreased CPU workload due to reduced driver overhead and batching
+\item Making use of the driver independent Vulkan Loader to access Vulkan API entry
+points
+\end{itemize}
+The Vulkan Loader is responsible for transmitting Vulkan API calls to the
+appropriate graphcis driver. This means that we just have to connect to the
+Vulkan loader in our engine and do not have to worry about drivers. Furthermore
+Vulkan pre-compiles shaders into its own binary format called SPIR-V instead of
+compiling the shaders at runtime. This allows the use of a larger number of
+different shaders per scene and reduces application load times. We want to
+utilise the ability to use a high amount of different shaders and put this
+feature into to Extras for the game development(Layer 5) but we will most likely
+first employ this in the follow-up project.
+
+\subsubsection{Overhead reduction in the engine}
+\label{sec:org05ffbc6}
+The game engine is developed in the C++ language that all of our team members
+are familiar with due to our TUM Bachelor courses such as Game Engine Design. We
+have also taken further steps into the direction of our core concept of overhead
+reduction by omitting the C++ standard library.
+\subsubsection{Resource \& Scene loading}
+\label{sec:orgd5f66e6}
+To increase the performance of the engine we want to make sure that the loading
+of resources such as a texture map or a mesh is never done redundantly, which is
+likely the case in a puzzle game as key components are similar between different
+scenes. In order to implement this we created a hashmap for all loaded files to
+cross check whether the pathfile has already been used and then just reuse the
+already loaded file. This means that we will only load the diff between two
+levels which will reduce load time and creates a smoother game player experience
+for the player.
+\subsubsection{Garbage collection}
+\label{sec:org4a3b118}
+\subsubsection{Physics System}
+\label{sec:org9247256}
+\subsubsection{Animation system}
+\label{sec:org1fe7001}
+\subsubsection{Particle System}
+\label{sec:org77fa9e0}
+\subsubsection{Sound System}
+\label{sec:orgd4e88ad}
+\subsubsection{Physically base rendering}
+\label{sec:org11688a1}
+One goal of the Hight Target of our project (Layer 4) is to increase the
+graphical fidelity of our game by implementating a physically based rendering
+system. The term "physically based renderer" is purpously left ambigious as we
+want to check out how many components of a physically based renderer we can
+implement while still keeping a smooth performance on Van Minh "Sepp" Pham's
+crappy ass laptop. Using his laptop as a benchmark goal should provide a highly
+competetive milestone aswell as a proof of concept to our current investors that
+we at FünfKopf have the potential to tackle the solution
+of world peace and overall global human solidarity.
+
+
+\section{Big Idea Bullseye}
+\label{sec:org55f9ac3}
+\begin{center}
+\includegraphics[width=0.5\textwidth]{./images/bullseye.png}
+\end{center}
+\section{Development Schedule}
+\label{sec:orgba13a7c}
+
+\textbf{Layers of Development}:
+\begin{enumerate}
+\item Functional Minimum:
+\begin{itemize}
+\item One basic level(including start and finish tiles)
+\item movement of cube
+\item slippery floor type
+\item Engine Goals: Graphics pipeline, loading meshes, textures, animation system, interface, particle system, tangent space normals
+\end{itemize}
+\item Low Target:
+\begin{itemize}
+\item floors with grip
+\item have sides differently colored
+\item finish condition: cube must land on a specific side on the finish tile
+\item Load Levels from .txt file
+\end{itemize}
+\item Desirable Target:
+\begin{itemize}
+\item cube can be folded open
+\item multiple finish tiles
+\end{itemize}
+\item High Target:
+\begin{itemize}
+\item different worlds
+\item implementation of physically based rendering
+\end{itemize}
+\item Extras:
+\begin{itemize}
+\item have players set floors to floor types themselves
+\end{itemize}
+\end{enumerate}
+
+\textbf{Timeline}: Excel Sheet?
+
+\subsection{Task Distributions}
+\label{sec:org3de7ef4}
+For every milestone we schedule the following:
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Task & Member & Spent hours\\
+\hline
+Project documentation & All & 3\\
+\hline
+Presentation & All & 2\\
+\hline
+\end{tabular}
+\end{center}
+
+In general:
+\begin{center}
+\begin{tabular}{|c|l|c|c|}
+\hline
+Components & Tasks & Member(s) & Planned hours\\
+\hline
+Brainstorming &  & All & 3\\
+\hline
+Engine Work & Implementation of the & All & 200\\
+ & 3D graphics engine for &  & \\
+ & loading meshes, Animation System &  & \\
+ & \ldots{} &  & \\
+\hline
+Inputs & Ensure movement of cube & Minh & 20\\
+ & through buttons presses &  & \\
+\hline
+Gameplay & - Cube can be moved & Minh & 23\\
+ & - Cube can be folded open & Felix & \\
+\hline
+Win Condition & Cube has to land on finish & Minh & 30\\
+ & tile & Felix & \\
+ & - on a specific side &  & \\
+ & - on multiple finish tiles &  & \\
+ & at the same time (by folding &  & \\
+ & open) &  & \\
+\hline
+Level Design & Designing puzzles, & Felix & 40\\
+ & challenges & Jonas & \\
+\hline
+Animations & Ensure different movement & All & 20\\
+ & behavior on different tiles &  & \\
+\hline
+Art &  & Felix & 60\\
+ & - Environmnet Meshes\&Textures & Jonas & \\
+ & - Particle effects &  & \\
+ & - Original music &  & \\
+\hline
+UI & - Convey basic information & Jonas & 10\\
+ & to player &  & \\
+ & - Keep it rather simplistic &  & \\
+\hline
+Playtesting & Testing and fixing & All & 10\\
+\hline
+Trailer &  & All & 30\\
+\hline
+Additional & - Different world designs & All & leftover time\\
+Content & - Players setting floors to &  & \\
+ & specific type themselves &  & \\
+ & \ldots{} &  & \\
+\hline
+\end{tabular}
+\end{center}
+
+\section{Assessment}
+\label{sec:orgea32240}
+qubie or quboi is designed to be a cozy and fun puzzle game for people to enjoy
+regardless of prior experiences of puzzle games or even video games in general.
+To achieve that, the game will have to be easily accessible not requiring a lot
+of prior knowledge. Later levels will add more and more mechanics effectively
+raising the difficulty level which hopefully will keep players invested. The
+difficulty curve in form of the levels provides one of the biggest challenges in
+the development as a sudden difficulty spike can lead to a lot of frustration
+while low curve may bore players.
+
+Although we intend to provide players with healthy challenges along the levels,
+we generally want qubie or quboi to be a relaxing game to be played
+from time to time.
+\end{document}
