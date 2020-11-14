@@ -237,30 +237,55 @@ The game engine is developed in the C++ language that all of our team members
 are familiar with due to our TUM Bachelor courses such as Game Engine Design. We
 have also taken further steps into the direction of our core concept of overhead
 reduction by omitting the C++ standard library.
-*** Resource & Scene loading
+*** Resource Loading & Garbage Collection
 To increase the performance of the engine we want to make sure that the loading
 of resources such as a texture map or a mesh is never done redundantly, which is
 likely the case in a puzzle game as key components are similar between different
 scenes. In order to implement this we created a hashmap for all loaded files to
-cross check whether the pathfile has already been used and then just reuse the
-already loaded file. This means that we will only load the diff between two
-levels which will reduce load time and creates a smoother game player experience
-for the player.
-*** Garbage collection
-*** Physics System
-*** Animation system
-*** Particle System
+cross check whether the pathfile has already been used and then reuse the
+already loaded file on the GPU. This means that we will only load the diff
+between two levels which will reduce load times and create a smoother game play
+experience for the player. The Hashmaps also provide further advantage for the
+garbage collection as we can free the GPU memory for the texture resources by
+iterating over the hashmap and can incorporate this in the scene load/unloading
+process.
 *** Sound System
+Sound is very important to our design goal of creating a casual and cozy puzzle
+game as we believe that it has a relaxing or even focusing effect on the player.
+We will try to implement our own sound system for the engine but are also
+considering using an API for example OpenAL if we realize that it would take up
+too much time of the development process.
+*** Physics System
+Current point of view in our team is that we will not implement a physics engine
+as part of this semesters project as it would exceed the scope of the engine
+building aspect. We will instead use keyframe animations and bake the limited
+number of physics interactions directly into the animations. This also comes
+with the advantage of having a tighter control over the cube behavior as we want
+the players to struggle with the puzzles instead of controls of the cube.
+Further expanding the engine by implementing a physics engine is something that
+may be tackled in the follow up project.
+*** Animation system
+The animation system will be a very important part of the engine as it will
+substitute our physics interactions and help to increase the graphical fidelity
+of the game. Implementation of the animation system will start very early on and
+the core functionality of keyframe animation will be finished for the interim
+demo.
+*** Particle System
+A robust particle system would be a nice addition but we currently assume that
+we might have to substitute it using keyframe animations aswell. Current status
+is that we will develop a particle system if there is time left over after
+finishing our Hight Target goals (Layer 4) of the development.
 *** Physically base rendering
 One goal of the Hight Target of our project (Layer 4) is to increase the
 graphical fidelity of our game by implementating a physically based rendering
-system. The term "physically based renderer" is purpously left ambigious as we
+system. The term "physically based renderer" is purpously left ambiguous as we
 want to check out how many components of a physically based renderer we can
 implement while still keeping a smooth performance on Van Minh "Sepp" Pham's
 crappy ass laptop. Using his laptop as a benchmark goal should provide a highly
 competetive milestone aswell as a proof of concept to our current investors that
-we at {{{insert_team_name_here}}} have the potential to tackle the solution
-of world peace and overall global human solidarity.
+we at {{{insert_team_name_here}}} have the potential to tackle the solution of
+world peace and overall global human solidarity.
+
 
 * Big Idea Bullseye
 #+attr_latex: :width 0.5\textwidth
