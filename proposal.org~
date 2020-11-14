@@ -266,6 +266,7 @@ of world peace and overall global human solidarity.
 #+attr_latex: :width 0.5\textwidth
 [[./images/bullseye.png]]
 * Development Schedule
+
 ** Layers of Development
 1. Functional Minimum:
    - One basic level(including start and finish tiles)
@@ -297,15 +298,12 @@ For every milestone we schedule the following:
 | Presentation          | All    |           2 |
 |-----------------------+--------+-------------|
 
-In general the tasks are distributed as such:
+In general:
 #+attr_latex: :align |c|l|c|c|
 |---------------+----------------------------------+-----------+---------------|
 | Components    | Tasks                            | Member(s) | Planned hours |
 |---------------+----------------------------------+-----------+---------------|
 | Brainstorming |                                  | All       |             3 |
-|               |                                  |           |               |
-|---------------+----------------------------------+-----------+---------------|
-| Prototyping   |                                  | All       |            10 |
 |---------------+----------------------------------+-----------+---------------|
 | Engine Work   | Implementation of the            | All       |           200 |
 |               | 3D graphics engine for           |           |               |
