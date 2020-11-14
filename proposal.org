@@ -195,7 +195,7 @@ put this into reality. The fact that we can use the second mandatory practical
 course to further expand on the engine only affirmed this notion as we are then
 able to segment the development of the engine over two semesters and can leave
 more focus to the development of the game and it's optimization.
-**  Motivation
+** Motivation
 The main motivation to build our own engine stems from the fact that we believe
 that we can then provide better optimization and reduce the overhead for our
 games on all levels of the engine, from the graphics pipeline to resource
@@ -286,7 +286,6 @@ competetive milestone aswell as a proof of concept to our current investors that
 we at {{{insert_team_name_here}}} have the potential to tackle the solution of
 world peace and overall global human solidarity.
 
-
 * Big Idea Bullseye
 #+attr_latex: :width 0.5\textwidth
 [[./images/bullseye.png]]
@@ -374,7 +373,8 @@ In general the tasks are distributed as such:
 |               | specific type themselves         |           |               |
 |               | ...                              |           |               |
 |---------------+----------------------------------+-----------+---------------|
-
+\\
+The exact timeline can be observed in timeline.pdf (which will be updated regularly)
 * Assessment
 # main strength, target audience, world view for design, criteria for success
 
