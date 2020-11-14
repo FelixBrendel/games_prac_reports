@@ -37,14 +37,14 @@ November 2020
 
 We as the team {{{insert_team_name_here}}} believe that great games build on
 simple concepts. A perfect example for such a game is [[https://en.wikipedia.org/wiki/Portal_(video_game)][Portal]] (Valve, 2007). The
-games magazine GameStar even ranked it number one in the list of the 250 best pc
-games of all time, which they published as the special edition 01/2020.
+game magazine GameStar even ranked it number one in the list of the 250 best pc
+games of all time, which they published as the special edition issue 01/2020.
 
 ** Game design of Portal
 
 Portal builds on the concept of portals that connect two positions in the game
 world. When the players moves through one, they will come out of the other one.
-Using this, the game is devided into levels, each with a starting point and a
+Using this, the game is divided into levels, each with a starting point and a
 target the players have to reach.
 
 Just having this concept -- teleporting to another position -- alone however, is
@@ -176,6 +176,8 @@ TODO(Felix) explain the details one more time
 TODO(FELIX): this
 ** Visual Design of {{{insert_game_name_here}}}
 - minimal interface -> need for intuitive controls and gameplay
+** Audio Design of {{{insert_game_name_here}}}
+
 ** Sample level
 
 TODO(FELIX): this
@@ -183,7 +185,7 @@ TODO(FELIX): this
 * Technical Achievement
 # detail core technical item (1+)
 ** Introduction
-The secondary big bullseye idea for our project is to develop our game idea in
+The central secondary big bullseye idea for our project is to develop our game idea in
 our own game engine. Our group always wanted to build their own game engine from
 scratch and we thought that this practical provided the perfect opportunity to
 put this into reality. The fact that we can use the second mandatory practical
@@ -242,8 +244,10 @@ already loaded file. This means that we will only load the diff between two
 levels which will reduce load time and creates a smoother game player experience
 for the player.
 *** Garbage collection
+*** Physics System
 *** Animation system
 *** Particle System
+*** Sound System
 *** Physically base rendering
 One goal of the Hight Target of our project (Layer 4) is to increase the
 graphical fidelity of our game by implementating a physically based rendering
@@ -295,53 +299,53 @@ For every milestone we schedule the following:
 
 In general:
 #+attr_latex: :align |c|l|c|c|
-|---------------+-------------------------------+-----------+---------------|
-| Components    | Tasks                         | Member(s) | Planned hours |
-|---------------+-------------------------------+-----------+---------------|
-| Brainstorming |                               | All       |             3 |
-|---------------+-------------------------------+-----------+---------------|
-| Engine Work   | Implementation of the         | All       |           200 |
-|               | 3D graphics engine for        |           |               |
-|               | loading meshes, animations    |           |               |
-|               | ...                           |           |               |
-|---------------+-------------------------------+-----------+---------------|
-| Inputs        | Ensure movement of cube       | Minh      |            15 |
-|               | through buttons presses       |           |               |
-|---------------+-------------------------------+-----------+---------------|
-| Gameplay      | - Cube can be moved           | Minh      |            25 |
-|               | - Cube can be folded open     | Felix     |               |
-|---------------+-------------------------------+-----------+---------------|
-| Win Condition | Cube has to land on finish    | Minh      |            30 |
-|               | tile                          | Felix     |               |
-|               | + on a specific side          |           |               |
-|               | + on multiple finish tiles    |           |               |
-|               | at the same time (by folding  |           |               |
-|               | open)                         |           |               |
-|---------------+-------------------------------+-----------+---------------|
-| Level Design  | Designing puzzles,            | Felix     |            40 |
-|               | challenges                    | Jonas     |               |
-|---------------+-------------------------------+-----------+---------------|
-| Physics       | Ensure different movement     | All       |            15 |
-|               | behavior on different tiles   |           |               |
-|---------------+-------------------------------+-----------+---------------|
-| Art           | - Create different animations | Felix     |            60 |
-|               | for different events          | Jonas     |               |
-|               | - Particle effects            |           |               |
-|               | - Original music              |           |               |
-|---------------+-------------------------------+-----------+---------------|
-| UI            | - Convey basic information    | Jonas     |            10 |
-|               | to player                     |           |               |
-|               | - Keep it rather simplistic   |           |               |
-|---------------+-------------------------------+-----------+---------------|
-| Playtesting   | Testing and fixing            | All       |            10 |
-|---------------+-------------------------------+-----------+---------------|
-| Trailer       |                               | All       |            30 |
-|---------------+-------------------------------+-----------+---------------|
-| Additional    | - Different world designs     | All       | leftover time |
-| Content       | - Players setting floors to   |           |               |
-|               | specific type themselves      |           |               |
-|               | ...                           |           |               |
-|---------------+-------------------------------+-----------+---------------|
+|---------------+----------------------------------+-----------+---------------|
+| Components    | Tasks                            | Member(s) | Planned hours |
+|---------------+----------------------------------+-----------+---------------|
+| Brainstorming |                                  | All       |             3 |
+|---------------+----------------------------------+-----------+---------------|
+| Engine Work   | Implementation of the            | All       |           200 |
+|               | 3D graphics engine for           |           |               |
+|               | loading meshes, Animation System |           |               |
+|               | ...                              |           |               |
+|---------------+----------------------------------+-----------+---------------|
+| Inputs        | Ensure movement of cube          | Minh      |            15 |
+|               | through buttons presses          |           |               |
+|---------------+----------------------------------+-----------+---------------|
+| Gameplay      | - Cube can be moved              | Minh      |            25 |
+|               | - Cube can be folded open        | Felix     |               |
+|---------------+----------------------------------+-----------+---------------|
+| Win Condition | Cube has to land on finish       | Minh      |            30 |
+|               | tile                             | Felix     |               |
+|               | - on a specific side             |           |               |
+|               | - on multiple finish tiles       |           |               |
+|               | at the same time (by folding     |           |               |
+|               | open)                            |           |               |
+|---------------+----------------------------------+-----------+---------------|
+| Level Design  | Designing puzzles,               | Felix     |            40 |
+|               | challenges                       | Jonas     |               |
+|---------------+----------------------------------+-----------+---------------|
+| Animations    | Ensure different movement        | All       |            15 |
+|               | behavior on different tiles      |           |               |
+|---------------+----------------------------------+-----------+---------------|
+| Art           |                                  | Felix     |            60 |
+|               | - Environmnet Meshes&Textures    | Jonas     |               |
+|               | - Particle effects               |           |               |
+|               | - Original music                 |           |               |
+|---------------+----------------------------------+-----------+---------------|
+| UI            | - Convey basic information       | Jonas     |            10 |
+|               | to player                        |           |               |
+|               | - Keep it rather simplistic      |           |               |
+|---------------+----------------------------------+-----------+---------------|
+| Playtesting   | Testing and fixing               | All       |            10 |
+|---------------+----------------------------------+-----------+---------------|
+| Trailer       |                                  | All       |            30 |
+|---------------+----------------------------------+-----------+---------------|
+| Additional    | - Different world designs        | All       | leftover time |
+| Content       | - Players setting floors to      |           |               |
+|               | specific type themselves         |           |               |
+|               | ...                              |           |               |
+|---------------+----------------------------------+-----------+---------------|
 
 * Assessment
 # main strength, target audience, world view for design, criteria for success
