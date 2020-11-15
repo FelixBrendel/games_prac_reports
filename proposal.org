@@ -56,7 +56,7 @@ this as our starting point we will go over our decision making process for
 the rest of the game design in the following section.
 
 [fn:slippery] Of course the word slippery is a bit vague. We thought about what
-    it means to us if something is "sippery" or "wet". We came up with these
+    it means to us if something is "slippery" or "wet". We came up with these
     simple definitions: Slippery is an attribut of a surface which implies that
     the surface friction is low and the attribute slippery can only be observed
     when another object is touching and sliding on it. "Wet" on the other hand
@@ -117,7 +117,7 @@ A sample unfolding can be seen in Figure [[fig:unfolding_blender]].
 
 
 Note also, that there is inherently a limited amount of valid unfoldings due to
-fundamental geometric principless. An illustration of all possible unfoldings
+fundamental geometric principles. An illustration of all possible unfoldings
 can be seen in Figure [[fig:unfoldings_scheme]]. This is the kind of complexity in a
 puzzle game we really want to highlight. Everybody can imagine a cube flipping
 over and think about which side will be facing upwards or downwards, but using
@@ -136,15 +136,15 @@ to finish the level.
 
 {{{insert_game_name_here}}} is a tile-based puzzle game, where the players
 control a cube and try to make their way to the goal. There are two different
-surface categories: slippery and not dry. On slippery sections, the player can
-give the cube an impulse in one direction but has to wait as the cube slides
-until it hits an obstacle or reaches a dry spot and comes to a hold. While
-sliding the cube does not change its orientation. If the cube moves from or to a
-dry tile, it flips on its side. This is important because now the cube will have
-a different orientation and each level requires the cube to land with the right
-side up on the finish tile. As an additional mechanic, the players can unfold
-the cube as a method of movement and overcoming otherwise impossible gaps in the
-levels.
+surface categories: slippery and dry. On slippery sections, the player can give
+the cube an impulse in one direction but then has to wait as the cube slides.
+The cube slides until it hits an obstacle or reaches a dry spot and comes to a
+hold. While sliding the cube does not change its orientation. If the cube moves
+from or to a dry tile, it flips on its side. This is important because now the
+cube will have a different orientation and each level requires the cube to land
+with the right side up on the finish tile. As an additional mechanic, the
+players can unfold the cube as a method of movement and overcoming otherwise
+impossible gaps in the levels.
 
 The first levels will only feature the sliding mechanic as we want to let the
 player get used to the fundamentals of the game. And only then we will introduce
@@ -173,13 +173,27 @@ tree main design questions for {{{insert_game_name_here}}} can be seen in Figure
 - {{{insert_game_name_here}}} plays in the nature
 - ice, icebergs, water, jungle (?), desert (?)
 ** Visual Design of {{{insert_game_name_here}}}
-- minimal interface -> need for intuitive controls and gameplay
-- maybe even only show a picture of the buttons the player can press
+The focus of {{{insert_game_name_here}}} is solving puzzles and therefore we try
+not to be intrusive with our visual design decisions. To introduce the conrols
+of the game, we might only show a picture of the buttons the players can press
+to move the cube[fn::controls]. A puzzle should never be hard to solve because
+something was hard to see.
+
+
+[fn:controls] Of course the levels where we show controls will be really easy in
+    order to let the player experiment and get a feeling for the movements.
+
 ** Audio Design of {{{insert_game_name_here}}}
-- simple and slow melodies
-- Ethereal sounding synths, plucks and string instruments with heavy reverb
-- Soundtrack should reflect calm and cozy mood
-- crisp effects for sliding, flipping and hitting obstacles
+The gameplay of {{{insert_game_name_here}}} will be enriched with a calm
+background music that let's the players focus on solving the puzzles. It won't
+have a strong rythm or a fast tempo, to not build any pressure on the player and
+let them solve the puzzles in their own pace -- the player should feel cozy when
+playing the game. To convey this feeling the soundtrack will be mainly composed
+of ethereal sounding synths, plucks, bells and string instruments. We also want
+to accompany the music with sound effects for the movements of the cube:
+sliding, flipping, unfolding, hitting obstacles. These sound effects should be
+crisp and convey the nature of the movement.
+
 ** Sample levels
 The layout of a simple sliding level can be seen in Figure [[fig:level1]]. This is a
 rather simple level as it does not leave much room for the players to make
@@ -218,13 +232,6 @@ semesters and can leave more focus to the development of the game and it's
 optimization.
 
 ** Motivation
-# NOTE(Felix): Ich würde das hier vielleicht nicht "Garbage Collection" nenen,
-# weil das inherent etwas behindertes ist. Ich gebe dir recht, dass das was wir
-# machen auch eine Art garbage collection ist, aber ich würde gerne nicht das
-# schlechte Image, was GC hat, in den Köpfen der Leser erwecken. Vielleicht
-# nennen wir das "automatic memory management" oder "automatic resource freeing"
-# du hast ja auch schon angesprochen dass resourcen von mehr als einem objekt
-# benutzt werden, also (y) -- Felix, 4:39 AM
 The main motivation to build our own engine stems from the fact that we believe
 that we can reduce the overhead and therefore provide better optimization for
 our games on all levels of the engine, from the graphics pipeline to resource
@@ -261,27 +268,6 @@ different shaders per scene and reduces application load times. We want to
 utilise the ability to use a high amount of different shaders and put this
 feature into to Extras for the game development (Layer 5) but we will most
 likely first employ this in the follow-up project.
-# old::
-# The game engine will use the Vulkan Graphics API to implement a rendering
-# pipeline. Vulkan is a new API developed by the Khronos Group (maintainer of
-# OpenGL) with a focus on overhead reduction and was released in 2016. Using
-# Vulkan provides a low-level control over the graphics pipeline when compared to
-# other Graphics API's and has several advantages that also align with our overall
-# philosophy in the design of the engine:
-# - The ability to run on all operating systems and devices
-# - Explicit control over memory management
-# - Decreased CPU workload due to reduced driver overhead and batching
-# - Making use of the driver independent Vulkan Loader to access Vulkan API entry
-#   points
-# The Vulkan Loader is responsible for transmitting Vulkan API calls to the
-# appropriate graphcis driver. This means that we just have to connect to the
-# Vulkan loader in our engine and do not have to worry about drivers. Furthermore
-# Vulkan pre-compiles shaders into its own binary format called SPIR-V instead of
-# compiling the shaders at runtime. This allows the use of a larger number of
-# different shaders per scene and reduces application load times. We want to
-# utilise the ability to use a high amount of different shaders and put this
-# feature into to Extras for the game development(Layer 5) but we will most likely
-# first employ this in the follow-up project.
 
 *** Overhead reduction in the engine
 The game engine is developed in the C++ language that all of our team members
@@ -303,19 +289,6 @@ game play experience for the player. The Hashmaps also provide further advantage
 for the memory management as we can free the memory and GPU memory for the
 texture resources by iterating over the hashmap and can incorporate this in the
 scene load/unloading process.
-
-# old::
-# To increase the performance of the engine we want to make sure that the loading
-# of resources such as a texture map or a mesh is never done redundantly, which is
-# likely the case in a puzzle game as key components are similar between different
-# scenes. In order to implement this we created a hashmap for all loaded files to
-# cross check whether the pathfile has already been used and then reuse the
-# already loaded file on the GPU. This means that we will only load the diff
-# between two levels which will reduce load times and create a smoother game play
-# experience for the player. The Hashmaps also provide further advantage for the
-# garbage collection as we can free the GPU memory for the texture resources by
-# iterating over the hashmap and can incorporate this in the scene load/unloading
-# process.
 
 *** Sound System
 Sound is very important to our design goal of creating a casual and cozy puzzle
@@ -385,6 +358,9 @@ implement while still keeping a smooth performance.
    - implementation of physically based rendering
 5. Extras:
    - have players set floors to floor types themselves
+   - make use of hight amount of different shader
+   - implement particle system in the engine
+
 
 ** Task Distributions
 For every milestone we schedule the following:
@@ -479,7 +455,7 @@ from time to time.
 
 * Meta Info :noexport:
 #+options: html-postamble:nil toc:nil title:nil
-#+macro: insert_game_name_here qubie or quboi
+#+macro: insert_game_name_here qubi
 #+macro: insert_team_name_here FünfKopf
 
 #+author: Felix Brendel, Jonas Helms, Van Minh Pham
