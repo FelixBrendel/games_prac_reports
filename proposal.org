@@ -1,38 +1,3 @@
-#+options:  html-postamble:nil toc:nil title:nil
-#+macro: insert_game_name_here qubie or quboi
-#+macro: insert_team_name_here FünfKopf
-
-#+author: Felix Brendel, Jonas Helms, Van Minh Pham
-#+title: Game Idea Proposal: {{{insert_game_name_here}}}
-
-#+latex_header: \usepackage[margin=1in]{geometry}
-#+latex_header: \usepackage{titling}
-#+latex_header: \renewcommand{\familydefault}{\sfdefault}
-
-#+begin_export latex
-\begin{titlepage}
-\begin{center}
-\vspace*{2 cm}
-\huge
-\textbf{\thetitle}
-
-\vspace{1cm}
-\Large
-Team \textit{FünfKopf}:
-
-\vspace{0.2cm}
-Felix Brendel \\ Jonas Helms \\ Van Minh Pham
-
-\vspace{2cm}
-\large
-November 2020
-
-\end{center}
-\tableofcontents
-\end{titlepage}
-\clearpage
-#+end_export
-
 * Game Description
 
 We as the team {{{insert_team_name_here}}} believe that great games build on
@@ -73,8 +38,9 @@ of Portal they might have looked like this:
 It is interesting to note, that idea 2 and 4 seem to be direct responses to the
 ideas 1 and 3.
 
-#+attr_latex: :width 0.4\textwidth
-#+caption: The layered design of the game portal
+#+name: fig:design_portal
+#+attr_latex: :width 0.6\textwidth
+#+caption: The explorative design decisions of the game Portal
 [[./images/design_portal.png]]
 
 ** Game design of {{{insert_game_name_here}}}
@@ -97,10 +63,11 @@ the rest of the game design in the following section.
     is to us the sensation you feel when you touched a liquid. Usually it is
     connected to a reduced surface friction of wet objects.
 
-***  2D vs 3D
+*** 2D vs 3D
 
 It was clear, that a 3D game would fit better to the setting of this practical
-course. However we also really liked the idea of 2D?? puzzle games
+course. However we also really liked the idea of 3D puzzle games as it has the
+potential to emerse the player more into the game.
 
 *** What kind of object should the player control?
 
@@ -125,9 +92,15 @@ and the orienation of the cube have to be considered by the player resulting in
 another layer of gameplay depth.
 
 *** What if the object could also unfold?
+
 We wanted to add only one more mechanic to our game -- one more action that the
 player has, that will let us design more challenging and interesting puzzles.
-One of the first ideas we thought about was the objects ability to fold open.
+One of the first ideas we thought about was the objects ability to fold open. By
+unfolding the players can bridge slippery tiles or unfold ontu slippery tiles.
+By introducing the unfolding, we can also add multiple finish tiles to the
+levels, which all have to be satisfied simultaniously by unfolding, for the
+level to count as solved.
+
 The two shapes we already considered beforehand, cubes and tetrahedrons, can
 unfold onto a two dimensional plane. For a cube the unfolded form would be
 located on a regular square grid, while a tetrahedron unfolds to a regular
@@ -135,8 +108,7 @@ triangle tiling. For this game we first decided on using the cube as a base
 shape, as it allows for a simpler map structure and therefore shallower learning
 curve for the player.
 
- A sample
-unfolding can be seen in Figure [[fig:unfolding_blender]].
+A sample unfolding can be seen in Figure [[fig:unfolding_blender]].
 
 #+name: fig:unfolding_blender
 #+caption: The unfolding of the cube, following the player's inputs of
@@ -160,52 +132,99 @@ to finish the level.
 #+attr_latex: :width 0.4\textwidth
 [[./images/unfolding_schemes.png]]
 
-*** Bring it all together
-TODO(Felix) explain the details one more time
+*** Bringing it all together
 
-- {{{insert_game_name_here}}} is a tile-based puzzle game
-- in each level the player moves a cube from start tile to finish tile
-- multiple floor-types:
-  - slippery floor:
-    - cube cannot change moving direction after button input until obstacle is hit
-    - cube does not change the orientation of the cube
-  - floors with grip:
-    - on one button press cube moves only once
-    - cube turns with each movement
-- add mechanics every few levels -> steady learning curve:
-  - cube is colored differently on every side
-  - cube needs to be in a specific orientation on the finish tile
-  - cube can be folded open:
-    - bridge slippery tiles
-    - multiple finish tiles one which all cube sides have to be in the end
-  - player has to set tile types themselves
-- so far no story or context, just fun puzzling for the sake of fun puzzling
-  -> more freedom for ideas, not bound to setting or story
-  -> bigger emphasis on simplicity
+{{{insert_game_name_here}}} is a tile-based puzzle game, where the players
+control a cube and try to make their way to the goal. There are two different
+surface categories: slippery and not dry. On slippery sections, the player can
+give the cube an impulse in one direction but has to wait as the cube slides
+until it hits an obstacle or reaches a dry spot and comes to a hold. While
+sliding the cube does not change its orientation. If the cube moves from or to a
+dry tile, it flips on its side. This is important because now the cube will have
+a different orientation and each level requires the cube to land with the right
+side up on the finish tile. As an additional mechanic, the players can unfold
+the cube as a method of movement and overcoming otherwise impossible gaps in the
+levels.
 
+The first levels will only feature the sliding mechanic as we want to let the
+player get used to the fundamentals of the game. And only then we will introduce
+dry surfaces and force the player to make smart use of both the sliding and
+flipping mechanic. Lastly for the last few levels we will let the player unfold
+the cube and open the possibilities for the most strategic use of all three
+mechanics. With this approach we hope to archieve a steady learning curve, that
+keeps the players motivated.
+
+Compared to the desing decisions of Portal from Figure [[fig:design_portal]], the
+tree main design questions for {{{insert_game_name_here}}} can be seen in Figure
+[[fig:design_qubi]].
+
+#+name: fig:design_qubi
+#+attr_latex: :width 0.6\textwidth
+#+caption: The explorative design decisions of {{{insert_game_name_here}}}
+[[./images/design_qubi.png]]
+
+
+#  - player has to set tile types themselves
+# - so far no story or context, just fun puzzling for the sake of fun puzzling
+#  -> more freedom for ideas, not bound to setting or story
+#  -> bigger emphasis on simplicity
 
 ** Setting of {{{insert_game_name_here}}}
-
-TODO(FELIX): this
+- {{{insert_game_name_here}}} plays in the nature
+- ice, icebergs, water, jungle (?), desert (?)
 ** Visual Design of {{{insert_game_name_here}}}
 - minimal interface -> need for intuitive controls and gameplay
+- maybe even only show a picture of the buttons the player can press
 ** Audio Design of {{{insert_game_name_here}}}
+- simple
+- crisp effects for sliding, flipping and hitting obstacles
+- calm mood
+- cozy
+** Sample levels
+The layout of a simple sliding level can be seen in Figure [[fig:level1]]. This is a
+rather simple level as it does not leave much room for the players to make
+mistakes.
 
-** Sample level
+#+name: fig:level1
+#+attr_latex: :width 0.6\textwidth
+#+caption: Example level that makes use of the sliding mechanic. The red tile
+#+caption: marks the start and the green tile the finish. Gray blocks are
+#+caption: obstacles. The numbers indicate a possible path the players can
+#+caption: take to solve the level.
+[[./images/level1.png]]
 
-TODO(FELIX): this
+An example puzzle layout that also makes use of dry tiles can be seen in Figure
+[[fig:level2]]. Note that taking different routes on the dry tiles impact the
+resulting cube orientation on the finish tile.
+
+#+name: fig:level2
+#+attr_latex: :width 0.6\textwidth
+#+caption: Example level where the user has to make use of both sliding and
+#+caption: and flipping to reach the finish in a certain orientation. If another
+#+caption: path is taken, the orientation when landing on the finish will be
+#+caption: different.
+[[./images/level2.png]]
 
 * Technical Achievement
 # detail core technical item (1+)
 ** Introduction
-The central secondary big bullseye idea for our project is to develop our game idea in
-our own game engine. Our group always wanted to build their own game engine from
-scratch and we thought that this practical provided the perfect opportunity to
-put this into reality. The fact that we can use the second mandatory practical
-course to further expand on the engine only affirmed this notion as we are then
-able to segment the development of the engine over two semesters and can leave
-more focus to the development of the game and it's optimization.
+The central secondary big bullseye idea for our project is to develop our game
+idea in our own game engine. Our group always wanted to build their own game
+engine from scratch and we thought that this practical provided the perfect
+opportunity to put this into reality. The fact that we can use the second
+mandatory practical course to further expand on the engine only affirmed this
+notion as we are then able to segment the development of the engine over two
+semesters and can leave more focus to the development of the game and it's
+optimization.
+
 ** Motivation
+# NOTE(Felix): Ich würde das hier vielleicht nicht "Garbage Collection" nenen,
+# weil das inherent etwas behindertes ist. Ich gebe dir recht, dass das was wir
+# machen auch eine Art garbage collection ist, aber ich würde gerne nicht das
+# schlechte Image, was GC hat, in den Köpfen der Leser erwecken. Vielleicht
+# nennen wir das "automatic memory management" oder "automatic resource freeing"
+# du hast ja auch schon angesprochen dass resourcen von mehr als einem objekt
+# benutzt werden, also (y) -- Felix, 4:39 AM
 The main motivation to build our own engine stems from the fact that we believe
 that we can then provide better optimization and reduce the overhead for our
 games on all levels of the engine, from the graphics pipeline to resource
@@ -222,11 +241,11 @@ the interim solutions for this semesters game.
 
 *** Graphics pipeline
 The game engine will use the Vulkan Graphics API to implement a rendering
-pipeline. Vulkan is a new API developed by the Khronos Group (maintainer of
-OpenGL) with a focus on overhead reduction and was released in 2016. Using
-Vulkan provides a low-level control over the graphics pipeline when compared to
-other Graphics API's and has several advantages that also align with our overall
-philosophy in the design of the engine:
+pipeline. Vulkan is a relatively new API developed by the Khronos Group
+(maintainer of OpenGL) with a focus on overhead reduction and was released
+in 2016. Vulkan provides a low-level control over the rendering process when
+compared to other Graphics APIs and has several advantages that also align with
+our overall philosophy in the design of the engine:
 - The ability to run on all operating systems and devices
 - Explicit control over memory management
 - Decreased CPU workload due to reduced driver overhead and batching
@@ -235,58 +254,101 @@ philosophy in the design of the engine:
 The Vulkan Loader is responsible for transmitting Vulkan API calls to the
 appropriate graphcis driver. This means that we just have to connect to the
 Vulkan loader in our engine and do not have to worry about drivers. Furthermore
-Vulkan pre-compiles shaders into its own binary format called SPIR-V instead of
+we can pre-compile our shaders into the SPIR-V binary format instead of
 compiling the shaders at runtime. This allows the use of a larger number of
 different shaders per scene and reduces application load times. We want to
 utilise the ability to use a high amount of different shaders and put this
-feature into to Extras for the game development(Layer 5) but we will most likely
-first employ this in the follow-up project.
+feature into to Extras for the game development (Layer 5) but we will most
+likely first employ this in the follow-up project.
+# old::
+# The game engine will use the Vulkan Graphics API to implement a rendering
+# pipeline. Vulkan is a new API developed by the Khronos Group (maintainer of
+# OpenGL) with a focus on overhead reduction and was released in 2016. Using
+# Vulkan provides a low-level control over the graphics pipeline when compared to
+# other Graphics API's and has several advantages that also align with our overall
+# philosophy in the design of the engine:
+# - The ability to run on all operating systems and devices
+# - Explicit control over memory management
+# - Decreased CPU workload due to reduced driver overhead and batching
+# - Making use of the driver independent Vulkan Loader to access Vulkan API entry
+#   points
+# The Vulkan Loader is responsible for transmitting Vulkan API calls to the
+# appropriate graphcis driver. This means that we just have to connect to the
+# Vulkan loader in our engine and do not have to worry about drivers. Furthermore
+# Vulkan pre-compiles shaders into its own binary format called SPIR-V instead of
+# compiling the shaders at runtime. This allows the use of a larger number of
+# different shaders per scene and reduces application load times. We want to
+# utilise the ability to use a high amount of different shaders and put this
+# feature into to Extras for the game development(Layer 5) but we will most likely
+# first employ this in the follow-up project.
 
 *** Overhead reduction in the engine
 The game engine is developed in the C++ language that all of our team members
 are familiar with due to our TUM Bachelor courses such as Game Engine Design. We
 have also taken further steps into the direction of our core concept of overhead
 reduction by omitting the C++ standard library.
+
 *** Resource Loading & Garbage Collection
 To increase the performance of the engine we want to make sure that the loading
 of resources such as a texture map or a mesh is never done redundantly, which is
 likely the case in a puzzle game as key components are similar between different
-scenes. In order to implement this we created a hashmap for all loaded files to
-cross check whether the pathfile has already been used and then reuse the
-already loaded file on the GPU. This means that we will only load the diff
-between two levels which will reduce load times and create a smoother game play
-experience for the player. The Hashmaps also provide further advantage for the
-garbage collection as we can free the GPU memory for the texture resources by
-iterating over the hashmap and can incorporate this in the scene load/unloading
-process.
+scenes. In order to implement this we allocate buffers upfront to store all our
+resources and a hashmap that maps the file paths of the loaded resources to
+their pointers in memory. So if a resource becomes necessary in a scene, we can
+cross check whether the file path has already been loaded and then reuse the
+already loaded file instead of reloading it. This means that we will only load
+the diff between two levels which will reduce load times and create a smoother
+game play experience for the player. The Hashmaps also provide further advantage
+for the memory management as we can free the memory and GPU memory for the
+texture resources by iterating over the hashmap and can incorporate this in the
+scene load/unloading process.
+
+# old::
+# To increase the performance of the engine we want to make sure that the loading
+# of resources such as a texture map or a mesh is never done redundantly, which is
+# likely the case in a puzzle game as key components are similar between different
+# scenes. In order to implement this we created a hashmap for all loaded files to
+# cross check whether the pathfile has already been used and then reuse the
+# already loaded file on the GPU. This means that we will only load the diff
+# between two levels which will reduce load times and create a smoother game play
+# experience for the player. The Hashmaps also provide further advantage for the
+# garbage collection as we can free the GPU memory for the texture resources by
+# iterating over the hashmap and can incorporate this in the scene load/unloading
+# process.
+
 *** Sound System
 Sound is very important to our design goal of creating a casual and cozy puzzle
 game as we believe that it has a relaxing or even focusing effect on the player.
 We will try to implement our own sound system for the engine but are also
 considering using an API for example OpenAL if we realize that it would take up
 too much time of the development process.
+
 *** Physics System
-Current point of view in our team is that we will not implement a physics engine
-as part of this semesters project as it would exceed the scope of the engine
-building aspect. We will instead use keyframe animations and bake the limited
-number of physics interactions directly into the animations. This also comes
-with the advantage of having a tighter control over the cube behavior as we want
-the players to struggle with the puzzles instead of controls of the cube.
-Further expanding the engine by implementing a physics engine is something that
-may be tackled in the follow up project.
+The current point of view in our team is that we will not implement a physics
+engine as part of this semesters project as it would exceed the scope of the
+engine building aspect. We will instead use keyframe animations and bake the
+limited number of physics interactions directly into the animations or generate
+them procedurally. This also comes with the advantage of having a tighter
+control over the cube behavior as we want the players to struggle with the
+puzzles instead of controls of the cube. Further expanding the engine by
+implementing a physics engine is something that may be tackled in the follow up
+project.
+
 *** Animation system
 The animation system will be a very important part of the engine as it will
 substitute our physics interactions and help to increase the graphical fidelity
 of the game. Implementation of the animation system will start very early on and
 the core functionality of keyframe animation will be finished for the interim
 demo.
+
 *** Particle System
 A robust particle system would be a nice addition but we currently assume that
 we might have to substitute it using keyframe animations aswell. Current status
 is that we will develop a particle system if there is time left over after
-finishing our Hight Target goals (Layer 4) of the development.
-*** Physically base rendering
-One goal of the Hight Target of our project (Layer 4) is to increase the
+finishing our High Target goals (Layer 4) of the development.
+
+*** Physically based rendering
+One goal of the High Target of our project (Layer 4) is to increase the
 graphical fidelity of our game by implementating a physically based rendering
 system. The term "physically based renderer" is purpously left ambiguous as we
 want to check out how many components of a physically based renderer we can
@@ -295,7 +357,7 @@ crappy ass laptop. Using his laptop as a benchmark goal should provide a highly
 competetive milestone aswell as a proof of concept to our current investors that
 we at {{{insert_team_name_here}}} have the potential to tackle the solution of
 world peace and overall global human solidarity.
-
+# nice meme
 
 * Big Idea Bullseye
 #+attr_latex: :width 0.5\textwidth
@@ -407,3 +469,13 @@ from time to time.
 # - easy accessibility
 # - just fun & cozy puzzle people can play from time to time
 # - we hope for people to calm down when figuring out solutions for trickier levels
+
+* Meta Info :noexport:
+#+options: html-postamble:nil toc:nil title:nil
+#+macro: insert_game_name_here qubie or quboi
+#+macro: insert_team_name_here FünfKopf
+
+#+author: Felix Brendel, Jonas Helms, Van Minh Pham
+#+title: Game Idea Proposal: {{{insert_game_name_here}}}
+
+#+latex_header: \input{latex.tex}
