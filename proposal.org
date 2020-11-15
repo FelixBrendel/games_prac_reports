@@ -176,10 +176,10 @@ tree main design questions for {{{insert_game_name_here}}} can be seen in Figure
 - minimal interface -> need for intuitive controls and gameplay
 - maybe even only show a picture of the buttons the player can press
 ** Audio Design of {{{insert_game_name_here}}}
-- simple
+- simple and slow melodies
+- Ethereal sounding synths, plucks and string instruments with heavy reverb
+- Soundtrack should reflect calm and cozy mood
 - crisp effects for sliding, flipping and hitting obstacles
-- calm mood
-- cozy
 ** Sample levels
 The layout of a simple sliding level can be seen in Figure [[fig:level1]]. This is a
 rather simple level as it does not leave much room for the players to make
@@ -226,11 +226,12 @@ optimization.
 # du hast ja auch schon angesprochen dass resourcen von mehr als einem objekt
 # benutzt werden, also (y) -- Felix, 4:39 AM
 The main motivation to build our own engine stems from the fact that we believe
-that we can then provide better optimization and reduce the overhead for our
-games on all levels of the engine, from the graphics pipeline to resource
-allocation and garbage collection. Furthermore we believe that building a game
-engine from the ground up presents a perfect learning opportunity, especially
-when trying to find suitable optimizations that fit our design philosophy.
+that we can reduce the overhead and therefore provide better optimization for
+our games on all levels of the engine, from the graphics pipeline to resource
+allocation and automatic memory management. Furthermore we believe that building
+a game engine from the ground up presents a perfect learning opportunity,
+especially when trying to find suitable optimizations that fit our design
+philosophy.
 
 ** Game Engine
 In the following sections we will provide a small overview of the components of
@@ -288,13 +289,13 @@ are familiar with due to our TUM Bachelor courses such as Game Engine Design. We
 have also taken further steps into the direction of our core concept of overhead
 reduction by omitting the C++ standard library.
 
-*** Resource Loading & Garbage Collection
+*** Resource Loading & Automatic Memory Management
 To increase the performance of the engine we want to make sure that the loading
 of resources such as a texture map or a mesh is never done redundantly, which is
 likely the case in a puzzle game as key components are similar between different
 scenes. In order to implement this we allocate buffers upfront to store all our
 resources and a hashmap that maps the file paths of the loaded resources to
-their pointers in memory. So if a resource becomes necessary in a scene, we can
+their pointers in memory. If a resource becomes necessary in a scene, we can
 cross check whether the file path has already been loaded and then reuse the
 already loaded file instead of reloading it. This means that we will only load
 the diff between two levels which will reduce load times and create a smoother
@@ -352,11 +353,13 @@ One goal of the High Target of our project (Layer 4) is to increase the
 graphical fidelity of our game by implementating a physically based rendering
 system. The term "physically based renderer" is purpously left ambiguous as we
 want to check out how many components of a physically based renderer we can
-implement while still keeping a smooth performance on Van Minh "Sepp" Pham's
-crappy ass laptop. Using his laptop as a benchmark goal should provide a highly
-competetive milestone aswell as a proof of concept to our current investors that
-we at {{{insert_team_name_here}}} have the potential to tackle the solution of
-world peace and overall global human solidarity.
+implement while still keeping a smooth performance.
+
+# on Van Minh "Sepp" Pham's
+# crappy ass laptop. Using his laptop as a benchmark goal should provide a highly
+# competetive milestone aswell as a proof of concept to our current investors that
+# we at {{{insert_team_name_here}}} have the potential to tackle the solution of
+# world peace and overall global human solidarity.
 # nice meme
 
 * Big Idea Bullseye
