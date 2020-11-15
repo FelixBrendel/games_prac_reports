@@ -446,8 +446,12 @@ In general the tasks are distributed as such:
 |               | specific type themselves         |           |               |
 |               | ...                              |           |               |
 |---------------+----------------------------------+-----------+---------------|
-\\
+
+
 The exact timeline can be observed in timeline.pdf (which will be updated regularly)
+# \begin{figure}[H] \centering{
+# \includegraphics[width=\textwidth]{timeline.pdf}}
+# \end{figure}
 * Assessment
 # main strength, target audience, world view for design, criteria for success
 
