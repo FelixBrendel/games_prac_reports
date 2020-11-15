@@ -62,13 +62,13 @@ of Portal they might have looked like this:
  3. What if some levels require the players to transport objects in the levels
     to solve them?
     - Let players pick up and carry one object at a time. This also harmonizes
-      with the the Portal mechanic, as players can carry objects through the
+      with the Portal mechanic, as players can carry objects through the
       portal, adding depth to the game design.
  4. What if there are some barriers, that when moved through, destroy the
     carried object?
     - Letting the players carry the objects freely through the level might make
-      the levels too easy, so use barriers where the players cannot carry
-      objects through; they will have to find another way
+      the levels too easy, but barriers which limit the movment of the objects
+      adds depth to the level design
 
 It is interesting to note, that idea 2 and 4 seem to be direct responses to the
 ideas 1 and 3.
@@ -84,9 +84,10 @@ concept follows the given theme /wet and slippery/: *The players should slide
 around on a slippery floor*[fn:slippery]. This is our main mechanic.
 
 
-We decided with this mechanic the most fitting game would be a puzzle game where
-the player controls a simple object. This is where we had to make some
-descisions.
+We came to the conclusion that the most fitting gametype for this mechanic would
+be a puzzle game where the player controls a simple object. After agreeing upon
+this as our starting point we will go over our decision making process for
+the rest of the game design in the following section.
 
 [fn:slippery] Of course the word slippery is a bit vague. We thought about what
     it means to us if something is "sippery" or "wet". We came up with these
@@ -99,53 +100,58 @@ descisions.
 ***  2D vs 3D
 
 It was clear, that a 3D game would fit better to the setting of this practical
-course. However we also really liked the idea of 3D puzzle games
+course. However we also really liked the idea of 2D?? puzzle games
 
 *** What kind of object should the player control?
 
  - A sphere      :: There are some games that successfully use spheres as the
-   players' characters, however it seemed that a sphere would not feel like
-   slipping on the ground, it would rather be a rolling motion.
+   player characters, however it seemed that a sphere would not feel like
+   slipping on the floor, it would rather be a rolling motion.
  - A cube        :: Could be a good option
  - A tetrahedron :: Could be a good option
 
-Of course, as with Portal, we need to ask ourselves explorative questions to
+Of course, as with Portal, we had to think about explorative questions to
 experiment with additional mechanics.
 
-*** What if not the whole ground is slippery?
+*** What if only part of the floor is slippery?
 
 If there are some sections on the ground that are not slippery, we could make
-the cube flip on it's side instead. We can make this an additional game
-mechanic, where the sides of the cubes are different in some way -- maybe they
-are colored differently, or have different shapes on them. Then we could let the
-finish tile only activate when the cube reaches it *and* is oriented correctly.
+the cube flip on it's side when reaching a dry section of the map. We can make
+this a secondary game mechanic, where the sides of the cubes are different in
+some way -- maybe they are colored differently, or have different shapes on
+them. An additional condition for finishing a level could then be to match a
+specific side of the cube with the target tile. This means that both the route
+and the orienation of the cube have to be considered by the player resulting in
+another layer of gameplay depth.
 
-*** What if the object could unfold?
+*** What if the object could also unfold?
+We wanted to add only one more mechanic to our game -- one more action that the
+player has, that will let us design more challenging and interesting puzzles.
+One of the first ideas we thought about was the objects ability to fold open.
+The two shapes we already considered beforehand, cubes and tetrahedrons, can
+unfold onto a two dimensional plane. For a cube the unfolded form would be
+located on a regular square grid, while a tetrahedron unfolds to a regular
+triangle tiling. For this game we first decided on using the cube as a base
+shape, as it allows for a simpler map structure and therefore shallower learning
+curve for the player.
 
-The two objects we considred, cubes and tetrahedrons can unfold, onto a two
-dimensional plane. For a cube the unfoldings would lie on a regular square grid,
-while the unfoldings of a tetrahedron lie on a regular triangle tiling. For this
-game we first consider the cube as a base shape, as it allows for the simpler
-square tiling. At the same time we keep the possibility of the tetrahedron as
-the second possible player controlled object.
-
-We wanted to add this one more mechanic to our game -- an ability that the
-player has, that will let us design deeper and more interesting puzzles. A
-sample unfolding of the cube can be seen in Figure [[fig:unfolding_blender]].
+ A sample
+unfolding can be seen in Figure [[fig:unfolding_blender]].
 
 #+name: fig:unfolding_blender
 #+caption: The unfolding of the cube, following the player's inputs of
 #+caption: =up, right, right, up, right=
 [[./images/unfolding_blender2.png]]
 
-Note also, that inherently from the fundamental geometric princaples, there is a
-limited amout of valid unfoldings. An illustration of all possible unfoldings
+
+Note also, that there is inherently a limited amount of valid unfoldings due to
+fundamental geometric principless. An illustration of all possible unfoldings
 can be seen in Figure [[fig:unfoldings_scheme]]. This is the kind of complexity in a
 puzzle game we really want to highlight. Everybody can imagine a cube flipping
 over and think about which side will be facing upwards or downwards, but using
 this complexity -- which is really accessible to everybody -- we can then design
-levels that require the player to plan ahead their movement and flips and
-unfolds throughout the level.
+levels that require the player to plan their movement, flips and unfolds ahead
+to finish the level.
 
 #+name: fig:unfoldings_scheme
 #+caption: All possible unfoldings of the cube starting on the white side and
@@ -289,6 +295,7 @@ crappy ass laptop. Using his laptop as a benchmark goal should provide a highly
 competetive milestone aswell as a proof of concept to our current investors that
 we at {{{insert_team_name_here}}} have the potential to tackle the solution of
 world peace and overall global human solidarity.
+
 
 * Big Idea Bullseye
 #+attr_latex: :width 0.5\textwidth
