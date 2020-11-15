@@ -173,13 +173,25 @@ tree main design questions for {{{insert_game_name_here}}} can be seen in Figure
 - {{{insert_game_name_here}}} plays in the nature
 - ice, icebergs, water, jungle (?), desert (?)
 ** Visual Design of {{{insert_game_name_here}}}
-- minimal interface -> need for intuitive controls and gameplay
-- maybe even only show a picture of the buttons the player can press
+The focus of {{{insert_game_name_here}}} is solving puzzles and therefore we try
+not to be intrusive with our visual design decisions. To introduce the conrols
+of the game, we might only show a picture of the buttons the players can press
+to move the cube[fn::controls]. A puzzle should never be hard to solve because
+something was hard to see.
+
+
+[fn:controls] Of course the levels where we show controls will be really easy in
+    order to let the player experiment and get a feeling for the movements.
+
 ** Audio Design of {{{insert_game_name_here}}}
-- simple
-- crisp effects for sliding, flipping and hitting obstacles
-- calm mood
-- cozy
+The gameply of {{{insert_game_name_here}}} will be enriched with a calm
+background music that let's the players focus on solving the puzzles. It won't
+have a strong rythm or a fast tempo, to not build any pressure on the players
+and let them solve the puzzles in their own pace -- the players should feel cozy
+when playing the game. We also want to accompany the music with sound effects
+for the movements of the cube: sliding, flipping, unfolding, hitting obstacles.
+These sound effects should be crisp and convey the nature of the movement.
+
 ** Sample levels
 The layout of a simple sliding level can be seen in Figure [[fig:level1]]. This is a
 rather simple level as it does not leave much room for the players to make
@@ -446,7 +458,8 @@ In general the tasks are distributed as such:
 |               | specific type themselves         |           |               |
 |               | ...                              |           |               |
 |---------------+----------------------------------+-----------+---------------|
-\\
+
+
 The exact timeline can be observed in timeline.pdf (which will be updated regularly)
 * Assessment
 # main strength, target audience, world view for design, criteria for success
