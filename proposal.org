@@ -17,12 +17,12 @@ not enough to create an interesting game. Starting from the simple concept one
 can begin to shape the game mechanics by exploring different ideas. In the case
 of Portal they might have looked like this:
 
- 1. What if the players could place the portals thmeselves?
+ 1. What if the players could place the portals themselves?
     - Give the players a portal gun and let them shoot the walls to place
       portals on them
  2. What if there are some surfaces, the players cannot place portals on?
     - If players can place portals everywhere, it might be hard to create
-      challenging levels, so also use surfaces, where no portalas can be placed
+      challenging levels, so also use surfaces, where no portals can be placed
       on
  3. What if some levels require the players to transport objects in the levels
     to solve them?
@@ -117,7 +117,7 @@ A sample unfolding can be seen in Figure [[fig:unfolding_blender]].
 
 
 Note also, that there is inherently a limited amount of valid unfoldings due to
-fundamental geometric principless. An illustration of all possible unfoldings
+fundamental geometric principles. An illustration of all possible unfoldings
 can be seen in Figure [[fig:unfoldings_scheme]]. This is the kind of complexity in a
 puzzle game we really want to highlight. Everybody can imagine a cube flipping
 over and think about which side will be facing upwards or downwards, but using
@@ -136,7 +136,7 @@ to finish the level.
 
 {{{insert_game_name_here}}} is a tile-based puzzle game, where the players
 control a cube and try to make their way to the goal. There are two different
-surface categories: slippery and not dry. On slippery sections, the player can
+surface categories: slippery and dry. On slippery sections, the player can
 give the cube an impulse in one direction but has to wait as the cube slides
 until it hits an obstacle or reaches a dry spot and comes to a hold. While
 sliding the cube does not change its orientation. If the cube moves from or to a
@@ -170,11 +170,25 @@ tree main design questions for {{{insert_game_name_here}}} can be seen in Figure
 #  -> bigger emphasis on simplicity
 
 ** Setting of {{{insert_game_name_here}}}
-- {{{insert_game_name_here}}} plays in the nature
-- ice, icebergs, water, jungle (?), desert (?)
+# - {{{insert_game_name_here}}} plays in the nature
+# - ice, icebergs, water, jungle (?), desert (?)
+At first glance an ice setting of some kind would seem to be the most obvious 
+choice given the theme of /wet and slippery/. For the slippery tiles ice 
+surfaces can be used while for "dry" tiles snow surfaces seem appropriate.
+Additionally we have made the decision to widen the spectrum 
+of settings to more nature themes such as setting levels in a jungle with water
+on the slippery tiles.
+With levels being structured in chapters
+new nature settings can be used for different chapters, e.g. whenever a new 
+gameplay mechanics is introduced.\\
+{{{insert_game_name_here}}} is a rather abstract game as it revolves around moving
+a cube in order to solve arbitrary puzzles. Not being bound to anything except the
+theme of nature and /wet and slippery/ allows us to be more creative with the 
+settings for different chapters perhaps even giving the opportunity for a desert setting.
+
 ** Visual Design of {{{insert_game_name_here}}}
 The focus of {{{insert_game_name_here}}} is solving puzzles and therefore we try
-not to be intrusive with our visual design decisions. To introduce the conrols
+not to be intrusive with our visual design decisions. To introduce the controls
 of the game, we might only show a picture of the buttons the players can press
 to move the cube[fn::controls]. A puzzle should never be hard to solve because
 something was hard to see.
@@ -184,7 +198,7 @@ something was hard to see.
     order to let the player experiment and get a feeling for the movements.
 
 ** Audio Design of {{{insert_game_name_here}}}
-The gameply of {{{insert_game_name_here}}} will be enriched with a calm
+The gameplay of {{{insert_game_name_here}}} will be enriched with a calm
 background music that let's the players focus on solving the puzzles. It won't
 have a strong rythm or a fast tempo, to not build any pressure on the players
 and let them solve the puzzles in their own pace -- the players should feel cozy
@@ -309,8 +323,8 @@ resources and a hashmap that maps the file paths of the loaded resources to
 their pointers in memory. So if a resource becomes necessary in a scene, we can
 cross check whether the file path has already been loaded and then reuse the
 already loaded file instead of reloading it. This means that we will only load
-the diff between two levels which will reduce load times and create a smoother
-game play experience for the player. The Hashmaps also provide further advantage
+the difference between two levels which will reduce load times and create a smoother
+gameplay experience for the player. The Hashmaps also provide further advantage
 for the memory management as we can free the memory and GPU memory for the
 texture resources by iterating over the hashmap and can incorporate this in the
 scene load/unloading process.
@@ -370,6 +384,7 @@ competetive milestone aswell as a proof of concept to our current investors that
 we at {{{insert_team_name_here}}} have the potential to tackle the solution of
 world peace and overall global human solidarity.
 # nice meme
+# dude...c'mon --Minh
 
 * Big Idea Bullseye
 #+attr_latex: :width 0.5\textwidth
@@ -460,7 +475,7 @@ In general the tasks are distributed as such:
 |---------------+----------------------------------+-----------+---------------|
 
 
-The exact timeline can be observed in timeline.pdf (which will be updated regularly)
+The exact timeline can be observed in timeline.pdf (which will be updated regularly).
 # \begin{figure}[H] \centering{
 # \includegraphics[width=\textwidth]{timeline.pdf}}
 # \end{figure}
@@ -470,11 +485,13 @@ The exact timeline can be observed in timeline.pdf (which will be updated regula
 {{{insert_game_name_here}}} is designed to be a cozy and fun puzzle game for people to enjoy
 regardless of prior experiences of puzzle games or even video games in general.
 To achieve that, the game will have to be easily accessible not requiring a lot
-of prior knowledge. Later levels will add more and more mechanics effectively
-raising the difficulty level which hopefully will keep players invested. The
+of prior knowledge. Initially players will merely have the cube slide on slippery tiles
+in order to get to the end of the levels.
+Levels in later chapters will add more and more mechanics which effectively
+raises the difficulty level. We hope to keep players invested that way. The
 difficulty curve in form of the levels provides one of the biggest challenges in
 the development as a sudden difficulty spike can lead to a lot of frustration
-while low curve may bore players.
+while a low curve may bore players.
 
 Although we intend to provide players with healthy challenges along the levels,
 we generally want {{{insert_game_name_here}}} to be a relaxing game to be played
