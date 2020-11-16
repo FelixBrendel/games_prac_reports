@@ -41,7 +41,7 @@ ideas 1 and 3.
 #+name: fig:design_portal
 #+attr_latex: :width 0.6\textwidth
 #+caption: The explorative design decisions of the game Portal
-[[./images/design_portal.png]]
+[[../images/design_portal.png]]
 
 ** Game design of {{{insert_game_name_here}}}
 
@@ -113,7 +113,7 @@ A sample unfolding can be seen in Figure [[fig:unfolding_blender]].
 #+name: fig:unfolding_blender
 #+caption: The unfolding of the cube, following the player's inputs of
 #+caption: =up, right, right, up, right=
-[[./images/unfolding_blender2.png]]
+[[../images/unfolding_blender2.png]]
 
 
 Note also, that there is inherently a limited amount of valid unfoldings due to
@@ -130,7 +130,7 @@ to finish the level.
 #+caption: first unfolding onto the green tile; all other possible onfoldings
 #+caption: are permutations of the colors and rotationary symmetries
 #+attr_latex: :width 0.4\textwidth
-[[./images/unfolding_schemes.png]]
+[[../images/unfolding_schemes.png]]
 
 *** Bringing it all together
 
@@ -161,7 +161,7 @@ tree main design questions for {{{insert_game_name_here}}} can be seen in Figure
 #+name: fig:design_qubi
 #+attr_latex: :width 0.6\textwidth
 #+caption: The explorative design decisions of {{{insert_game_name_here}}}
-[[./images/design_qubi.png]]
+[[../images/design_qubi.png]]
 
 
 #  - player has to set tile types themselves
@@ -219,7 +219,7 @@ mistakes.
 #+caption: marks the start and the green tile the finish. Gray blocks are
 #+caption: obstacles. The numbers indicate a possible path the players can
 #+caption: take to solve the level.
-[[./images/level1.png]]
+[[../images/level1.png]]
 
 An example puzzle layout that also makes use of dry tiles can be seen in Figure
 [[fig:level2]]. Note that taking different routes on the dry tiles impact the
@@ -231,7 +231,7 @@ resulting cube orientation on the finish tile.
 #+caption: and flipping to reach the finish in a certain orientation. If another
 #+caption: path is taken, the orientation when landing on the finish will be
 #+caption: different.
-[[./images/level2.png]]
+[[../images/level2.png]]
 
 * Technical Achievement
 # detail core technical item (1+)
@@ -352,7 +352,7 @@ implement while still keeping a smooth performance.
 
 * Big Idea Bullseye
 #+attr_latex: :width 0.5\textwidth
-[[./images/bullseye.png]]
+[[../images/bullseye.png]]
 * Development Schedule
 ** Layers of Development
 1. Functional Minimum:

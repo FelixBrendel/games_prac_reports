@@ -1,0 +1,110 @@
+.tumlogo {
+    width: ´70px;
+    position: fixed;
+    right: 10px;
+    top: 10px;
+}
+
+ul {
+    width: 100%;
+}
+
+br {
+    line-height: 400%;
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+    text-transform: none;
+    text-align: center;
+}
+
+.reveal h1 {
+    font-size: 2em;
+    color: #cff;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.reveal h4 {
+    color: #cff;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+a:link {
+    color: #cff;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.reveal h2 {
+    text-align: left;
+    margin-bottom: 0.5em;
+}
+
+hr,
+.reveal h2:after,
+.reveal h3:after {
+    content:'';
+    display:block;
+    height: 1px;
+    background: linear-gradient(to right, #999, #333, #999);
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    margin-bottom: 0.2em;
+}
+
+.reveal .slides {
+    text-align: left;
+}
+
+.slide-footer {
+    position: fixed;
+    bottom:   0;
+    width:    100%;
+    height:   2em;
+}
+
+.slide-footer ul {
+    padding-inline-start: 0px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0;
+    font-size: large;
+}
+
+.slide-footer li {
+    display: inline;
+}
+
+
+.reveal figure {
+    display: block;
+    margin: 0 auto;
+    margin-top: 1em;
+    width: 100%;
+}
+
+.reveal figcaption {
+    margin-top: 0.5em;
+    text-align: center;
+    font-size: x-large!important;
+    font-weight: 900;
+}
+
+.reveal section img {
+    border: none;
+    display: block;
+    margin: 0 auto;
+}
+
+section.present {
+    height: 100%;
+}

@@ -1,0 +1,29 @@
+* Slide 1
+- Algorithm that produces game assets
+- Can be fine tuned
+- Different user experience every time
+
+* Midpoint displacement
+{{{insertimage(diasquare.gif, Diamond Square Algorithm (nbickford.wordpress.com), width:50%)}}}
+
+* Meta Data                                                        :noexport:
+#+title: qubi
+#+reveal_root: https://cdn.jsdelivr.net/npm/reveal.js
+
+** reveal settings
+#+options: toc:nil num:nil
+#+options: reveal_center:nil
+#+reveal_plugins: (notes zoom)
+#+reveal_theme: white
+#+reveal_extra_css: extrastyle.css
+#+reveal_title_slide_background: ../images/title.png
+#+reveal_init_options: slideNumber:"c/t"
+
+** html templates
+#+reveal_title_slide: <h1>%t</h1><br><br><h4>Team FünfKopf</h3><br><br><br><h4>Felix Brendel<br>Jonas Helms<br>Van Minh Pham</h4>
+#+reveal_slide_header: <img class="tumlogo" src="../images/tum.png"/>
+#+reveal_slide_footer: <ul><li>Felix Brendel, Jonas Helms, Van Minh Pham</li><li>18.11.2020</li></ul>
+
+** Macros
+# usage: insertImage(pathToImage, imageCaption="", style="")
+#+macro: insertImage #+html: <figure><img style="$3" src="../images/$1" alt="$1"><figcaption>$2</figcaption></figure>
