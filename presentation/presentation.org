@@ -1,10 +1,33 @@
-* Slide 1
-- Algorithm that produces game assets
-- Can be fine tuned
-- Different user experience every time
+* Game Description
+- Tile-based puzzle game
+- Goal is to move a cube from the start to the finish tile
+- Slippery tiles
 
-* Midpoint displacement
-{{{insertimage(diasquare.gif, Diamond Square Algorithm (nbickford.wordpress.com), width:50%)}}}
+* Concept Scene
+{{{insertimage(title.png, , width:90%)}}}
+* Game Design
+- Simple and cozy
+- Difficulty is only in the puzzles
+- Later levels add more mechanics and complexity
+** Slippery
+- Main mechanic
+- Cube slides on slippery tiles
+- Player can't control cube while sliding
+{{{insertimage(level1.png, , width:40%)}}}
+** Flip
+- Second mechanic yikes
+- Cube flips when reaching a dry tile
+- Orientation becomes important
+{{{insertimage(level2.png, , width:50%)}}}
+** Unfold
+{{{insertimage(cube.webm, , width:80%)}}}
+** Unfold
+- Player can fold the cube open
+  by flipping over the edges
+- After unfolding the cube folds back
+  at the destination
+* Big Idea Bullseye
+{{{insertimage(bullseye.png, , width:50%)}}}
 
 * Meta Data                                                        :noexport:
 #+title: qubi
