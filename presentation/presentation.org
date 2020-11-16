@@ -20,7 +20,7 @@
 #+reveal_init_options: slideNumber:"c/t"
 
 ** html templates
-#+reveal_title_slide: <h1>%t</h1><br><br><h4>Team FünfKopf</h3><br><br><br><h4>Felix Brendel<br>Jonas Helms<br>Van Minh Pham</h4>
+#+reveal_title_slide:  <br><br><br><br><h1>%t</h1><h4>Felix Brendel<br>Jonas Helms<br>Van Minh Pham</h4>
 #+reveal_slide_header: <img class="tumlogo" src="../images/tum.png"/>
 #+reveal_slide_footer: <ul><li>Felix Brendel, Jonas Helms, Van Minh Pham</li><li>18.11.2020</li></ul>
 
