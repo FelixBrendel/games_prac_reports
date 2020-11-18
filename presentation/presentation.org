@@ -20,7 +20,7 @@
 - Orientation becomes important
 {{{insertimage(level2.png, , width:50%)}}}
 ** Unfold
-{{{insertimage(cube.webm, , width:80%)}}}
+{{{insertVideo(cube.webm, , 80%)}}}
 ** Unfolding schemes
 # - Player can fold the cube open
   # by flipping over the edges
