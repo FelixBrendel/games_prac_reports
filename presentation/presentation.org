@@ -21,13 +21,22 @@
 {{{insertimage(level2.png, , width:50%)}}}
 ** Unfold
 {{{insertimage(cube.webm, , width:80%)}}}
-** Unfold
-- Player can fold the cube open
-  by flipping over the edges
-- After unfolding the cube folds back
-  at the destination
+** Unfolding schemes
+# - Player can fold the cube open
+  # by flipping over the edges
+# - After unfolding the cube folds back
+  # at the destination
+{{{insertimage(unfolding_schemes.png, , width:50%)}}}
 * Big Idea Bullseye
 {{{insertimage(bullseye.png, , width:50%)}}}
+
+
+* Game Engine
+- Overhead reduction
+- Optimization
+- Automatic Memory Management
+- Skip development of specific systems of a game engine
+
 
 * Meta Data                                                        :noexport:
 #+title: qubi
