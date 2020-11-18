@@ -15,7 +15,6 @@
 - Player can't control cube while sliding
 {{{insertimage(level1.png, , width:40%)}}}
 ** Flip
-- Second mechanic yikes
 - Cube flips when reaching a dry tile
 - Orientation becomes important
 {{{insertimage(level2.png, , width:50%)}}}
