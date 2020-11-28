@@ -41,13 +41,21 @@
 
 ** Minh
 *** Things I like
--
+I like the idea of the water tank adding more complexity to the very well
+known kart racer genre. I can imagine new players liking the randomness of 
+kart racers while practiced players enjoy the additional depth of resource
+management.
 *** Things I am unsure about
--
+On the other hand an additional mechanic can also be an additional source of 
+frustration, e.g. missing puddles and therefore not having enough resources
+to start a comeback with an item. \\
+Furthermore I can see people being a little overwhelmed by the water tank as
+it may be very different to what they are used to.
 *** Suggestions
--
-
-
+Kart racers to me are usually in a grey area between serious and competitive games 
+and mindless fun spectacle. Depending on the direction of your game it may be 
+a better idea to either focus on gameplay balance or making the game feel and 
+look cool.
 * Soaper Duck
 
 ** Felix
@@ -102,12 +110,15 @@
 
 ** Minh
 *** Things I like
--
+There is very good replay in your idea.
 *** Things I am unsure about
--
+The low friction handicap may be a too little challenging,
+especially in the beginning. It can also make it harder to 
+instantly react to incoming obstacles.
 *** Suggestions
--
-
+In order to introduce the different obstacles and the way to deal with them,
+a tutorial (perhaps optional) might help a lot of people starting with 
+the game.
 
 * Slippery Bash
 
@@ -142,8 +153,16 @@
 
 ** Minh
 *** Things I like
--
+I can see this game to be a fun multiplayer game with
+a lot of replay value.
 *** Things I am unsure about
--
-*** Suggestions
--
+I feel like for a party game there are a lot of skill
+based mechanics. The amount of randomness in the form of the
+destruction system also seems rather low and "easy" to deal
+with. As a result your game may lose its identity as a party game.
+This may lead to a division of players mainly playing "for fun" and
+serious competitive players.
+*** Suggestion
+Maybe a comeback mechanic or a possibility to influence the game 
+after losing may enhance the experience without changing your 
+intended direction too much.
