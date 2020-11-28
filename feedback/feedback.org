@@ -57,11 +57,12 @@ On the other hand an additional mechanic can also be an additional source of
 frustration, e.g. missing puddles and therefore not having enough resources
 to start a comeback with an item. \\
 Furthermore I can see people being a little overwhelmed by the water tank as
-it may be very different to what they are used to.
+it may be very different to what they are used to in a kart racer.
 *** Suggestions
+# i dont like this, gonna change it tomorrow
 Kart racers to me are usually in a grey area between serious and competitive games 
 and mindless fun spectacle. Depending on the direction of your game it may be 
-a better idea to either focus on gameplay balance or making the game feel and 
+a better idea to either focus on gameplay balance or make the game feel and 
 look cool.
 * Soaper Duck
 
@@ -121,15 +122,16 @@ look cool.
 
 ** Minh
 *** Things I like
-There is very good replay in your idea.
+There is a lot of replay value in your game idea.
 *** Things I am unsure about
-The low friction handicap may be a too little challenging,
-especially in the beginning. It can also make it harder to 
-instantly react to incoming obstacles.
+The low friction handicap may be a too little challenging in the beginning. 
+It can also make it harder to instantly react to incoming obstacles.
 *** Suggestions
 In order to introduce the different obstacles and the way to deal with them,
 a tutorial (perhaps optional) might help a lot of people starting with 
-the game.
+the game. 
+Perhaps adding a different speed option when moving from side to side (e.g.
+while holding shift) may help players adjust to different situations.
 
 * Slippery Bash
 
@@ -177,10 +179,10 @@ a lot of replay value.
 I feel like for a party game there are a lot of skill
 based mechanics. The amount of randomness in the form of the
 destruction system also seems rather low and "easy" to deal
-with. As a result your game may lose its identity as a party game.
-This may lead to a division of players mainly playing "for fun" and
+with. In the worst case your game may lose its identity as a party game.
+This may lead to a division of players that mainly play "for fun" and
 serious competitive players.
 *** Suggestion
 Maybe a comeback mechanic or a possibility to influence the game 
 after losing may enhance the experience without changing your 
-intended direction too much.
+intended design direction too much.

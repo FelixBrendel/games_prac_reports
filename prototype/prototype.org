@@ -14,10 +14,10 @@ controlled cube to test in our sample level Figure [[Fig:Level1]].
 [[../images/Paper_prototype_img/sample_lv_1.jpeg]]
 
 Furthermore we created a foldable prototype from paper to test the third major
-game mechanic, the unfolding of the cube, in a rudementary test level. Due to
+game mechanic, the unfolding of the cube, in a rudimentary test level. Due to
 the physical limitations the cube can obviously not freely unfold and only use
 the pre-determined cuts.
-#+caption: Rudementary Test Level
+#+caption: Rudimentary Test Level
 #+name: Fig:PProtoLv2
 [[../images/Paper_prototype_img/sample_lvl_3.jpeg]]
 
@@ -26,21 +26,23 @@ the pre-determined cuts.
 ** cringe
 ** chess prototype was shit
 * Revisions
-
 * Observations & Revisions
 During the creation of the physical we realized several attributes, problems and
 design possibilities that we did not think about before. In the following
 sections we will highlight the most significant new perspectives that we gained
 in the prototyping process.
 ** Chess prototype
+# Minh: um ehrlich zu sein, jetzt wo ich das lese, fühlt sich dieser Teil
+#       ein bisschen unnötig an
 For our first attempt in prototype creation we used chess pieces to build the
-level (Figure [[PProtoChess]]). The main issues with this iteration of our prototype
+level (Figure [[Fig:PProtoChess]]). The main issues with this iteration of our prototype
 was that the chess pieces did not mark the tiles as distinctly as we wanted to.
 Therefore we opted to use rectangular building blocks for the prototype levels.
 #+caption: Chess Prototype
 #+name: Fig:PProtoChess
 [[../images/Paper_prototype_img/try1_shit.jpeg]]
 ** End Tiles dry or slippery
+# Minh: sooo, variable then?
 When testing our prototype one of the first things that we realized was that it
 is a significant difference whether the finish tile is slippery or dry. We see
 this aspect as a new angle in the level design as we can create levels that seem
@@ -49,10 +51,12 @@ the cube slide beyond the finish tile. This type of level design is especially
 suited for the first tier where the only mechanic available are the sliding
 tiles.
 ** Cube has to move into the folding direction while folding out(to keep possibilities open)
+# Minh: ich mein, ich habs im neuen Video ist es gefixt,
+#       aber von mir aus können wir das noch erwähnen
 ** Game Speed & Animation Locking
-While watching our footage we notice that the animation/game speed was far to
+While watching our footage we noticed that the animation/game speed was far to
 slow. The movement of the cube has to feel responsive while at the same time
-considering the animation locking that we want to implement due to gameplay
+consider the animation locking that we want to implement due to gameplay
 reasons. We believe that one effective way to balance these aspects is to
 implement input buffering, which allows the user to input a new command while
 the cube is still animation locked. This new command will then be executed as
