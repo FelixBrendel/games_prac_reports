@@ -1,0 +1,34 @@
+* Prototype Description
+For the phyiscal prototype of the second milestone we decided to use paper,
+domino tiles and wooden cubes. The dominoes were used as the map barrier while
+the wooden cubes performed the task of the collideable objects in the level as
+shown in Figure [[Fig:PProtoLv1]]. We first used a six sided die as the player
+controlled cube to test in our sample level Figure [[Fig:Level1]].
+
+#+caption: Sketch of Sample Level 1
+#+name: Fig:Level1
+[[../images/level1.png]]
+
+#+caption: Physical Prototype Sample Level 1
+#+name: Fig:PProtoLv1
+[[../images/Paper_prototype_img/sample_lv_1.jpeg]]
+
+Furthermore we created a foldable prototype from paper to test the third major
+game mechanic. Due to the physical limitations the cube can obviously not freely
+unfold and only use the pre-determined cuts.
+
+
+* Observations
+** Cube has to move into the folding direction while folding out to keep possibilities open
+** cringe
+** chess prototype was shit
+* Revisions
+* Meta Info :noexport:
+#+options: html-postamble:nil toc:nil title:nil
+#+macro: insert_game_name_here qubi
+#+macro: insert_team_name_here FünfKopf
+
+#+author: Felix Brendel, Jonas Helms, Van Minh Pham
+#+title: Prototype: {{{insert_game_name_here}}}
+
+#+latex_header: \input{latex.tex}

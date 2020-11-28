@@ -21,6 +21,12 @@ the pre-determined cuts.
 #+name: Fig:PProtoLv2
 [[../images/Paper_prototype_img/sample_lvl_3.jpeg]]
 
+* Observations
+** Cube has to move into the folding direction while folding out to keep possibilities open
+** cringe
+** chess prototype was shit
+* Revisions
+
 * Observations & Revisions
 During the creation of the physical we realized several attributes, problems and
 design possibilities that we did not think about before. In the following
