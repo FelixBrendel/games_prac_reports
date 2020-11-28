@@ -17,9 +17,16 @@
 
 ** Jonas
 *** Things I like
--
+- Really well thought out water tank mechanic that allows players in the back to
+  catch up due to puddles.
+- The focus on the duality of power up items so that they can be used offensivly
+  and defensivly is a great concept that fits well with the concept.
 *** Things I am unsure about
 -
+- The two aspects of the water spots: Filling up the water tank and decreasing
+  vehicle control might be unintuitive (not from a logical but a gameplay
+  experience) and could lead to either comepletly avoiding the puddles or
+  collecting all of them if the two aspects are not balanced well enough.
 *** Suggestions
 -
 
@@ -44,11 +51,15 @@
 
 ** Jonas
 *** Things I like
--
+- Cool game setting and flavor.
 *** Things I am unsure about
--
+- In an endless runner game the number of different game mechanics and
+  interactables has to be high in order of not being too repetetive.
+- Will the increasing difficulty be implemented by increasing the speed of the duck or by making the building blocks more difficult? According to the Design Document the building blocks are predetermined and can therefore not get more difficult if I understand correctly.
 *** Suggestions
--
+- Maybe also try to set course randomly by letting it follow a Bézier-Curve
+  through random points. The difficulty can then be increased by increasing the
+  curvature.
 
 ** Minh
 *** Things I like
@@ -71,11 +82,18 @@
 
 ** Jonas
 *** Things I like
--
+- Really cool setting and theme.
+- The ice golems are really cute.
+- Number of map events seem appropriate and the mechanics look very fun.
+- All aspects of the game, from the mechanics, game world and character design
+  mesh very well together.
 *** Things I am unsure about
--
+- Will the single screen for all users affect the map size or character clarity
+  in a negative way? (Because all players have to fit on the screen and there
+  still needs to be enough space for the events, fighting, ect.)
 *** Suggestions
--
+- Implement split-screen functionality or online mode if the single screen
+  inhibits gameplay due to map size.
 
 ** Minh
 *** Things I like
