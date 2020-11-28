@@ -6,14 +6,30 @@
 ** Felix
 
 *** Things I like
-- It will probably be a fun game because people are used to the feeling and
-  mechanics from other games
--
+- It will be a fun game because people are used to the feeling and mechanics
+  from other games
+- I am curious how well the AI will perform, it sounds really ambitious but at
+  the same time really interesting. It will be interesting to see how much the
+  AI plans their movement ahead vs how fast they can react to a changing
+  environment.
+
 *** Things I am unsure about
--
+- I hope Aquario Kart can introduce some mechanics to make it stand out from
+  other kart racers
+- It might be hard to find satisfying steering mechanics
 
 *** Suggestions
--
+- Maybe to stand out from other "party-games" -- personally -- I would like to
+  see more focus being put on a more balanced game. The thing -- again
+  personally -- I don't like about party games, is that the best player can
+  still lose while the worst can still win.
+
+- It might be interesting to see the AI take specific actions to reach specific
+  simple goals in the game. This is probably a lot harder that I think of it
+  right now, but for example if the AI wants the player to be at a certain
+  position relative to the player, it would be fun to see it trying to influence
+  the players steering based on its goals. (Maybe this is much harder that I
+  think, or maybe it is so obvious that you already thought about it :)
 
 ** Jonas
 *** Things I like
@@ -36,11 +52,45 @@
 
 ** Felix
 *** Things I like
--
+- I like the idea of procedurally generating an endless track
+- Really creative idea to have a bathroom themed game about a rubber duck
+- The replay feature is super cool
+
 *** Things I am unsure about
--
+- Maybe it can be challenging to build diverse levels with procedural
+  generation
+- It might be hard to find satisfying steering mechanics
+- It might be hard to make it feel natural (from a game design perspective) to
+  shoot water. If the goal is to go as far as possible, is it then not best to
+  go slow and safely?
+
 *** Suggestions
--
+- You probably already thought about the replay feature. But just from my quick
+  brainstorm, I think you would at least need to store the world-seed and the
+  user inputs to recreate the level and players movements. However absolute
+  timestamps will not suffice as they will be imprecise and over time errors
+  will add up. So you would need to either fix the framerate of the game and
+  record the inputs relative to the advanced frames or maybe at least only
+  process the inputs in fixed time steps but let the game render in a hiher
+  framerate.
+
+  The reason I was thinking about recording the inputs was, because I thought,
+  it might be easier than to record the position and orientation of the
+  character.
+
+  A possible -- and maybe more robust -- middle way would be to record the
+  position and orientation of the character at fixes time steps (maybe every 3
+  seconds) and between that try to figure out the intermediate positions based
+  on the recorded inputs. Like that, the replayfiles should not grow too big,
+  and it should also not be possible for errors to spiral out.
+
+  A relevant talk that comes to mind is:
+  https://www.youtube.com/watch?v=8dinUbg2h70 The presenter also had the problem
+  to store and replay movements of a character, to be even able to rewind back
+  in time and continue playing from there. If my memory served me right, he also
+  opted for an approach where the stored the complete game state in fixed
+  intervalls and inbetween tried his best to approximate it.
+
 
 ** Jonas
 *** Things I like
@@ -63,11 +113,24 @@
 
 ** Felix
 *** Things I like
--
+- Really cool art design -- of course I don't know if the game will look like
+  the art, but the art looks super cute
+- The game design seems really fair and not relying on randomness to gain huge
+  advantages
+
 *** Things I am unsure about
--
+- I think you have to be careful to not create frustrating moments through
+  random events that are not recoverable
+
 *** Suggestions
--
+- I am having a hard time to write down suggestions for your project, mainly
+  because I am now really knowledgeable about your game's genre. Just judging
+  from what you want to archieve, I would maybe start with a super simple
+  platform and first try to figure out, how complex the platform can be, before
+  visibiliy and movement becomes an issue, especially because every player will
+  look at the same screen. From there I would start to try to introduce the
+  other mechanics and alwas keep an eye on the fairness and also possible
+  visibiliy issues on the screen.
 
 ** Jonas
 *** Things I like
