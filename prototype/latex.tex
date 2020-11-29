@@ -3,7 +3,7 @@
 \usepackage{pdfpages}
 \usepackage{float}
 \renewcommand{\familydefault}{\sfdefault}
-
+\AtBeginDocument{\renewcommand{\ref}[1]{\autoref{#1}}}
 
 \AtBeginDocument{
   \begin{titlepage}
