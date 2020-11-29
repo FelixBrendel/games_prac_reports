@@ -1,6 +1,9 @@
 * Prototype Description
 For the phyiscal prototype of the second milestone we decided to use paper,
-domino tiles and wooden cubes. The dominoes were used as the map barrier while
+domino tiles and wooden cubes. 
+We first used a six sided Pokemon-themed die as 
+the player-controlled cube to test in our sample level Figure.
+The dominoes were used as the map barrier while
 the wooden cubes performed the task of the collideable objects in the level as
 shown in Figure [[Fig:PProtoLv1]]. We first used a six sided die as the player
 controlled cube to test our sample level Figure [[Fig:Level1]].
@@ -12,28 +15,64 @@ controlled cube to test our sample level Figure [[Fig:Level1]].
 
 #+caption: Physical prototype of the sample level 1
 #+name: Fig:PProtoLv1
-[[../images/Paper_prototype_img/sample_lv_1.jpeg]]
+#+caption: Sketch and Physical Prototype of Sample Level 1
+#+attr_latex: :options [htbp]
+#+begin_figure 
+#+begin_center
+#+attr_latex: :width 0.4\textwidth :center 
+ [[../images/level1.png]]
+#+attr_latex: :width 0.4\textwidth :center 
+[[../images/Paper_prototype_img/sample_lvl_1.jpeg]]  
+#+end_center
+#+end_figure
+
+In order to test out dry tiles a second prototype was created which was supposed 
+to resemble the second sample level.
+For the representation of these dry tiles we used colored strips of paper as 
+can be observed in the following.
+
+#+name: Fig:PProtoLv2
+#+caption: Sketch and Physical Prototype of Sample Level 2
+#+attr_latex: :options [htbp]
+#+begin_figure 
+#+begin_center
+#+attr_latex: :width 0.4\textwidth :center
+ [[../images/level2.png]]
+#+attr_latex: :width 0.4\textwidth :center
+[[../images/Paper_prototype_img/sample_lvl_2.jpg]]
+#+end_center
+#+end_figure
 
 Furthermore we created a foldable prototype from paper to test the third major
-game mechanic, the unfolding of the cube, in a rudementary test level. Due to
+game mechanic, the unfolding of the cube, in a rudimentary test level. Due to
 the physical limitations the cube can obviously not freely unfold and only use
 the pre-determined cuts.
-#+caption: Rudementary Test Level
-#+name: Fig:PProtoLv2
+
+#+name: Fig:PProtoLv3
+#+caption: Sketch and Physical Prototype of the rudimentary Test Level
+#+attr_latex: :options [htbp]
+#+begin_figure 
+#+begin_center
+#+attr_latex: :width 0.3\textwidth :center
+#+name: Fig:Level3
+ [[../images/unfoldSample.png]] 
+#+attr_latex: :width 0.4\textwidth :center
 [[../images/Paper_prototype_img/sample_lvl_3.jpeg]]
+#+end_center
+#+end_figure
 
-* Observations
-** Cube has to move into the folding direction while folding out to keep possibilities open
-** cringe
-** chess prototype was shit
-* Revisions
-
+# * Observations
+# ** Cube has to move into the folding direction while folding out to keep possibilities open
+# ** cringe
+# ** chess prototype was shit
+# * Revisions
 * Observations & Revisions
 During the creation of the physical we realized several attributes, problems and
 design possibilities that we did not think about before. In the following
 sections we will highlight the most significant new perspectives that we gained
 in the prototyping process.
-** Chess prototype
+# ** Chess prototype
+#+begin_comment
 For our first attempt in prototype creation we used chess pieces to build the
 level (Figure [[Fig:PProtoChess]]). The main issues with this iteration of our
 prototype was that the chess pieces did not mark the tiles as distinctly as we
@@ -42,24 +81,58 @@ prototype levels.
 #+caption: Chess Prototype
 #+name: Fig:PProtoChess
 [[../images/Paper_prototype_img/try1_shit.jpeg]]
-** End Tiles dry or slippery
-When testing our prototype one of the first things that we realized was that it
+#+end_comment
+
+** Transition from slippery to dry tile
+Testing the prototype for the second sample level ([[Fig:PProtoLv2]])brought up the 
+question of how the cube should behave when moving from a slippery surface onto
+a dry one and vice versa.
+Both possibilities of a sliding transition and a flipping motion seemed 
+equally plausible as both options influence the task of designing levels roughly
+the same.
+That being said, we made the decision to have the cube consistently flip by 90 
+degrees when transitioning between slippery and dry tiles. This seemed
+like the more "realistic" option to us.
+
+** Number of differentiable cube surfaces
+With the concept of dry tiles on which the cube would move by flipping by 90 degrees
+, we introduced new finish tiles. In order to complete such levels the cube
+would have to land on these finish tiles in a speciic orientation. \\   
+An further observation that was made in the second prototype ([[Fig:PProtoLv2]]) was that
+this initial concept would cause levels to become too complex if all six surfaces of the 
+cube mattered. 
+As a result we made the change reduce the number of all differentiable surfaces down to three.
+We feel it reduces the complexity down to a more reasonable level.
+** State of finish tiles
+# Minh: sooo, variable then?
+When testing our prototype one of the first things that we realized was that there
 is a significant difference whether the finish tile is slippery or dry. We see
 this aspect as a new angle in the level design as we can create levels that seem
 simple on the first glance but are more complex as the direct route would let
 the cube slide beyond the finish tile. This type of level design is especially
 suited for the first tier where the only mechanic available are the sliding
 tiles.
-** Cube has to move into the folding direction while folding out(to keep possibilities open)
+** Unfold direction of the cube
+The player is supposed unfold the cube in order to reach a tile they
+would otherwise slide over or not reach in the first place. 
+In the initial attempt of the sample level ([[Fig:PProtoLv3]]) in which we tried the 
+unfolding mechanic, we made the mistake of having the remainders of the
+partially unfolded cube stick the starting tile instead of moving forward.
+Having made this mistake it made us further consider whether the player should be
+able to unfold the cube anywhere as long as they are standing still or the cube can
+only be unfolded on dry tiles. \\
+# What's our call here? Maybe add additional indicators?
+
 ** Game Speed & Animation Locking
-While watching our footage we notice that the animation/game speed was far to
+While watching our footage we noticed that the animation/game speed was far to
 slow. The movement of the cube has to feel responsive while at the same time
-considering the animation locking that we want to implement due to gameplay
+consider the animation locking that we want to implement due to gameplay
 reasons. We believe that one effective way to balance these aspects is to
 implement input buffering, which allows the user to input a new command while
 the cube is still animation locked. This new command will then be executed as
 soon as the last animation has finished.
-
+ 
+# * Conclusion ?
 * Meta Info :noexport:
 #+options: html-postamble:nil toc:nil title:nil
 #+macro: insert_game_name_here qubi
@@ -69,3 +142,4 @@ soon as the last animation has finished.
 #+title: Prototype: {{{insert_game_name_here}}}
 
 #+latex_header: \input{latex.tex}
+
