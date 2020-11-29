@@ -3,13 +3,14 @@ For the phyiscal prototype of the second milestone we decided to use paper,
 domino tiles and wooden cubes. The dominoes were used as the map barrier while
 the wooden cubes performed the task of the collideable objects in the level as
 shown in Figure [[Fig:PProtoLv1]]. We first used a six sided die as the player
-controlled cube to test in our sample level Figure [[Fig:Level1]].
+controlled cube to test our sample level Figure [[Fig:Level1]].
 
-#+caption: Sketch of Sample Level 1
+#+attr_latex: :width 0.5\textwidth
+#+caption: Sketch of the sample level 1
 #+name: Fig:Level1
 [[../images/level1.png]]
 
-#+caption: Physical Prototype Sample Level 1
+#+caption: Physical prototype of the sample level 1
 #+name: Fig:PProtoLv1
 [[../images/Paper_prototype_img/sample_lv_1.jpeg]]
 
@@ -34,9 +35,10 @@ sections we will highlight the most significant new perspectives that we gained
 in the prototyping process.
 ** Chess prototype
 For our first attempt in prototype creation we used chess pieces to build the
-level (Figure [[PProtoChess]]). The main issues with this iteration of our prototype
-was that the chess pieces did not mark the tiles as distinctly as we wanted to.
-Therefore we opted to use rectangular building blocks for the prototype levels.
+level (Figure [[Fig:PProtoChess]]). The main issues with this iteration of our
+prototype was that the chess pieces did not mark the tiles as distinctly as we
+wanted to. Therefore we opted to use rectangular building blocks for the
+prototype levels.
 #+caption: Chess Prototype
 #+name: Fig:PProtoChess
 [[../images/Paper_prototype_img/try1_shit.jpeg]]
