@@ -1,5 +1,6 @@
 #+TITLE: Feedback
 #+startup: overview
+#+options: toc:nil title:nil
 
 * Aquario Kart: Double Splash!!
 
