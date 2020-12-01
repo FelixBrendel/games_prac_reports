@@ -1,20 +1,35 @@
 * Game Description Recap
+#+ATTR_REVEAL: :frag (grow shrink roll-in fade-out none)
 - Tile-based puzzle game
 - Goal is to move a cube from the start to the finish tile
 - Slippery tiles
 - Dry Tiles
 - Unfold
 
-* Big Idea Bullseye
-{{{insertimage(bullseye.png, , width:50%)}}}
+# * Big Idea Bullseye
+# {{{insertimage(bullseye.png, , width:50%)}}}
 
+* Materials used in Prototype
+- Domino tiles as level boundary
+- Wood blocks as obstacles
+- 6 sided die as player controlled cube
+{{{insertImage(Paper_prototype_img/sample_lvl_1.jpeg,,width:50%)}}}
 * Prototypes
 # kinda state what we used
 # one prototype for one mechanic
 # probably have prototype description & observation in one chapter
-** Purely Slippery Level
+- We created a test level for each of our three game mechanics
+  - Sliding
+  - Flipping
+  - Unfolding
+** Level with only slippery tiles
+- Was hard to produce the intended feeling
 ** Dry Level
+-
 ** Unfold Level
+
+* Summary
+- Main downside were lack of slippery tiles
 * Meta Data                                                        :noexport:
 #+title: qubi
 #+reveal_root: https://cdn.jsdelivr.net/npm/reveal.js
@@ -25,16 +40,16 @@
 #+reveal_plugins: (notes zoom)
 #+reveal_theme: white
 #+reveal_extra_css: extrastyle.css
-#+reveal_title_slide_background: ../images/title.png
+#+reveal_title_slide_background: ../../images/title.png
 #+reveal_init_options: slideNumber:"c/t"
 
 ** html templates
 #+reveal_title_slide:  <br><br><br><br><h1>%t</h1><h4>Felix Brendel<br>Jonas Helms<br>Van Minh Pham</h4>
-#+reveal_slide_header: <img class="tumlogo" src="../images/tum.png"/>
+#+reveal_slide_header: <img class="tumlogo" src="../../images/tum.png"/>
 #+reveal_slide_footer: <ul><li>Felix Brendel, Jonas Helms, Van Minh Pham</li><li>18.11.2020</li></ul>
 
 ** Macros
-#+macro: insertImage #+html: <figure><img style="$3" src="../images/$1" alt="$1"><figcaption>$2</figcaption></figure>
+#+macro: insertImage #+html: <figure><img style="$3" src="../../images/$1" alt="$1"><figcaption>$2</figcaption></figure>
 # usage: insertImage(pathToImage, imageCaption="", style="")
 # usage: insertVideo(pathToVid, imageCaption="", width="")
-#+macro: insertVideo #+html: <figure><video muted autoplay="true" loop width="$3"><source src="../images/$1" type="video/webm"></video><figcaption>$2</figcaption></figure>
+#+macro: insertVideo #+html: <figure><video muted autoplay="true" loop width="$3"><source src="../../images/$1" type="video/webm"></video><figcaption>$2</figcaption></figure>
