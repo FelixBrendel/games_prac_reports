@@ -40,8 +40,7 @@
 - Unfold direction of the cube
 - Game Speed & Animation Locking
 - Satisfying sound effect when moving the cube
-* Thank you
-- Thank you
+
 * Meta Data                                                        :noexport:
 #+title: qubi
 #+reveal_root: https://cdn.jsdelivr.net/npm/reveal.js
