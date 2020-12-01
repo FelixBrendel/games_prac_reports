@@ -1,13 +1,7 @@
 * Game Description Recap
-#+ATTR_REVEAL: :frag (grow shrink roll-in fade-out none)
 - Tile-based puzzle game
-- Goal is to move a cube from the start to the finish tile
-- Slippery tiles
-- Dry Tiles
-- Unfold
-
-# * Big Idea Bullseye
-# {{{insertimage(bullseye.png, , width:50%)}}}
+- Move a cube from the start to the finish tile
+{{{insertimage(bullseye.png, , width:40%)}}}
 
 * Materials used in Prototype
 - Domino tiles as level boundary
@@ -22,14 +16,32 @@
   - Sliding
   - Flipping
   - Unfolding
-** Level with only slippery tiles
-- Was hard to produce the intended feeling
+** Level with slippery tiles
+{{{insertVideo(prototype1.mp4,,80%)}}}
+#+ATTR_REVEAL: :frag (fade-in)
+- Prototype didn't capture the sliding well enough
 ** Dry Level
--
+- Colored paper strips represent dry tiles
+{{{insertImage(Paper_prototype_img/sample_lvl_2.jpg,,width:65%)}}}
+** Dry Level
+{{{insertVideo(dryPrototype.mp4,,80%)}}}
 ** Unfold Level
-
-* Summary
-- Main downside were lack of slippery tiles
+- We created a paper cube to realize the unfolding mechanic
+- Only limited unfolding prototype
+{{{insertImage(Paper_prototype_img/fold_level_1.jpeg,,width:50%)}}}
+{{{insertImage(Paper_prototype_img/sample_lvl_3.jpeg,,width:50%)}}}
+** Unfold Level
+{{{insertVideo(unfoldPrototype.mp4,,80%)}}}
+* Observations
+#+ATTR_REVEAL: :frag (fade-in fade-in fade-in fade-in fade-in fade-in)
+- Transition from slippery to dry tile
+- Number of distinguishable cube surfaces
+- Finish tile attribute
+- Unfold direction of the cube
+- Game Speed & Animation Locking
+- Satisfying sound effect when moving the cube
+* Thank you
+- Thank you
 * Meta Data                                                        :noexport:
 #+title: qubi
 #+reveal_root: https://cdn.jsdelivr.net/npm/reveal.js
@@ -52,4 +64,4 @@
 #+macro: insertImage #+html: <figure><img style="$3" src="../../images/$1" alt="$1"><figcaption>$2</figcaption></figure>
 # usage: insertImage(pathToImage, imageCaption="", style="")
 # usage: insertVideo(pathToVid, imageCaption="", width="")
-#+macro: insertVideo #+html: <figure><video muted autoplay="true" loop width="$3"><source src="../../images/$1" type="video/webm"></video><figcaption>$2</figcaption></figure>
+#+macro: insertVideo #+html: <figure><video muted autoplay="true" loop width="$3"><source src="../../videos/$1" type="video/webm"></video><figcaption>$2</figcaption></figure>
