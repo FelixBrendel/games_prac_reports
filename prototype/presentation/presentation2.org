@@ -28,8 +28,8 @@
 ** Unfold Level
 - We created a paper cube to realize the unfolding mechanic
 - Only limited unfolding prototype
-{{{insertImage(Paper_prototype_img/fold_level_1.jpeg,,width:50%)}}}
-{{{insertImage(Paper_prototype_img/sample_lvl_3.jpeg,,width:50%)}}}
+{{{insertImage(Paper_prototype_img/fold_level_1.jpeg,,position:absolute;top:300px;left:50px;width:40%)}}}
+{{{insertImage(Paper_prototype_img/sample_lvl_3.jpeg,,position:absolute;top:300px;left:550px;width:40%)}}}
 ** Unfold Level
 {{{insertVideo(unfoldPrototype.mp4,,80%)}}}
 * Observations
