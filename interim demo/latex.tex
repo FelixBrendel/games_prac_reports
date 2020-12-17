@@ -1,0 +1,34 @@
+\usepackage[margin=1in]{geometry}
+\usepackage{titling}
+\usepackage{pdfpages}
+\usepackage{float}
+\renewcommand{\familydefault}{\sfdefault}
+\AtBeginDocument{\renewcommand{\ref}[1]{\autoref{#1}}}
+
+\AtBeginDocument{
+  \begin{titlepage}
+  \begin{center}
+  \vspace*{2 cm}
+  \huge
+  \textbf{\thetitle}
+
+  \vspace{1cm}
+  \Large
+  Team \textit{FünfKopf}:
+
+  \vspace{0.2cm}
+  Felix Brendel \\ Jonas Helms \\ Van Minh Pham
+
+  \vspace{2cm}
+  \large
+  December 2020
+
+  \vspace{3cm}
+  \includegraphics[width=\textwidth]{../images/render.png}
+
+  \end{center}
+  \end{titlepage}
+  \clearpage
+  \tableofcontents
+  \clearpage
+}

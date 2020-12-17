@@ -1,0 +1,13 @@
+* Engine Work
+* Level Creation
+* Movement
+* Meta Info                                                        :noexport:
+#+options: html-postamble:nil toc:nil title:nil
+#+macro: insert_game_name_here qubi
+#+macro: insert_team_name_here FünfKopf
+
+#+author: Felix Brendel, Jonas Helms, Van Minh Pham
+#+title: Interim Demo: {{{insert_game_name_here}}}
+
+#+latex_header: \input{latex.tex}
+
