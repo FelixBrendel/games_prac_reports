@@ -7,7 +7,7 @@ The Vulkan Graphics API is a fairly young graphics API developed by the Khronos 
 *** Creating a Vulkan Instance
 *** Physical and logical devices
 *** Device Queue
-** Creation of the Render pipeline
+** Creation of the render pipeline
 Just as the Initialization is more elaborate compared to other high level Graphics API's, Vulkans render pipeline is also compromised of many elements that we will further explain in this chapter.
 *** Window Extension
 *** Presentation surface
@@ -36,14 +36,23 @@ High resolution clock mit query performance counter um einen performance counter
 sobald animation beginnt setzt er ein optional Lock, pro object: animation Lock. Falls Lock für Object existiert werden keine weiteren Animations ausgeführt für dieses Objekt.
 ***
 ** Animations
-Due to the structure of the scheduler any variable can be animated using the animation system. Right now there are 4 types of animations implemented: Ease in, Ease out, Ease in and out ,and Lerp.
+Due to the structure of the scheduler any variable can be animated using the animation system. Right now there are 4 types of animations implemented: Ease in, Ease out, Ease in and out ,and Lerp. Example Fov animation when finishing a level. All animations happen logically right after another but the scheduler schedules the animations one after another.
 *** Ease in
 *** Ease out
 *** Ease in and out
 *** Lerp
 *** Movement
 *** Example Animation: Flip Cube
-** Level Loading
+** Game Logic
+For the Game Objects that make up our scene  we have right now implemented the following categories 'start pos', 'finish' and 'obstacles' and 'slippery tiles'. All tiles  have a specific corresponding movement (sequence of animations) connected to them.
+*** Slippery tiles
+Slippery tiles are the fundamental part of the game. When the cube reaches a slippery tile it will slide until it reaches an obstacle. The sliding animation is computed using the Lerp function on the position values of the transform matrix.
+*** Dry tiles
+When moving on or onto a dry tile the cube flips over the bottom edge that corresponds to the direction that was input by the user. The flip movement is made up of 3 distinct movements:
+*** Finish tiles
+*** Obstacles
+*** Level Loading
+A early Layer 3 goal for our project was the ability to load levels from a text file so we can streamline the level creation process that will be a major part for the alpha release milestone. The object and structure coordinates in the text file  are grouped into categories and designated with 'begin category' and 'end category' which the map loader will then use to create a scene objects. Additionally the finish tiles have a extra keyword that determines whether they are slippery or dry and which color condition of the cube has to be fulfilled to finish the level. The rest of the tiles are automatically set to slippery.
 * Game Demo
 * Meta Info                                                        :noexport:
 #+options: html-postamble:nil toc:nil title:nil
