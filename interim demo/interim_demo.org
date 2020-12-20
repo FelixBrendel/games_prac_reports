@@ -1,3 +1,49 @@
+* Progress of Gameplay
+# mention layers of developement?
+For the interim demo we made the decision to focus on gameplay mechanics. As a
+lot of work went into building our own engine from scratch, we left the visuals
+at a basic level for the time being. In the following we elaborate on our
+progress so far. \\
+
+In terms of gameplay we have been able finish up layer 1 and 2 mentioned in our
+proposal. This means that the player is able to move the cube on the field by
+using the W,A,S,D buttons. As intended the cube slides on slippery tiles without
+changing its orientation until it hits an obstacle or a wall. The main task then
+is to navigate the cube through the level in order to get to the finish tile.
+Inputs can further be buffered while the cube is moving. This makes the cube
+instantly move into that direction when it arrives at a location.\\
+
+# screenshot of lvl1
+#+caption: Sample Level 1 including the movable cube, the red finish tile and brown obstacle tiles
+#+name: Fig:Lvl1
+#+attr_latex: :options [htbp] :width 0.4\textwidth
+#+begin_figure 
+#+begin_center
+#+name: Fig:Level1
+ [[../images/lvl1.png]] 
+#+end_center
+#+end_figure
+
+When moving onto a dry tile, the cube will flip into that direction. In order to
+finish these levels the cube would have to reach the finish tile in one of three
+specific orientations. For that we color-coded the sides as red, green and blue
+with one color represented on two opposites sides of the cube. Thanks to the
+angle of the camera the player can always observe all different sides of the
+cube and plan ahead. Furthermore depending on the level the finish tile can be
+slippery or dry adding flexibility to level designs.
+
+# screenshot of lvl2
+#+caption: Sample Level 2 including the green dry tiles and red finish with green
+#+caption: circle that requires the green side of the cube to be on top/bottom
+#+name: Fig:Lvl2
+#+attr_latex: :options [htbp] :width 0.4\textwidth
+#+begin_figure
+#+begin_center
+#+name: Fig:Level2
+ [[../images/lvl2.png]] 
+#+end_center
+#+end_figure
+
 * Engine Work
 As the development of our own game engine makes up the major part of our project
 we will first go over our current progress on the specific components and how
@@ -46,7 +92,7 @@ of memory to hold the initial amout of buckets. When later all buckets are full,
 it allocates more buckets. No entries need to be copied, the only thing that
 needs to be updated is the dynamic array that holds the pointers to the buckets.
 Since no elements will ever move, it is safe to store and use pointers to them
-everywhere. When elemets are freed, they are added to a free list, where they
+everywhere. When elements are freed, they are added to a free list, where they
 will be reused on the next allocation. The bucket allocator also provides
 functionality to iterate over all allocated elements. Bucket allocators are used
 for:
@@ -61,7 +107,10 @@ for:
 The scheduler manages active animations and scheduled actions.
 
 Animations are given by a start time, an end time, an aribitrary interpolant and
-an interpolation type.
+an interpolation type. We can animate any variable in memory. For example we
+animate the camera's field of view when finishing a level. But it would also be
+possible to animate single vertices or material parameters or anything else
+(which however we do not do at the current moment).
 
 The currently supported interpolant types are:
  - vectors
@@ -69,11 +118,14 @@ The currently supported interpolant types are:
  - floating point numbers
 
 More can be added later if the need arises. The basic interpolation functions
-are:
-- linear interpolation (also spherical linear interpolation)
-- quadratic ease-in
-- quadratic ease-out
-- quadratic ease-in and ease-out
+where the ease functions just manipulate the variable ~t~ $\in [0; 1]$ are:
+| type                                  | adjustment for t                            |
+|---------------------------------------+---------------------------------------------|
+| linear interpolation (also spherical) |                                             |
+| quadratic ease-in                     | ~t = t*t;~                                  |
+| quadratic ease-out                    | ~t = -(t*(t-2));~                           |
+| quadratic ease-in and ease-out        | ~t = (t<0.5) ? (2*t*t) : (-2*(t*(t-2))-1);~ |
+
 
 With this functionality, you can schedule even chains of animations in advance
 and continue with your game loop, as the scheduler will update the interpolants
@@ -171,18 +223,22 @@ The timestamps are stored as performance counters, since the easiest way to get
 a high resolution clock seems to be by calling =QueryPerformanceCounter= on
 Windows, and we wrote a similar function for linux.
 
-** Animations
-Due to the structure of the scheduler any variable can be animated using the
-animation system. Right now there are 4 types of animations implemented: Ease
-in, Ease out, Ease in and out ,and Lerp. Example Fov animation when finishing a
-level. All animations happen logically right after another but the scheduler
-schedules the animations one after another.
-*** Ease in
-*** Ease out
-*** Ease in and out
-*** Lerp
-*** Movement
-*** Example Animation: Flip Cube
+
+** Movement
+Having a deterministic animation system is important for the player's movement,
+as our game is a puzzle game, where movements have to be exact. In our case, the
+game world consists of 2 tile types the player can be on: slippery and dry tiles.
+
+We calculate the future gamestate for every input the user gives. This can be an
+iterative process, since one movement forces the cube into another one. This
+happens for example when standing on a dry tile and moving onto a slippery tile:
+The cube will flip onto the slippery ground and then immidiately start sliding
+in the same direction. So while simulating the future game state iteratively, we
+also at the same time generate and schedule the animations which manifest the
+movements to reach the calculated game state. This only works because we can
+calculate the start and end time of each movement and schedule the animations
+precisely to these times.
+
 ** Game Logic
 For the Game Objects that make up our scene we have right now implemented the
 following categories 'start pos', 'finish' and 'obstacles' and 'slippery tiles'.
@@ -209,7 +265,16 @@ Additionally the finish tiles have a extra keyword that determines whether they
 are slippery or dry and which color condition of the cube has to be fulfilled to
 finish the level. The rest of the tiles are automatically set to slippery.
 * Game Demo
+# tbh keine Ahnung was da rein soll
+* Challenges & Design Revisions
+# Minh: Vielleicht zum Thema Input Buffering oder Level Loading?
+When implementing the gameplay mechanics we encountered minor issues which were resolved
+rather quickly. The win condition as well as the different behaviors of the cube when reaching
+specific tiles in itself were not our biggest challenges either. \\
+Our main concerns were all in regards to the implementation of the engine.
+
 * Meta Info                                                        :noexport:
+#+startup: overview
 #+options: html-postamble:nil toc:nil title:nil
 #+macro: insert_game_name_here qubi
 #+macro: insert_team_name_here FünfKopf
