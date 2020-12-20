@@ -1,3 +1,33 @@
+* Progress of Gameplay
+# mention layers of developement?
+For the interim demo we made the decision to focus on gameplay mechanics. As a lot of work went into building 
+our own engine from scratch, we left the visuals at a basic level for the time being. 
+In the following we elaborate on our progress so far. \\
+
+In terms of gameplay we have been able finish up layer 1 and 2 mentioned in our proposal. 
+This means that the player is able to move the cube on the field by using the W,A,S,D buttons.
+As intended the cube slides on slippery tiles without changing its orientation until it hits an obstacle or a 
+wall. The main task then is to navigate the cube through the level in order to get to the finish tile.
+Inputs can further be buffered while the cube is moving. This makes the cube instantly move into
+that direction when it arrives at a location.\\
+# screenshot of lvl1
+#+caption: Sample Level 1 including the movable cube, the red finish tile and brown obstacle tiles
+#+name: Fig:Lvl1
+#+attr_latex: :options [htbp] :width 0.6\textwidth
+#+begin_figure 
+#+begin_center
+#+name: Fig:Level1
+ [[../images/lvl1.png]] 
+#+end_center
+#+end_figure
+When moving onto a dry tile, the cube will flip into that direction. In order to finish 
+these levels the cube would have to reach the finish tile in one of three specific orientations.
+For that we color-coded the sides as red, green and blue with one color represented on two opposites 
+sides of the cube. Thanks to the angle of the camera the player can always observe all different sides of the cube
+and plan ahead.
+Furthermore depending on the level the finish tile can be slippery or dry adding flexibility to level
+designs.
+# here would be a screenshot of lvl2, if I had one
 * Engine Work
 As the development of our own game engine makes up the major part of our project
 we will first go over our current progress on the specific components and how
@@ -57,8 +87,6 @@ for:
  - Materials
  - Scheduler (storing active animations and scheduled actions)
 
-
-
 ** Scheduler
 Actions and Animations are scheduled as lambda functions that determine when the
 animation should run, what should be animated and what type of function, either
@@ -67,11 +95,11 @@ a lambda function or a closer.
 *** Lambda functions & Closures
 *** High resolution clock
 High resolution clock mit =QueryPerformanceCounter= um einen performance counter
-von der cpu auszulesen-> teil vom scheduler um zu wissen wann die ausgeführt
+von der cpu auszulesen-> teil vom scheduler um zu wissen wann die ausgefÃ¼hrt
 werden
 *** Animation Lock
 sobald animation beginnt setzt er ein optional Lock, pro object: animation Lock.
-Falls Lock für Object existiert werden keine weiteren Animations ausgeführt für
+Falls Lock fÃ¼r Object existiert werden keine weiteren Animations ausgefÃ¼hrt fÃ¼r
 dieses Objekt.
 ** Animations
 Due to the structure of the scheduler any variable can be animated using the
@@ -111,6 +139,14 @@ Additionally the finish tiles have a extra keyword that determines whether they
 are slippery or dry and which color condition of the cube has to be fulfilled to
 finish the level. The rest of the tiles are automatically set to slippery.
 * Game Demo
+# tbh keine Ahnung was da rein soll
+* Challenges & Design Revisions
+# Minh: Vielleicht zum Thema Input Buffering oder Level Loading?
+When implementing the gameplay mechanics we encountered minor issues which were resolved
+rather quickly. The win condition as well as the different behaviors of the cube when reaching
+specific tiles in itself were not our biggest challenges either. \\
+Our main concerns were all in regards to the implementation of the engine.
+
 * Meta Info                                                        :noexport:
 #+options: html-postamble:nil toc:nil title:nil
 #+macro: insert_game_name_here qubi
