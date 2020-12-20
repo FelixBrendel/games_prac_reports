@@ -1,4 +1,4 @@
-* Progress of Gameplay
+* Progress in Gameplay
 # mention layers of developement?
 For the interim demo we made the decision to focus on gameplay mechanics. As a
 lot of work went into building our own engine from scratch, we left the visuals
@@ -14,7 +14,8 @@ Inputs can further be buffered while the cube is moving. This makes the cube
 instantly move into that direction when it arrives at a location.\\
 
 # screenshot of lvl1
-#+caption: Sample Level 1 including the movable cube, the red finish tile and brown obstacle tiles
+#+caption: Sample Level 1 including the movable cube, blue slippery tiles, 
+#+caption: the red finish tile and brown obstacle tiles
 #+name: Fig:Lvl1
 #+attr_latex: :options [htbp] :width 0.4\textwidth
 #+begin_figure 
@@ -223,7 +224,6 @@ The timestamps are stored as performance counters, since the easiest way to get
 a high resolution clock seems to be by calling =QueryPerformanceCounter= on
 Windows, and we wrote a similar function for linux.
 
-
 ** Movement
 Having a deterministic animation system is important for the player's movement,
 as our game is a puzzle game, where movements have to be exact. In our case, the
@@ -254,7 +254,14 @@ When moving on or onto a dry tile the cube flips over the bottom edge that
 corresponds to the direction that was input by the user. The flip movement is
 made up of 3 distinct movements:
 *** Finish tiles
+When coming to a hold on a finish tile the camera will zoom out. Right after
+the next level is loaded. We further gave finish tiles different additional types. 
+So a finish tile can either be slippery or dry. In levels in which the cube can
+flip, the finish tile also has a distinction depending on which of the three sides of 
+the cube needs to be on top/bottom.
 *** Obstacles
+Hitting an obstacle leads to the cube stopping right in front of it. No further
+animation was necessary here.
 *** Level Loading
 A early Layer 3 goal for our project was the ability to load levels from a text
 file so we can streamline the level creation process that will be a major part
@@ -264,20 +271,22 @@ text file are grouped into categories and designated with 'begin category' and
 Additionally the finish tiles have a extra keyword that determines whether they
 are slippery or dry and which color condition of the cube has to be fulfilled to
 finish the level. The rest of the tiles are automatically set to slippery.
-* Game Demo
-# tbh keine Ahnung was da rein soll
+# * Game Demo
 * Challenges & Design Revisions
 # Minh: Vielleicht zum Thema Input Buffering oder Level Loading?
 When implementing the gameplay mechanics we encountered minor issues which were resolved
 rather quickly. The win condition as well as the different behaviors of the cube when reaching
-specific tiles in itself were not our biggest challenges either. \\
-Our main concerns were all in regards to the implementation of the engine.
+specific tiles in itself were not our biggest challenges either. 
+Our main concerns were all in regards to the implementation of the engine to make sure it runs
+smoothly.
+As {{{insert_game_name_here}}} is a very simple game already, we did not make any design changes
+after observing our prototypes.
 
 * Meta Info                                                        :noexport:
 #+startup: overview
 #+options: html-postamble:nil toc:nil title:nil
 #+macro: insert_game_name_here qubi
-#+macro: insert_team_name_here FÃ¼nfKopf
+#+macro: insert_team_name_here FünfKopf
 
 #+author: Felix Brendel, Jonas Helms, Van Minh Pham
 #+title: Interim Demo: {{{insert_game_name_here}}}
