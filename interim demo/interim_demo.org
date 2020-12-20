@@ -1,14 +1,22 @@
 * Engine Work
-As the development of our own game engine makes up the major part of our project we will first go over our current progress on the specific components and how they relate to the layers of development. The engine was programmed in C++ while using the Vulkan Graphics API for the render pipeline.
+As the development of our own game engine makes up the major part of our project
+we will first go over our current progress on the specific components and how
+they relate to the layers of development. The engine was programmed in C++ while
+using the Vulkan Graphics API for the render pipeline.
 ** Vulkan Initialization
-The Vulkan Graphics API is a fairly young graphics API developed by the Khronos Group that was developed with the intent of leaving a higher amount of control to the developer. In turn this low level access means that the initialization and creation of the render pipeline was extensive.
+The Vulkan Graphics API is a fairly young graphics API developed by the Khronos
+Group that was developed with the intent of leaving a higher amount of control
+to the developer. In turn this low level access means that the initialization
+and creation of the render pipeline was extensive.
 *** Validation Layers
 *** Loading the Vulkan  Library
 *** Creating a Vulkan Instance
 *** Physical and logical devices
 *** Device Queue
 ** Creation of the render pipeline
-Just as the Initialization is more elaborate compared to other high level Graphics API's, Vulkans render pipeline is also compromised of many elements that we will further explain in this chapter.
+Just as the Initialization is more elaborate compared to other high level
+Graphics API's, Vulkans render pipeline is also compromised of many elements
+that we will further explain in this chapter.
 *** Window Extension
 *** Presentation surface
 *** Creating a swapchain
@@ -23,20 +31,54 @@ Just as the Initialization is more elaborate compared to other high level Graphi
 *** Normal mapped geometry
 *** Model Matrix
 ** Engine Structure
-Obviously the graphics pipeline is only part of the engine. Every game engine needs to handle the games resources such as the scenes, game objects, , . During the development a high importance was given to make the engine work as efficient as possible aswell as a . In the following paragraphs we will explain which systems are already in place and how they were implemented.
+Obviously the graphics pipeline is only part of the engine. Every game engine
+needs to handle the games resources such as the scenes, game objects, , . During
+the development a high importance was given to make the engine work as efficient
+as possible aswell as a. In the following paragraphs we will explain which
+systems are already in place and how they were implemented.
 *** Resource Allocation
 *** Bucket Allocater
+Meshes, textures, scenes all need to live in memory somewhere. But instead of
+heap allocating them all separately, we wrote an allocator to keep them
+together. The bucket allocator is basically a dynamic array of buckets, which
+are fixed-sized arrays. On startup the bucket allocator allocates itself a chunk
+of memory to hold the initial amout of buckets. When later all buckets are full,
+it allocates more buckets. No entries need to be copied, the only thing that
+needs to be updated is the dynamic array that holds the pointers to the buckets.
+Since no elements will ever move, it is safe to store and use pointers to them
+everywhere. When elemets are freed, they are added to a free list, where they
+will be reused on the next allocation. The bucket allocator also provides
+functionality to iterate over all allocated elements. Bucket allocators are used
+for:
+
+ - Textrues
+ - Meshes
+ - Scenes
+ - Materials
+ - Scheduler (storing active animations and scheduled actions)
+
+
+
 ** Scheduler
-Actions and Animations are scheduled as lambda functions that determine when the animation should run, what should be animated and what type of function, either a lambda function or a closer.
+Actions and Animations are scheduled as lambda functions that determine when the
+animation should run, what should be animated and what type of function, either
+a lambda function or a closer.
 *** Scheduler Structure
-*** Lambda functions & Closer
+*** Lambda functions & Closures
 *** High resolution clock
-High resolution clock mit query performance counter um einen performance counter von der cpu auszulesen-> teil vom scheduler um zu wissen wann die ausgeführt werden
+High resolution clock mit =QueryPerformanceCounter= um einen performance counter
+von der cpu auszulesen-> teil vom scheduler um zu wissen wann die ausgeführt
+werden
 *** Animation Lock
-sobald animation beginnt setzt er ein optional Lock, pro object: animation Lock. Falls Lock für Object existiert werden keine weiteren Animations ausgeführt für dieses Objekt.
-***
+sobald animation beginnt setzt er ein optional Lock, pro object: animation Lock.
+Falls Lock für Object existiert werden keine weiteren Animations ausgeführt für
+dieses Objekt.
 ** Animations
-Due to the structure of the scheduler any variable can be animated using the animation system. Right now there are 4 types of animations implemented: Ease in, Ease out, Ease in and out ,and Lerp. Example Fov animation when finishing a level. All animations happen logically right after another but the scheduler schedules the animations one after another.
+Due to the structure of the scheduler any variable can be animated using the
+animation system. Right now there are 4 types of animations implemented: Ease
+in, Ease out, Ease in and out ,and Lerp. Example Fov animation when finishing a
+level. All animations happen logically right after another but the scheduler
+schedules the animations one after another.
 *** Ease in
 *** Ease out
 *** Ease in and out
@@ -44,15 +86,30 @@ Due to the structure of the scheduler any variable can be animated using the ani
 *** Movement
 *** Example Animation: Flip Cube
 ** Game Logic
-For the Game Objects that make up our scene  we have right now implemented the following categories 'start pos', 'finish' and 'obstacles' and 'slippery tiles'. All tiles  have a specific corresponding movement (sequence of animations) connected to them.
+For the Game Objects that make up our scene we have right now implemented the
+following categories 'start pos', 'finish' and 'obstacles' and 'slippery tiles'.
+All tiles have a specific corresponding movement (sequence of animations)
+connected to them.
 *** Slippery tiles
-Slippery tiles are the fundamental part of the game. When the cube reaches a slippery tile it will slide until it reaches an obstacle. The sliding animation is computed using the Lerp function on the position values of the transform matrix.
+Slippery tiles are the fundamental part of the game. When the cube reaches a
+slippery tile it will slide until it reaches an obstacle. The sliding animation
+is computed using the Lerp function on the position values of the transform
+matrix.
 *** Dry tiles
-When moving on or onto a dry tile the cube flips over the bottom edge that corresponds to the direction that was input by the user. The flip movement is made up of 3 distinct movements:
+When moving on or onto a dry tile the cube flips over the bottom edge that
+corresponds to the direction that was input by the user. The flip movement is
+made up of 3 distinct movements:
 *** Finish tiles
 *** Obstacles
 *** Level Loading
-A early Layer 3 goal for our project was the ability to load levels from a text file so we can streamline the level creation process that will be a major part for the alpha release milestone. The object and structure coordinates in the text file  are grouped into categories and designated with 'begin category' and 'end category' which the map loader will then use to create a scene objects. Additionally the finish tiles have a extra keyword that determines whether they are slippery or dry and which color condition of the cube has to be fulfilled to finish the level. The rest of the tiles are automatically set to slippery.
+A early Layer 3 goal for our project was the ability to load levels from a text
+file so we can streamline the level creation process that will be a major part
+for the alpha release milestone. The object and structure coordinates in the
+text file are grouped into categories and designated with 'begin category' and
+'end category' which the map loader will then use to create a scene objects.
+Additionally the finish tiles have a extra keyword that determines whether they
+are slippery or dry and which color condition of the cube has to be fulfilled to
+finish the level. The rest of the tiles are automatically set to slippery.
 * Game Demo
 * Meta Info                                                        :noexport:
 #+options: html-postamble:nil toc:nil title:nil
