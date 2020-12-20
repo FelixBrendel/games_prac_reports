@@ -55,24 +55,122 @@ for:
  - Meshes
  - Scenes
  - Materials
- - Scheduler (storing active animations and scheduled actions)
-
-
+ - Scheduler
 
 ** Scheduler
-Actions and Animations are scheduled as lambda functions that determine when the
-animation should run, what should be animated and what type of function, either
-a lambda function or a closer.
-*** Scheduler Structure
-*** Lambda functions & Closures
-*** High resolution clock
-High resolution clock mit =QueryPerformanceCounter= um einen performance counter
-von der cpu auszulesen-> teil vom scheduler um zu wissen wann die ausgeführt
-werden
-*** Animation Lock
-sobald animation beginnt setzt er ein optional Lock, pro object: animation Lock.
-Falls Lock für Object existiert werden keine weiteren Animations ausgeführt für
-dieses Objekt.
+The scheduler manages active animations and scheduled actions.
+
+Animations are given by a start time, an end time, an aribitrary interpolant and
+an interpolation type.
+
+The currently supported interpolant types are:
+ - vectors
+ - quarternions
+ - floating point numbers
+
+More can be added later if the need arises. The basic interpolation functions
+are:
+- linear interpolation (also spherical linear interpolation)
+- quadratic ease-in
+- quadratic ease-out
+- quadratic ease-in and ease-out
+
+With this functionality, you can schedule even chains of animations in advance
+and continue with your game loop, as the scheduler will update the interpolants
+for all active animations every frame.
+
+As an example, if you would want to animate a jump, where the horizontal
+movement is linear, while the vertical is quadratic you could split up the
+animations in three parts which are scheduled together:
+- The upward movement, which is interpolated with ease-out
+- The downward movement, which is interpolated with ease-in
+- The horizontal movement, which is interpolated with linear interpolation
+
+#+begin_src c++
+f32 from_z = qubi.transform.position.z;
+f32 to_z   = qubi.transform.position.z + 1;
+f32 from_x = qubi.transform.position.x;
+f32 to_x   = qubi.transform.position.x + 2;
+
+Scheduler::schedule_animation({ // upward movement
+    .seconds_to_start   = 0,
+    .seconds_to_end     = 0.6,
+    .interpolant        = &qubi.transform.position.z,
+    .interpolant_type   = Interpolant_Type::F32,
+    .from               = &from_z,
+    .to                 = &to_z,
+    .interpolation_type = Interpolation_Type::Ease_Out,
+});
+Scheduler::schedule_animation({ // downward movement
+    .seconds_to_start   = 0.6,
+    .seconds_to_end     = 1.2,
+    .interpolant        = &qubi.transform.position.z,
+    .interpolant_type   = Interpolant_Type::F32,
+    .from               = &to_z,
+    .to                 = &from_z,
+    .interpolation_type = Interpolation_Type::Ease_In,
+});
+Scheduler::schedule_animation({ // horizontal movement
+    .seconds_to_start   = 0,
+    .seconds_to_end     = 1.2,
+    .interpolant        = &qubi.transform.position.x,
+    .interpolant_type   = Interpolant_Type::F32,
+    .from               = &from_x,
+    .to                 = &to_x,
+    .interpolation_type = Interpolation_Type::Lerp,
+});
+#+end_src
+
+With this capability, it is easy to procedurally generate the animations that we
+need for our game. Of course in our case, the cube does not jump, but for more
+complex scenarios, like when flipping from dry tiles onto ice, start sliding and
+flip back on a dry tile, it is possible now to deterministically compute the
+resulting game state after every key input, and schedule the animations that
+lead to it.
+
+If course, during the animations -- so while the cube is sliding or flipping --
+player inputs should not impact it's trajectory. For that you can give the
+scheduler a "lock" which is just a pointer to a boolean for now, which will be
+set to =true= as soon as the animation is scheduled, and which will be set to
+=false= as soon as the animation finished. For now this is good enough as we
+expect to run the animation code on the same thread as the user input code. So
+with this we have a =animation_locked= boolean variable whaich we can check on
+user input, to check if we actually want to compute a player movement, or just
+keep the button in the player's input buffer, so it will be used as soon as
+=animation_locked= becomes false again.
+
+Another thing that need to happen, is to check if the player finished the level
+as soon as the movement finishes. To do this, we don't check every frame for the
+finish condition, but rather schedule an action that checks for the finish
+condition on the exact time the animation finishes. Actions basically consist of
+a timer when they should run, and a functionpointer that will be called at that
+time; and since captureless lambdas kann be cast to function pointers we can
+even write them inline.
+
+#+begin_src c++
+Scheduler::schedule_action({
+    .seconds_to_run = animation_end_time,
+    .lambda = [](){
+      // check for finish condition
+    }
+});
+#+end_src
+
+C++ closures cannot be used as an action, as their size in memory varies, and
+thus cannot neatly be arranged in the bucket allocater holding all the actions
+(unless you use more levels of abstraction, like with =std::function= which
+themself heap allocate memory). On occasions we would need variable capture,
+actions have a fixed amount of space that can be used to store parameters to the
+function that should be scheduled.
+
+Internally the Scheduler just consists of two bucket allocators, one for
+animations and one for actions. The scheduler gets called once per frame to
+update the animations and call the actions that are due.
+
+The timestamps are stored as performance counters, since the easiest way to get
+a high resolution clock seems to be by calling =QueryPerformanceCounter= on
+Windows, and we wrote a similar function for linux.
+
 ** Animations
 Due to the structure of the scheduler any variable can be animated using the
 animation system. Right now there are 4 types of animations implemented: Ease
