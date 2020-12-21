@@ -54,16 +54,33 @@ using the Vulkan Graphics API for the render pipeline.
 The Vulkan Graphics API is a fairly young graphics API developed by the Khronos
 Group that was developed with the intent of leaving a higher amount of control
 to the developer. In turn this low level access means that the initialization
-and creation of the render pipeline was extensive.
-*** Validation Layers
-*** Loading the Vulkan  Library
-*** Creating a Vulkan Instance
-*** Physical and logical devices
-*** Device Queue
+and creation of the render pipeline was extensive. The actual vulkan functions
+do not validate any arguments passed to them, like some other graphics libraries
+do. This is done to improve performance but this also makes finding errors in
+the program harder as the program might just crash without an error. For this
+reason, vulkan has /validation layers/ which can be enabled in a debug build
+that check every argument passed to vulkan functions according to the
+specification. So our first steps in vulkan were to set up a debug build which
+enables the validation layers.
+
+Next to use the vulkan functions we decided to use the vulkan loader to fetch us
+the correct function pointers from the graphics driver on startup, for the
+functions that we need instead of linking against vulkan, as the linked vulkan
+would itself lookup the function pointers at runtime, so we can save some
+performance there.
+
+On application start our program first creates a /vulkan instance/ from which we
+can query the hardware and physical devices. When we decided on a physical
+device we want to use for rendering we create a "logical device" from it that is
+used on a higher level to access the gpu. Each physical device
+
 ** Creation of the render pipeline
 Just as the Initialization is more elaborate compared to other high level
 Graphics API's, Vulkans render pipeline is also compromised of many elements
 that we will further explain in this chapter.
+
+
+
 *** Window Extension
 *** Presentation surface
 *** Creating a swapchain
