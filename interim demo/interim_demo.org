@@ -47,36 +47,101 @@ slippery or dry adding flexibility to level designs.
 
 * Engine Work
 As the development of our own game engine makes up the major part of our project
-we will first go over our current progress on the specific components and how
-they relate to the layers of development. The engine was programmed in C++ while
-using the Vulkan Graphics API for the render pipeline.
+we will first go over our current progress on the specific components that we
+have implemented so far and how they relate to the layers of development. The
+engine was programmed in C++ while using the Vulkan Graphics API for the render
+pipeline.
 ** Vulkan Initialization
 The Vulkan Graphics API is a fairly young graphics API developed by the Khronos
 Group that was developed with the intent of leaving a higher amount of control
 to the developer. In turn this low level access means that the initialization
-and creation of the render pipeline was extensive.
+and creation of the render pipeline is more extensive when compared to
+high-level level API's like OpenGL.
+Before we could start with the initialization we had to install a graphics
+driver that supports the Vulkan API. As Vulkan can be used on different types of
+devices and operating systems we had to some additional basic setup to use
+Vulkan in our engine beyond finding a driver that supports Vulkan and runs on
+our hardware.
 *** Validation Layers
-*** Loading the Vulkan  Library
-*** Creating a Vulkan Instance
-*** Physical and logical devices
-*** Device Queue
-** Creation of the render pipeline
-Just as the Initialization is more elaborate compared to other high level
-Graphics API's, Vulkans render pipeline is also compromised of many elements
-that we will further explain in this chapter.
-*** Window Extension
-*** Presentation surface
-*** Creating a swapchain
-*** Buffers
-*** Images
-*** Command Buffers
-*** Descriptor Sets
-*** Sampler
-*** Render Pass
-*** Framebuffer
-*** Shader
-*** Normal mapped geometry
-*** Model Matrix
+One one way for the Vulkan developers to increase the performance of the
+graphics API was to decrease the amount of error checking done by the driver.
+The Vulkan driver is mostly a direct abstraction except for cross platform
+functionalities of the hardware. As no type of error checking would mean that is
+very difficult to use this API the Khronos Group decided to allow the use of
+additional debugging layers called "Validation Layers" that work right in
+between the user's application calls and the API. These Validation layers are
+part of the SDK and allow validating parameters, validating texture and render
+target formats, tracking Vulkan objects and their lifetime and much more. The
+validtation capabilities that we use are all packaged into a single layer called
+"VK_LAYER_LUNARG_standard_validation". More layers can be addedd and activated
+at the same time.
+*** Loading the Vulkan Library
+When you want your application to use the Vulkan API you have to use the vulkan
+loader which then connects the Vulkan API calls to the appropriate graphics
+driver. The Vulkan Loader is a dynamic library and is installed as part of the
+SDK provided by lunarg. To use the API functions in our enginge we just had to
+use the LoadLibrary() function on the .dll file. After the library is loaded we
+can then use a Vulkan-specific function that provides the addresses to all
+Vulkan API functions. These functions can be divided into three levels: global,
+instance and device. Device level functions perform operations such as drawing,
+creating shader modules and data copying. Instance level functions create a
+logical device but before we can do that we first have to create an instance. To
+create a Vulkan instance we have to use a global level function.
+*** Vulkan Instances & Extensions
+A Vulkan instance is an object that gathers the state of the an application and
+allow us to create a logical device. Information that is part of the instance is
+the application name, name of the engine used to create an application and the
+enabled instance level extension and layers. Extensions are needed to allow
+extra functionality for the instance that they are enabled on but have to be
+hardware compatible. Example of extensions that we use are swapchain related
+extensions and to create an OS level window for our application. Extension can
+be enabled on the instance or the device level.
+*** Creating a Vulkan instance
+After preparing the application info, the number of extensions and the list of
+extensions we then save these values in the InstanceCreateInfo struct. The
+Vulkan function vkCreateInstance then just receives the adress to this struct in
+which all the needed information is stored. The other arguments for the instance
+creation are the address of the instance handle we want to create and an
+argement for allocation callback functions which we have not used so far. The
+function then returns a enum of type vkResult which provides feedback whether
+the function call was able to be resolved correctly. (insert code)
+*** Vulkan structs and use
+To create an instance we have to provde the aforementioned application info,
+extensions and validation layers we want to enable to the Instance CreateInfo
+struct. The application info is also saved as a struct which means that we use
+nested structs to incorporate all the info for the instance. This also
+represents the general philosophy used in Vulkan. All information that
+determines the functionality of your use of the Vulkan API is stored in structs.
+For better identification and to improve readability the first attribute of the
+Vulkan structs is always reserved to identify which information the struct
+stores.
+*** Physical Device
+After creating a Vulkan instance we can then use instance level functions to
+gather information about the physical devices (the GPU) available on the
+hardware. A Vulkan application can be run on many different devices which can
+each incorporate wildly different hardware that have different perfomances and
+different capabilities. In order of making sure to chose the correct hardware
+(onboard GPU and stand alone GPU card) and to check if the available hardware is
+capable of running our application we first gather information about it and
+confirm that all features are supported. To do this Vulkan provide three
+functions: EnumeratePhysicalDevices() which stores a representation of all
+available physical devices, vkGetPhysicalDeviceFeatures which stores the
+available features , and vkGetPhysicalDeviceProperties which stores general
+information about the physical device. We can then use this information to
+choose a suitable phyiscal and then create a logical device from it.
+*** Logical Device
+Logical devices perform most of the work in Vulkan: we can create resources,
+manage memory, record command buffers, submit commands for processing ect.
+Bottom line is that they include all the functionality we need to create a
+render pipeline. A logical device represents a physical device (GPU) but it is
+including all the features and extension we have previously activated and the
+information about the queues that can be requested from it.
+*** Queue
+The control of the hardware in Vulkan is implemented through queues. Commands to
+a queue are processed in the order they are submitted but there are different
+types of queues which are processed independently. Different types of Queues are
+not only for different functionality, not all operations are allowed to be
+performed on all queues.
 ** Engine Structure
 Obviously the graphics pipeline is only part of the engine. Every game engine
 needs to handle the games resources such as the scenes, game objects, , . During
@@ -84,6 +149,20 @@ the development a high importance was given to make the engine work as efficient
 as possible aswell as a. In the following paragraphs we will explain which
 systems are already in place and how they were implemented.
 *** Resource Allocation
+To increase the performance of the engine we want to make sure that the loading
+of resources such as a texture map or a mesh is never done redundantly, which is
+likely the case in a puzzle game as key components are similar between different
+scenes. In order to implement this we allocate buffers upfront to store all our
+resources and a hashmap that maps the file paths of the loaded resources to
+their pointers in memory. If a resource becomes necessary in a scene, we can
+cross check whether the file path has already been loaded and then reuse the
+already loaded file instead of reloading it. This means that we will only load
+the difference between two levels which will reduce load times and create a smoother
+gameplay experience for the player. The Hashmaps also provide further advantage
+for the memory management as we can free the memory and GPU memory for the
+texture resources by iterating over the hashmap and can incorporate this in the
+scene load/unloading process.
+
 *** Bucket Allocator
 Meshes, textures, scenes all need to live in memory somewhere. But instead of
 heap allocating them all separately, we wrote an allocator to keep them
@@ -98,7 +177,7 @@ will be reused on the next allocation. The bucket allocator also provides
 functionality to iterate over all allocated elements. Bucket allocators are used
 for:
 
- - Textrues
+ - Textures
  - Meshes
  - Scenes
  - Materials
@@ -283,8 +362,8 @@ implementation of the engine to make sure it runs smoothly.
   pipeline and as a whole all the concepts and entities involved when rendering
   a scene on the gpu.
 - Additionally we realized quickly that something like quaternions are really
-  necessary if we do not want to keep track of the flips that occured, since of
-  course rotations are not kommutative.
+  necessary if we do not want to keep track of the flips that occured, rotations
+  are obviously not commutative.
 
 However some concerns about our own goals arose:
 
