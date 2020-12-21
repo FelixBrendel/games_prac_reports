@@ -72,8 +72,8 @@ additional debugging layers called "Validation Layers" that work right in
 between the user's application calls and the API. These Validation layers are
 part of the SDK and allow validating parameters, validating texture and render
 target formats, tracking Vulkan objects and their lifetime and much more. The
-validtation capabilities that we use are all packaged into a single layer called
-"VK_LAYER_LUNARG_standard_validation". More layers can be addedd and activated
+validation capabilities that we use are all packaged into a single layer called
+"VK_LAYER_LUNARG_standard_validation". More layers can be added and activated
 at the same time.
 *** Loading the Vulkan Library
 When you want your application to use the Vulkan API you have to use the vulkan
@@ -151,9 +151,9 @@ not only for different functionality, not all operations are allowed to be
 performed on all queues.
 ** Engine Structure
 Obviously the graphics pipeline is only part of the engine. Every game engine
-needs to handle the games resources such as the scenes, game objects, , . During
+needs to handle the games resources such as the scenes, game objects, etc. During
 the development a high importance was given to make the engine work as efficient
-as possible aswell as a. In the following paragraphs we will explain which
+as possible aswell as. In the following we will explain which
 systems are already in place and how they were implemented.
 *** Resource Allocation
 To increase the performance of the engine we want to make sure that the loading
@@ -383,7 +383,7 @@ However some concerns about our own goals arose:
 - And even though we implemented a method for loading levels from text files, we
   think for our purposes now, implemening them in C++ might actually have more
   benefits, as common aspects of the scene can easily be made default arguments
-  or stuct members. With C++, you have the expressive power of a programming
+  or stuct members. With C++, there is the expressive power of a programming
   language to setup the scene, so that the C++ implementation is both more
   simple and concise. An advantage of loading levels at runtime however, is that
   you can edit the level while the game is running and just reload the level to
