@@ -107,10 +107,10 @@ for:
 The scheduler manages active animations and scheduled actions.
 
 Animations are given by a start time, an end time, an aribitrary interpolant and
-an interpolation type. We can animate any variable in memory. For example we
-animate the camera's field of view when finishing a level. But it would also be
-possible to animate single vertices or material parameters or anything else
-(which however we do not do at the current moment).
+an interpolation type. We can animate any variable in memory. One example for
+this animated field of view of the camera when finishing a level. It would also
+be possible to animate single vertices or material parameters but this is not in
+use at the moment.
 
 The currently supported interpolant types are:
  - vectors
