@@ -84,7 +84,7 @@ the development a high importance was given to make the engine work as efficient
 as possible aswell as a. In the following paragraphs we will explain which
 systems are already in place and how they were implemented.
 *** Resource Allocation
-*** Bucket Allocater
+*** Bucket Allocator
 Meshes, textures, scenes all need to live in memory somewhere. But instead of
 heap allocating them all separately, we wrote an allocator to keep them
 together. The bucket allocator is basically a dynamic array of buckets, which
@@ -210,7 +210,7 @@ Scheduler::schedule_action({
 #+end_src
 
 C++ closures cannot be used as an action, as their size in memory varies, and
-thus cannot neatly be arranged in the bucket allocater holding all the actions
+thus cannot neatly be arranged in the bucket allocator holding all the actions
 (unless you use more levels of abstraction, like with =std::function= which
 themself heap allocate memory). On occasions we would need variable capture,
 actions have a fixed amount of space that can be used to store parameters to the
@@ -255,10 +255,10 @@ corresponds to the direction that was input by the user. The flip movement is
 made up of 3 distinct movements:
 *** Finish tiles
 When coming to a hold on a finish tile the camera will zoom out. Right after
-the next level is loaded. We further gave finish tiles different additional types. 
-So a finish tile can either be slippery or dry. In levels in which the cube can
-flip, the finish tile also has a distinction depending on which of the three sides of 
-the cube needs to be on top/bottom.
+that, the next level is loaded. We further gave finish tiles different
+additional types. So a finish tile can either be slippery or dry. In levels in
+which the cube can flip, the finish tile also has a distinction depending on
+which of the three sides of the cube needs to be on top/bottom.
 *** Obstacles
 Hitting an obstacle leads to the cube stopping right in front of it. No further
 animation was necessary here.
@@ -273,20 +273,41 @@ are slippery or dry and which color condition of the cube has to be fulfilled to
 finish the level. The rest of the tiles are automatically set to slippery.
 # * Game Demo
 * Challenges & Design Revisions
-# Minh: Vielleicht zum Thema Input Buffering oder Level Loading?
-When implementing the gameplay mechanics we encountered minor issues which were resolved
-rather quickly. The win condition as well as the different behaviors of the cube when reaching
-specific tiles in itself were not our biggest challenges either. 
-Our main concerns were all in regards to the implementation of the engine to make sure it runs
-smoothly.
-As {{{insert_game_name_here}}} is a very simple game already, we did not make any design changes
-after observing our prototypes.
+When implementing the gameplay mechanics we encountered mostly minor issues
+which were resolved rather quickly. The win condition as well as the different
+behaviors of the cube when reaching specific tiles in itself were not our
+biggest challenges either. Our main concerns were all in regards to the
+implementation of the engine to make sure it runs smoothly.
+
+- We spent a lot of time understanding theway to bind resources to the graphics
+  pipeline and as a whole all the concepts and entities involved when rendering
+  a scene on the gpu.
+- Additionally we realized quickly that something like quaternions are really
+  necessary if we do not want to keep track of the flips that occured, since of
+  course rotations are not kommutative.
+
+However some concerns about our own goals arose:
+
+- When we implemented input buffering, we noticed that once an animation is
+  started, on the next frame the key will most likely still be pressed, and thus
+  the key press would land in the input buffer, to be processed once the
+  animation is finished. This is of course not as we envisioned. We made it
+  necessary for the button to be be reset before it is eligible for the input
+  buffer.
+- And even though we implemented a method for loading levels from text files, we
+  think for our purposes now, implemening them in C++ might actually have more
+  benefits, as common aspects of the scene can easily be made default arguments
+  or stuct members. With C++, you have the expressive power of a programming
+  language to setup the scene, so that the C++ implementation is both more
+  simple and concise. An advantage of loading levels at runtime however, is that
+  you can edit the level while the game is running and just reload the level to
+  instantly see the changes you made to the scene.
 
 * Meta Info                                                        :noexport:
 #+startup: overview
 #+options: html-postamble:nil toc:nil title:nil
 #+macro: insert_game_name_here qubi
-#+macro: insert_team_name_here FünfKopf
+#+macro: insert_team_name_here FÃ¼nfKopf
 
 #+author: Felix Brendel, Jonas Helms, Van Minh Pham
 #+title: Interim Demo: {{{insert_game_name_here}}}
