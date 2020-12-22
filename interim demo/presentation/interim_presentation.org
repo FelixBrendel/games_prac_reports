@@ -1,9 +1,18 @@
-* Objectives
+* Gameplay Progress
 - layer 1 and 2
-- building functional engine
-- main focus on gameplay
-- visuals on basic level
-* Game Progress
+- main focus on gameplay mechanics
+- visuals on a basic level
+** Slippery Levels
+- W,A,S,D keys move the cube
+- cube slides on blue slippery tiles
+- brown obstacle tiles stop moving cube
+- red finish tile
+{{{insertimage(lvl1.png, , width:55%)}}}
+** Dry Levels
+- three different colors for the sides of the cube
+- moving onto a green dry tile makes the cube flip
+- cube needs to be in a specific orientation on the finish
+{{{insertimage(lvl2.png, , width:50%)}}}
 * Engine Progress
 * Challenges
 - Understanding how to talk to the GPU
