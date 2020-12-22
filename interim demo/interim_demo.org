@@ -73,7 +73,7 @@ between the user's application calls and the API. These Validation layers are
 part of the SDK and allow validating parameters, validating texture and render
 target formats, tracking Vulkan objects and their lifetime and much more. The
 validtation capabilities that we use are all packaged into a single layer called
-"VK_LAYER_LUNARG_standard_validation". More layers can be addedd and activated
+VK_LAYERLUNARG_standard_validation. More layers can be addedd and activated
 at the same time.
 *** Loading the Vulkan Library
 When you want your application to use the Vulkan API you have to use the vulkan
@@ -83,8 +83,9 @@ SDK provided by lunarg. To use the API functions in our enginge we just had to
 use the LoadLibrary() function on the .dll file. After the library is loaded we
 can then use a Vulkan-specific function that provides the addresses to all
 Vulkan API functions. These functions can be divided into three levels: global,
-instance and device. Device level functions perform operations such as drawing,
-creating shader modules and data copying. Instance level functions create a
+instance and device. Device level functions perform all the operations that are
+needed for 3D rendering such as drawing, the creation of shader modules,
+buffers, images, samplers and data copying. Instance level functions create a
 logical device but before we can do that we first have to create an instance. To
 create a Vulkan instance we have to use a global level function.
 *** Vulkan Instances & Extensions
@@ -98,28 +99,29 @@ extensions and to create an OS level window for our application. Extension can
 be enabled on the instance or the device level.
 *** Creating a Vulkan instance
 After preparing the application info, the number of extensions and the list of
-extensions we then save these values in the InstanceCreateInfo struct. The
+extensions we can then store these values in the InstanceCreateInfo struct. The
 Vulkan function vkCreateInstance then just receives the adress to this struct in
-which all the needed information is stored. The other arguments for the instance
-creation are the address of the instance handle we want to create and an
-argement for allocation callback functions which we have not used so far. The
-function then returns a enum of type vkResult which provides feedback whether
-the function call was able to be resolved correctly. (insert code)
-*** Vulkan structs and use
+which all the needed information for creation is stored. The other arguments for
+the instance creation are the address of the instance handle we want to create
+and an argement for allocation callback functions which we have not used so far.
+The function then returns a enum of type vkResult which provides feedback
+whether the function call was able to be resolved correctly. (CODE)
+*** Vulkan structs and CreateInfo
 To create an instance we have to provde the aforementioned application info,
-extensions and validation layers we want to enable to the Instance CreateInfo
+extensions and validation layers we want to enable to the InstanceCreateInfo
 struct. The application info is also saved as a struct which means that we use
 nested structs to incorporate all the info for the instance. This also
 represents the general philosophy used in Vulkan. All information that
-determines the functionality of your use of the Vulkan API is stored in structs.
-For better identification and to improve readability the first attribute of the
-Vulkan structs is always reserved to identify which information the struct
-stores.
+determines the functionality of your use of the Vulkan API is stored in the
+according CreateInfo struct which is then used to create the corresponding
+object. For better identification and to improve readability the first attribute
+of the Vulkan structs is always reserved to identify which information the
+struct stores.
 *** Physical Device
 After creating a Vulkan instance we can then use instance level functions to
 gather information about the physical devices (the GPU) available on the
 hardware. A Vulkan application can be run on many different devices which can
-each incorporate wildly different hardware that have different perfomances and
+each incorporate wildly different hardware that have different perfomance and
 different capabilities. In order of making sure to chose the correct hardware
 (onboard GPU and stand alone GPU card) and to check if the available hardware is
 capable of running our application we first gather information about it and
@@ -135,13 +137,88 @@ manage memory, record command buffers, submit commands for processing ect.
 Bottom line is that they include all the functionality we need to create a
 render pipeline. A logical device represents a physical device (GPU) but it is
 including all the features and extension we have previously activated and the
-information about the queues that can be requested from it.
-*** Queue
-The control of the hardware in Vulkan is implemented through queues. Commands to
-a queue are processed in the order they are submitted but there are different
-types of queues which are processed independently. Different types of Queues are
-not only for different functionality, not all operations are allowed to be
-performed on all queues.
+information about the queues that can be requested from it. To create a logical
+device from a physical device we also need to determine which queue families are
+supported by that physical device and which queue families we want to use.
+*** Device Queues
+The control of the hardware in Vulkan is implemented through queues. Commands
+are recorded and then submitted to a queue where they are processed by the
+hardware in the order they are submitted. There are different types of queues
+which are processed independently and there can be multiple queues of one type
+but these processed according to a priority. Different types of Queues are
+needed as not all operations are allowed to be performed on all queues. Most
+noteable examples of queue operations are graphics, compute and transfer. These
+Queues are not created explicitly by the application but have to be requested
+from the physical device and are then created with the creation of the logical
+device, which means that the supported queue's may differ from hardware to
+hardware. To check the properties and available queue families of our physical
+device we used the
+"CheckAvailableQueueFamiliesAndTheirProperties(physicalDevice, target)" (CODE)
+function. This commands stores the queue families, a bit-vector that describes
+the operations that are usable by each family and the number of queues each
+family supports in the target vector. For the development of our game and engine
+we all used NVIDIA GPU's which have one queue family and 16 different avilable
+queues that all support graphics, compute, transfer and sparse binding
+operations.
+** Creation of the render pipeline
+Just as the Initialization is more elaborate compared to other high level
+Graphics API's, Vulkans render pipeline is also compromised of many elements
+that we will further explain in this chapter.
+*** Window System Integration extension
+Due to the intended portable, cross-platform nature of Vulkan it is not possible
+to directly display an image in the applications window as there is no universal
+standard for presenting images for different operating systems. Each operating
+system for which Vulkan is available has its own Windowing System Integration
+extension (WSI) which allows to integrate Vulkan with the OS's specific
+windowing system. To enable the use of a Vulkan represenation of an application
+window we had to first add the following instance level extensions during
+instance creation:
+- VK_KHR_SURFACE_EXTENSION_NAME
+- VK_KHR_WIN32_SURFACE_EXTENSION_NAME
+After adding the instance level extensions we also have to add these two device level extensions:
+- VK_KHR_win32_surface which allows our application to manage and create presentation surfaces
+- VK_KHR_surface which allows us to destroy presentation surfaces (close the window)
+For our engine we used the GLFW extension which also handles our user inputs.
+*** Presentation surface
+The presenation surface represents the application's window. From the
+presentation window we can gather important information like the dimensions of
+the window, the supported color formats, presentation modes and if a physical
+device is able to display an image in the given window. This means that it is
+possible to create presentation surface first to determine which physical device
+is best suited to display images in that window (browser applications vs 3D
+simulations). To create a presentation surface we first have to create a window
+from which the presentation surface collects the CreateWindow() and the
+GetModuleHandle(nullptr) values. These are then consolidated in a CreateInfo
+struct and passed to the vkCreateWin32SurfaceKHR method.
+*** Presentation mode
+The presentation mode determines for example whether we use a backbuffer which
+will be important for the swapchain creation. The four Vulkan supported
+presentation modes are IMMEDIATE, FIFO RELAXED, RELAXED and MAILBOX. Depending
+on the hardware used some modes are not usable which was the case for some of
+our members.
+*** Creating a swapchain
+A swapchain is a number of virtual framebuffers managed by the presentaiton
+engine that are used by a GPU to stabilize the frame rate. A swapchain consists
+of atleast two buffers, one screenbuffer that is used to represent the current
+image on the screen and one backbuffer into which the GPU renders the next frame
+to be displayed. After the presentation of the screenbuffer image has finished
+the buffers swap, thus allowing the frames to be displayed smoothly one after
+another. In order to render into these framebuffers we first need to acquire it
+them from the presentation engine and then return it. The returning of the
+buffer informs the driver that we want to display that image on screen. How To use a
+swapchain in our engine we need to add a device level extension called
+"VK_KHR_SWAPCHAIN_NAME" on an instance that has WSI extensions enabled (check
+this).
+*** Buffers
+*** Images
+*** Command Buffers
+*** Descriptor Sets
+*** Sampler
+*** Render Pass
+*** Framebuffer
+*** Shader
+*** Normal mapped geometry
+*** Model Matrix
 ** Engine Structure
 Obviously the graphics pipeline is only part of the engine. Every game engine
 needs to handle the games resources such as the scenes, game objects, , . During
@@ -385,6 +462,7 @@ However some concerns about our own goals arose:
 * Meta Info                                                        :noexport:
 #+startup: overview
 #+options: html-postamble:nil toc:nil title:nil
+#+OPTIONS: ^:{}
 #+macro: insert_game_name_here qubi
 #+macro: insert_team_name_here FünfKopf
 
