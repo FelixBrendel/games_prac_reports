@@ -210,11 +210,109 @@ swapchain in our engine we need to add a device level extension called
 "VK_KHR_SWAPCHAIN_NAME" on an instance that has WSI extensions enabled (check
 this).
 *** Buffers
+Buffers and images can be used for various purposes: in shaders, we can read or
+sample data from them, or store data in them. Buffers can also store vertex
+attributes, indices, or parameters used during indirect drawing. Buffers can be
+used for various purposes. They can be used in pipelines via descriptor sets to
+back data stores for uniform buffers, storage buffers, or texel buffers, among
+others. They can be a source of data for vertex indices or attributes, or can be
+used as staging resources-- intermediate resources for data transfer from the
+CPU to the GPU. To use a buffer for our application we first need to allocate a
+memory object and bind it to the buffer. To allocate a memory object for a
+buffer we need to know what memory types are available on our physical device.
+Directly mapping memory data from our application requires the memory type
+host-visible. Buffers are bound to a pipeline using descriptor sets and can then
+be used as a source of data in the shaders. We use a dynamic buffer for the
+model matrix of the game objects.
 *** Images
+Buffers represent linear arrays of data. Image represent one-, two-, or
+three-dimensional data organized in a way that is specified by the given
+hardware. Images can also be used as color or depth/stencil attachments (render
+targets), which means that we can render into them. Usually represented as image
+view.
+*** Uniform Buffers
+Uniform buffers are used to provide values for read-only uniform variables inside shaders.
+*** Storage Images
+When we want to store data in imgaes from within shaders we need to use storage
+images. Samplers can not be used for storage images.
 *** Command Buffers
+The low level control of Vulkan is also achieved through the way we communicate
+and interact with the engine. In Vulkan we use command buffers to specify when
+and which commands are sent to the hardware to be executed. Command buffers can
+be recorded in multiple threads unlike high level API's like OpenGL where the
+commands are implicitly sent to the hardware without developer influence. More
+responsiblity but also more flexibility and control. This means we also need to
+control not only what we submit but also when we submit it (semaphores and
+fences) Commands are first recorded and then submitted to the targeted queue.
+The recording allows the reuse of already used command queues. Needed to Draw,
+copy memory ect. Semaphores are used to synchronize the device queues as some
+commands may require a command from another queue to be finished before they are
+executed themselves. Semaphores of a command buffer are associated with a
+pipeline stage. Fences on the otherhand are used to check whether a command has
+already finished or is still being processed. The function "vkQueueWaitIdle()"
+pauses the application until all work (processing of the command buffers)
+submitted to the given queue is finished. This should only be used rarely as the
+GPU is much faster than the CPU and may require work to be constantly submitted
+to utilize all available perfomance.
+*** Command Pools
+Command pools are the objects which hold the recorded commands, it is basicly a
+memory pool for command buffers. They also inform the driver about the intended
+usage of the command buffers that allocate their storage from them (the memory
+for this is allocated dynamically and implicitly) and how they should be freed
+after. Command pools also determine the queue families the command buffers can
+be submitted to. From a command pool the commands are allocated and then
+recorded to command buffers. Create seperate command pools for each thread of
+the application that should be able to record command buffers to improve
+perfomance and minimize the required synchronization.
+- Primary command buffers are directly submitted to queues and can execute secondary command buffers
+- Secondary command buffers can only be executed from primary command buffers
+  and can not be submitted. Executing a secondary command buffer from a primary
+  one does not inherit the state of the primary buffer except in a render pass.
+In Vulkan the state of command buffers is not defined this means that we need to
+prepare the appropriate buffers beforehand. Example: The drawing command uses
+vertex attributes and indices so we need to bind the vertex data buffer and
+vertex indice buffer in preparation.
+- vkBeginCommandBuffer()
+- vkEndCommandBuffer()
+Starting another record operation implicitly resets the command buffer but this
+can also be done explicitly. Resetting the command pool reset all command
+buffers allocated from that pool.
+*** Descriptor Set Layout
+Descriptor sets gather many resources (descriptors) in one object. They are later bound to
+a pipeline to establish an interface between our application and the shaders. But for the
+hardware to know what resources are grouped in a set, how many resources of each type
+there are, and what their order is, we need to create a descriptor set layout. The descriptor set layout specifies the internal structure of a descriptor set and, at the same
+time, strictly defines what resources can be bound to the descriptor set (we can't use
+resources other than those specified in the layout).
+When we want to create layouts, we need to know what resources (descriptor types) will be
+used and what their order will be. The order is specified through bindings--they define the
+index (position) of a resource within a given set and are also used inside shaders (with a set
+number through a layout qualifier) to specify a resource we want to acces.
 *** Descriptor Sets
 *** Sampler
+Samplers consolidate parameters that determine how image data is loaded and read
+inside shaders. This is called sampling. Sampled images are used to read data
+from textures inside shaders. (To use an image as a sampled image it must be
+created with VK_IMAGE_USAGE_SAMPLED_BIT) It may increase perfomance to combine a
+sampler and a sampled image object into a combined sampler object. When we want
+to use an image as a sampled image, before we load data from it inside shaders,
+we need to transition the image's layout to
+VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL.
+*** Attachments
+Attachments are images into which we render during drawing commands, inside
+render passes. In other words, they are render targets.
+*** Input Attachments
+ Input attachments are
+image resources from which we can read  data inside fragment
+shaders.
 *** Render Pass
+In Vulkan, rendering operations are gathered into render passes. Each render pass has at
+least one subpass, but can have more. If we render to an attachment in one subpass, we can
+then use it as an input attachment and read data from it in subsequent subpasses of the
+same render pass. It is in fact the only way to read data from attachments in a given render
+pass--images serving as attachments in a given render pass can only be accessed through
+input attachments inside shaders (they cannot be bound to descriptor sets for purposes
+other than input attachments).
 *** Framebuffer
 *** Shader
 *** Normal mapped geometry

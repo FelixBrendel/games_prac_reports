@@ -5,6 +5,36 @@
 - visuals on basic level
 * Game Progress
 * Engine Progress
+** Graphics API
+- Vulkan
+- low level access to hardware
+- Cross platform and low overhead
+- More responsiblity but also more flexibility and control
+** Vulkan Initialization
+- Vulkan Instance
+- Physical and Logical Devices
+- Presentation surfaces & Extensions
+** Vulkan structure
+- Device Queues
+- Swapchain
+- Command buffers
+** Rendering pipeline
+- Buffers & Images
+- Attachments
+- Sampler
+- Render Pass
+** Descriptor Sets & Layout
+- Bindings grouped by rebind frequency
+- Number of bound sets is limited
+Grafik of:
+1) Binding 0: view, proj, lightpos mat
+2) Binding 1: empty
+3) Binding 2: diffuse und normal tex
+4) Binding 3: model matrix
+** SPIRV Shader
+- Shaders are pre-compiled into own format
+- Increases perfomance and amount of usable shaders
+- Still use GLSL to write shaders
 * Challenges
 * Meta Data                                                        :noexport:
 #+title: qubi
