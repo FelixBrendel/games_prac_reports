@@ -1,46 +1,11 @@
-* Game Description Recap
-- Tile-based puzzle game
-- Move a cube from the start to the finish tile
-{{{insertimage(bullseye.png, , width:40%)}}}
-
-* Materials used in Prototype
-- Domino tiles as level boundary
-- Wood blocks as obstacles
-- 6 sided die as player controlled cube
-{{{insertImage(Paper_prototype_img/sample_lvl_1.jpeg,,width:50%)}}}
-* Prototypes
-# kinda state what we used
-# one prototype for one mechanic
-# probably have prototype description & observation in one chapter
-- We created a test level for each of our three game mechanics
-  - Sliding
-  - Flipping
-  - Unfolding
-** Level with slippery tiles
-{{{insertVideo(prototype1.mp4,,80%)}}}
-#+ATTR_REVEAL: :frag (fade-in)
-- Prototype didn't capture the sliding well enough
-** Dry Level
-- Colored paper strips represent dry tiles
-{{{insertImage(Paper_prototype_img/sample_lvl_2.jpg,,width:65%)}}}
-** Dry Level
-{{{insertVideo(dryPrototype.mp4,,80%)}}}
-** Unfold Level
-- We created a paper cube to realize the unfolding mechanic
-- Only limited unfolding prototype
-{{{insertImage(Paper_prototype_img/fold_level_1.jpeg,,position:absolute;top:300px;left:50px;width:40%)}}}
-{{{insertImage(Paper_prototype_img/sample_lvl_3.jpeg,,position:absolute;top:300px;left:550px;width:40%)}}}
-** Unfold Level
-{{{insertVideo(unfoldPrototype.mp4,,80%)}}}
-* Observations
-#+ATTR_REVEAL: :frag (fade-in fade-in fade-in fade-in fade-in fade-in)
-- Transition from slippery to dry tile
-- Number of distinguishable cube surfaces
-- Finish tile attribute
-- Unfold direction of the cube
-- Game Speed & Animation Locking
-- Satisfying sound effect when moving the cube
-
+* Objectives
+- layer 1 and 2
+- building functional engine
+- main focus on gameplay
+- visuals on basic level
+* Game Progress
+* Engine Progress
+* Challenges
 * Meta Data                                                        :noexport:
 #+title: qubi
 #+reveal_root: https://cdn.jsdelivr.net/npm/reveal.js
@@ -57,7 +22,7 @@
 ** html templates
 #+reveal_title_slide:  <br><br><br><br><h1>%t</h1><h4>Felix Brendel<br>Jonas Helms<br>Van Minh Pham</h4>
 #+reveal_slide_header: <img class="tumlogo" src="../../images/tum.png"/>
-#+reveal_slide_footer: <ul><li>Felix Brendel, Jonas Helms, Van Minh Pham</li><li>18.11.2020</li></ul>
+#+reveal_slide_footer: <ul><li>Felix Brendel, Jonas Helms, Van Minh Pham</li><li>Dec.23rd.2020</li></ul>
 
 ** Macros
 #+macro: insertImage #+html: <figure><img style="$3" src="../../images/$1" alt="$1"><figcaption>$2</figcaption></figure>
