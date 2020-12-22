@@ -330,22 +330,23 @@ For the Game Objects that make up our scene we have right now implemented the
 following categories 'start pos', 'finish' and 'obstacles' and 'slippery tiles'.
 All tiles have a specific corresponding movement (sequence of animations)
 connected to them.
-*** Slippery tiles
+*** Different Tile Behaviors
+# *** Slippery tiles
 Slippery tiles are the fundamental part of the game. When the cube reaches a
 slippery tile it will slide until it reaches an obstacle. The sliding animation
 is computed using the Lerp function on the position values of the transform
 matrix.
-*** Dry tiles
+# *** Dry tiles
 When moving on or onto a dry tile the cube flips over the bottom edge that
-corresponds to the direction that was input by the user. The flip movement is
-made up of 3 distinct movements:
-*** Finish tiles
+corresponds to the direction that was input by the user. 
+# The flip movement is made up of 3 distinct movements:
+# *** Finish tiles
 When coming to a hold on a finish tile the camera will zoom out. Right after
 that, the next level is loaded. We further gave finish tiles different
 additional types. So a finish tile can either be slippery or dry. In levels in
 which the cube can flip, the finish tile also has a distinction depending on
 which of the three sides of the cube needs to be on top/bottom.
-*** Obstacles
+# *** Obstacles
 Hitting an obstacle leads to the cube stopping right in front of it. No further
 animation was necessary here.
 *** Level Loading
@@ -357,7 +358,6 @@ text file are grouped into categories and designated with 'begin category' and
 Additionally the finish tiles have a extra keyword that determines whether they
 are slippery or dry and which color condition of the cube has to be fulfilled to
 finish the level. The rest of the tiles are automatically set to slippery.
-# * Game Demo
 * Challenges & Design Revisions
 When implementing the gameplay mechanics we encountered mostly minor issues
 which were resolved rather quickly. The win condition as well as the different
