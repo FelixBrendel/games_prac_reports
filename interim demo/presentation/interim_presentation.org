@@ -6,6 +6,14 @@
 * Game Progress
 * Engine Progress
 * Challenges
+- Understanding how to talk to the GPU
+- Representing orientations with quaternions
+- Finding a good model for describing scenes
+** Animations
+- Should be precise and deterministic
+- Not Simulated
+- But scheduled in advance
+
 * Meta Data                                                        :noexport:
 #+title: qubi
 #+reveal_root: https://cdn.jsdelivr.net/npm/reveal.js
