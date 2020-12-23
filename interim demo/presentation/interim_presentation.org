@@ -1,15 +1,16 @@
-* Engine Progress
+* Engine
 - Vulkan Graphics API
 - Low level access to hardware
 {{{insertImage(/interim_demo/Vulkan_smol.png, , width:40%)}}}
-** Rendering
+** Engine progress: Rendering
 - Render 3D Scenes
 - Load 3D models with textures
 - Static point lights
 {{{insertImage(/interim_demo/table_picture.png, , width:50%)}}}
-** Engine structure
+** Engine progress: structure
+#+ATTR_REVEAL: :frag (fade-in)
 - Resource management
-- Animation system
+- Scheduler & Animation system
 - Load level from .txt files
 * Gameplay Progress
 - Layer 1 and 2
