@@ -1,49 +1,31 @@
+* Engine Progress
+- Vulkan Graphics API
+- Low level access to hardware
+{{{insertImage(/interim_demo/Vulkan_smol.png, , width:40%)}}}
+** Rendering
+- Render 3D Scenes
+- Load 3D models with textures
+- Static point lights
+{{{insertImage(/interim_demo/table_picture.png, , width:50%)}}}
+** Engine structure
+- Resource management
+- Animation system
+- Load level from .txt files
 * Gameplay Progress
-- layer 1 and 2
-- main focus on gameplay mechanics
-- visuals on a basic level
+- Layer 1 and 2
+- Main focus on gameplay mechanics
+- Visuals on a basic level
 ** Slippery Levels
 - W,A,S,D keys move the cube
-- cube slides on blue slippery tiles
-- brown obstacle tiles stop moving cube
-- red finish tile
+- Cube slides on blue slippery tiles
+- Brown obstacle tiles stop moving cube
+- Red finish tile
 {{{insertimage(lvl1.png, , width:55%)}}}
 ** Dry Levels
-- three different colors for the sides of the cube
-- moving onto a green dry tile makes the cube flip
-- cube needs to be in a specific orientation on the finish
+- Three different colors for the sides of the cube
+- Moving onto a green dry tile makes the cube flip
+- Cube needs to be in a specific orientation on the finish
 {{{insertimage(lvl2.png, , width:50%)}}}
-* Engine Progress
-** Graphics API
-- Vulkan
-- low level access to hardware
-- Cross platform and low overhead
-- More responsiblity but also more flexibility and control
-** Vulkan Initialization
-- Vulkan Instance
-- Physical and Logical Devices
-- Presentation surfaces & Extensions
-** Vulkan structure
-- Device Queues
-- Swapchain
-- Command buffers
-** Rendering pipeline
-- Buffers & Images
-- Attachments
-- Sampler
-- Render Pass
-** Descriptor Sets & Layout
-- Bindings grouped by rebind frequency
-- Number of bound sets is limited
-Grafik of:
-1) Binding 0: view, proj, lightpos mat
-2) Binding 1: empty
-3) Binding 2: diffuse und normal tex
-4) Binding 3: model matrix
-** SPIRV Shader
-- Shaders are pre-compiled into own format
-- Increases perfomance and amount of usable shaders
-- Still use GLSL to write shaders
 * Challenges
 - Understanding how to talk to the GPU
 - Representing orientations with quaternions
