@@ -13,14 +13,15 @@ Letting go of the space key will have the cube refold on latest tile
 the cube moved onto. 
 This adds additional depth in gameplay options and level design, e.g. 
 featuring multiple finish tiles that the cube has to be on at the same time.
-Of course this feature is only accesible on dry tiles as it would break the 
-game otherwise. Furthermore unfolding is exclusive to specific levels later on 
-as it may trivialize earlier levels with dry tiles.
+This feature is only accesible on dry tiles as it would make the game too easy
+and impossible to create harder levels. Furthermore unfolding is exclusive to 
+specific levels later on as it may also trivialize earlier levels with dry tiles.
 Even then this mechanic may lead to unpredictable situations in certain levels. But we 
 believe that having a lot options to play around with will lead to a more enjoyable 
 experience as long these options do not get in the way of each other.\\
 Should the player be stuck in a level and cannot progress, the 'R' key can be 
-pressed to restart the level.
+pressed to restart the entire level. If the player wants undo one single move, 
+pressing the 'U' key will achieve this.
 ** Levels
 Levels have been ordered the same way the three main gameplay mechanics have 
 been added.
