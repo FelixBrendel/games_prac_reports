@@ -50,8 +50,8 @@ The first step towards the implementation of the undolding mechanic, was
 splitting the cube into its 6 segments. Until then we just used a primitive cube
 mesh, but to allow for unfolding, we made a single mesh for a cube segment and
 instantiate it for each of the cube sides, with the different materials. This of
-couse made the movement logic a bit more complicated as now all segments have to
-be moved in sync. This is archieved, by parentign them all to an empty object,
+course made the movement logic a bit more complicated as now all segments have to
+be moved in sync. This is archieved, by parenting them all to an empty object,
 animating the empty object and then unparenting them again. While parentign and
 unparenting we calculate the new local transformation, so the object does not
 move in world spce when parenting or unparenting. Furthermore the parenting,
