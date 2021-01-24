@@ -1,8 +1,55 @@
+* Alpha Release Content
+With the implementation of the last unfolding mechanic
+players now have a lot of options to approach solving levels. In levels involving all
+major gameplay mechanics this may lead to a bit of uncertainty. 
+Despite this we look forward to how players experiment and play around 
+with all the mechanics in these levels. 
+** Gameplay Features
+In terms of gameplay features we are finished.
+The cube can be moved freely and all tile types (slippery, dry, finishes)
+have been implemented.
+Finally players can now hold the space key in order to unfold the cube.
+Letting go of the space key will have the cube refold on latest tile
+the cube moved onto. 
+This adds additional depth in gameplay options and level design, e.g. 
+featuring multiple finish tiles that the cube has to be on at the same time.
+This feature is only accesible on dry tiles as it would make the game too easy
+and impossible to create harder levels. Furthermore unfolding is exclusive to 
+specific levels later on as it may also trivialize earlier levels with dry tiles.
+Even then this mechanic may lead to unpredictable situations in certain levels. But we 
+believe that having a lot options to play around with will lead to a more enjoyable 
+experience as long these options do not get in the way of each other.\\
+Should the player be stuck in a level and cannot progress, the 'R' key can be 
+pressed to restart the entire level. If the player wants undo one single move, 
+pressing the 'U' key will achieve this.
+** Levels
+Levels have been ordered the same way the three main gameplay mechanics have 
+been added.
+So the first part of the game only includes levels in which the player can merely
+slide on. This way players can familiarize themselves with setting as well as 
+controls. The number of these levels is rather low as there is too little variety
+to work with.
+After this introduction levels include dry tiles as well as finishes (dry or slippery) 
+that require a specific side of the cube to be on the bottom/top in order to finish the level.
+Lastly, with the highest amount of levels, we add the unfolding mechanic. These levels have 
+the most options to play with. 
+Designing such levels became a challenge as it was easy to lose a general view with the sheer 
+amount of options.   
+As a result there is a good chance that players might find solutions in these levels that bypass most 
+of the level in a way we did not predict. But as long as these solutions were found only using 
+the provided gameplay mechanics, we do not see a problem in this.
+# Ich hab nichts dagegen diesen Abschnitt rauszunehmen, wenn er euch nicht gefällt
+This has led to a shift in terms of designing levels. Now the focus lies less in having levels 
+maintain a steady difficulty curve. It is more about offering players a healthy amount of freedom 
+to play around with all the gameplay mechanics.
+That being said we always make sure that levels are beatable. 
+** Music & Sound Effects
+
 * Engine Progress
 ** Sound
 We think that sound, especially in puzzle games is a major contributor to the
 overall feel of the game. As mentioned in the other project notebook chapters
-(e.g. Physiocal Prototype) one major focus for our development was to capture
+(e.g. Physical Prototype) one major focus for our development was to capture
 the correct feeling of our vision as succinctly as possible so implementing a
 sound system was a high priority after the initial engine was work finished
 (even thought we forgot to add it to the layers of development in the first
@@ -27,13 +74,17 @@ expected and sounds realistic and varied. A function to chose a random sample
 from a group of will still be necessary for the future but the possibility of
 implementing the sliding sound effect in such a way is something to take not of
 especially due to the fickleness of sound loops in general.
-* Alpha Release Content
-** Gameplay Features
-** Level Structure
-** Music & Sound Effects
+
 * Challenges
 - jonas
 * Outlook
+Regrettably we are still behind in terms of visuals as these are still on a rudimentary level.
+This means while we have a stable enough version of qubi that we could use for playtesting, we
+will have to focus on working on the visuals in the meantime as well. 
+We will further have to add a UI system to provide an options menu. 
+# Folgenden Satz können wir kürzen, wenn wir bis Mittwoch ein Tutorial schaffen
+Basic instructions on how to play the game will have to be added as well as an indicator showing 
+which level the player is in.
 * Meta Info                                                        :noexport:
 #+startup: overview
 #+options: html-postamble:nil toc:nil title:nil
