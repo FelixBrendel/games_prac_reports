@@ -33,6 +33,12 @@ After this introduction levels include dry tiles as well as finishes (dry or sli
 that require a specific side of the cube to be on the bottom/top in order to finish the level.
 Lastly, with the highest amount of levels, we add the unfolding mechanic. These levels have 
 the most options to play with. 
+#+name: fig:level
+#+caption: This level shows one of many options with which levels can be designed using
+#+caption: all three gameplay mechanics.
+#+attr_latex: :width 0.3\textwidth
+[[../images/24012021.png]]
+
 Designing such levels became a challenge as it was easy to lose a general view with the sheer 
 amount of options.   
 As a result there is a good chance that players might find solutions in these levels that bypass most 
