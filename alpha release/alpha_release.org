@@ -43,8 +43,40 @@ This has led to a shift in terms of designing levels. Now the focus lies less in
 maintain a steady difficulty curve. It is more about offering players a healthy amount of freedom 
 to play around with all the gameplay mechanics.
 That being said we always make sure that levels are beatable. 
+** Music & Sound Effects
+
 * Engine Progress
+** Sound
+We think that sound, especially in puzzle games is a major contributor to the
+overall feel of the game. As mentioned in the other project notebook chapters
+(e.g. Physical Prototype) one major focus for our development was to capture
+the correct feeling of our vision as succinctly as possible so implementing a
+sound system was a high priority after the initial engine was work finished
+(even thought we forgot to add it to the layers of development in the first
+chapter).
+*** irrKlang Sound Engine
+For the sound eninge in this project we chose to use the irrKlang sound library.
+IrrKlang is a object oriented interface designed for games and supports all
+current sound formats such as .wav .flac and .mp3. It is able to run on Linux
+and Windows which was an important aspect to consider to ensure our cross
+platform compability.
+*** Additional work
+Most of the basic function that irrKlang provides were enough for this game
+because our use for now will not exceed simple sound effects and background
+music. The only work on top of the irrKlang functions that was needed was the
+timing of the effects using the scheduling system of the engine. One additional
+interesting fact to note was the possibility to skip the use of a random number
+generator for choosing a random sound effect. We thought that this would be
+necessary as playing the same sound effect repeatedly for an action such as
+sliding is very repetetive. Instead we tried to use a longer sound sample of a
+slide and continously loop through it which worked much better than we initially
+expected and sounds realistic and varied. A function to chose a random sample
+from a group of will still be necessary for the future but the possibility of
+implementing the sliding sound effect in such a way is something to take not of
+especially due to the fickleness of sound loops in general.
+
 * Challenges
+- jonas
 * Outlook
 Regrettably we are still behind in terms of visuals as these are still on a rudimentary level.
 This means while we have a stable enough version of qubi that we could use for playtesting, we
