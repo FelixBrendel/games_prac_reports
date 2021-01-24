@@ -45,6 +45,82 @@ to play around with all the gameplay mechanics.
 That being said we always make sure that levels are beatable. 
 ** Music & Sound Effects
 
+* Implementation changes
+The first step towards the implementation of the undolding mechanic, was
+splitting the cube into its 6 segments. Until then we just used a primitive cube
+mesh, but to allow for unfolding, we made a single mesh for a cube segment and
+instantiate it for each of the cube sides, with the different materials. This of
+couse made the movement logic a bit more complicated as now all segments have to
+be moved in sync. This is archieved, by parentign them all to an empty object,
+animating the empty object and then unparenting them again. While parentign and
+unparenting we calculate the new local transformation, so the object does not
+move in world spce when parenting or unparenting. Furthermore the parenting,
+animation and unparenting are scheduled as soon as the user presses a button, to
+avoid any simulation inaccuracies during the animation.
+
+With these capabilities in place we could start to implement the unfolding. When
+unfolding, instead of flipping the whole cube, only flip the ~active~ segments
+and every segment that faces downwards becomes ~passive~. Like this it became
+possible to unfold the cube. Of course we had to limit the directions that can
+be unfolded to, as not all directions are always possible, limited by the
+geometry of the cube. A possible unfolding configuration can be seen in
+[[fig:unfold1]].
+
+#+name: fig:unfold1
+#+caption: The resulting unfolding configuration following the input
+#+caption: directions Up - Up - Right starting from the (0, 1) tile
+#+attr_latex: :width 0.6\textwidth
+[[../images/unfold1.png]]
+
+To make the cube be able to refold, we additionally store the ~passive~ segments
+in a list, ordered by the time they became passive. So when it comes time to
+refold, we refold the segments in the same order, for them to reach the "head"
+position -- the position where the player stopped the unfolding process. The
+refolding then works by first making all segments ~passive~ except the first
+placed segement. Determine in which direction it should flip, depending on where
+the next places segment is, because it should fold onto that. Then create an
+empty object at the appropriate edge, parent the segment to it, animate the
+empty to fold the segment, and unparent the segment again. This process
+continues, always additionally making the next segment ~active~ so all segments
+fold back together to the cube. Also all these actions and animations are
+scheduled as soon as the player decides to refold the cube, again to be able to
+produce a reliable and exact animation.
+
+We discovered, that for some legal unfolding schemes, the refolding alogithm
+would produce an animation, in which geometry of the cube would penetrate
+itself. We found six unfolding configurations (disregarding all symmetries) in
+which an impossible refolding is generated. We then wrote code to detect each of
+the six cases and then add more animations to the chain for each case in such a
+way, that the geometry does not penetrate itself anymore. An example refolding
+which would penetrate itself, together with the handwritten fix can be seen in
+[[fig:unfold2]]. The challenge here was to be able to detect the configurations and
+all ther symmetries in all directions reliably and also make the additional
+handwritten animations work for all of them.
+
+#+caption: Left: The animation the default refolding algorithm produces can
+#+caption: lead to geometry penetrating another part of the cube. Right: The
+#+caption: handwritten animation for this specific unfolding scheme opens up
+#+caption: the cube, so the segments do not collide
+#+name: fig:unfold2
+#+attr_latex: :options [htbp]
+#+begin_figure
+#+begin_center
+#+attr_latex: :width 0.4\textwidth :center
+ [[../images/unfold2.png]]
+#+attr_latex: :width 0.4\textwidth :center
+ [[../images/unfold3.png]]
+#+end_center
+#+end_figure
+
+With unfolding and refolding in place we could then implement levels with
+multiple finishes onto which the player will have to unfold to activate them
+all. We extended the already existing ~finish_check~ routine to iterate over all
+the finishes in the level and check for each if the finish condition is
+satisfied. We also moved away from storing levels in a hashmap with their name
+as the key, as we want the levels to be loaded in order as the player plays
+through them. So now we just store them in an array list.
+
+
 * Engine Progress
 ** Sound
 We think that sound, especially in puzzle games is a major contributor to the
@@ -54,6 +130,7 @@ the correct feeling of our vision as succinctly as possible so implementing a
 sound system was a high priority after the initial engine was work finished
 (even thought we forgot to add it to the layers of development in the first
 chapter).
+
 *** irrKlang Sound Engine
 For the sound eninge in this project we chose to use the irrKlang sound library.
 IrrKlang is a object oriented interface designed for games and supports all
@@ -96,4 +173,3 @@ which level the player is in.
 #+title: Alpha Release: {{{insert_game_name_here}}}
 
 #+latex_header: \input{latex.tex}
-
