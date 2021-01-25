@@ -43,8 +43,48 @@ This has led to a shift in terms of designing levels. Now the focus lies less in
 maintain a steady difficulty curve. It is more about offering players a healthy amount of freedom 
 to play around with all the gameplay mechanics.
 That being said we always make sure that levels are beatable. 
-** Music & Sound Effects
-
+** Music
+When thinking about the design of our game we had very specific criteria that we
+wanted our background music to fulfill. As we were designing a game based on
+spatial and geometric puzzles we wanted a slow and soothing soundtrack that does
+not distract the player and offers the space to think about the puzzles. This is
+also due our expectation to inhibit possible frustration that can occur in
+puzzle games and especially in puzzle games in a subject of math that is
+considered difficult for the general population. At the same time the music
+should capture an etheral feeling, inspired by the soundtrack of the 2D
+platformer game "GRIS", which focuses on simple piano melodies in the early
+levels. The main loop for our music also uses a simple repeating eletronic piano
+melody that tries to convey a light feeling and is thus written to decrease
+distraction. The drum beat is oriented on typical Lo-Fi beats that are currently
+very popular as a background music for studying (LoFi to relax and study). The
+kick, hihat and clap for the drumbeat were chosen to provide a necessary amount
+of rythmic texture for the otherwise repetetive melody loop. The general music
+loop is with 2 minutes playtime quite long but this allowed us to diversify the
+arrangement and spice up the composition with a sliding synth bass inbetween.
+The etheral component of the music was achieved by using a modular syntheziser
+plugin that in our opinion fits very well into settings of dreamy scenes and are
+very well suited to create a background layer similar to the use of foley
+samples in modern producing. The melody from the modular synthesizer is a
+reoccuring part of the music loop but is also the theme for the main menu
+screen. As the music in the main menu it prepares the setting for the game and
+is due its lack of rythm easily faded into the main loop that starts to play
+once the first level is loaded.
+** Sound effects
+Sound effects are very important in games as they can provide audio feedback
+that let the player distinguish their interactions with the game mechanics. In
+{{{insert_game_name_here}}} sound effects mostly fulfill this role but there is
+also an additional to give an insight for the activation of an end tiles which
+is used as a tutorial tool. The rest of the sound effects like sliding and the
+knock that is played when the cube flips work like conformations similar to
+tactile feedback for keyboards but in the audio world. Sound effects can also
+affect how humans interpret the displayed scene. In the first iterations of the
+flip sound effect the frequency spectrum of the sample was considerably lower
+which made the cube appear heavier then what we had imagined for its feel in the
+game world. This was adjusted by decreasing the lower frequencies and boosting
+the mids by using a multi-band compressor plugin. Something to note is that it
+was surprisingly difficult to find a sound sample for the slide that was also
+able to loop indefinitly and still had the satisfying sound effect that we
+imagined during the playtesting of the physical prototype.
 * Implementation changes
 The first step towards the implementation of the undolding mechanic, was
 splitting the cube into its 6 segments. Until then we just used a primitive cube
@@ -52,7 +92,7 @@ mesh, but to allow for unfolding, we made a single mesh for a cube segment and
 instantiate it for each of the cube sides, with the different materials. This of
 course made the movement logic a bit more complicated as now all segments have to
 be moved in sync. This is archieved, by parenting them all to an empty object,
-animating the empty object and then unparenting them again. While parentign and
+animating the empty object and then unparenting them again. While parenting and
 unparenting we calculate the new local transformation, so the object does not
 move in world spce when parenting or unparenting. Furthermore the parenting,
 animation and unparenting are scheduled as soon as the user presses a button, to
@@ -152,8 +192,6 @@ from a group of will still be necessary for the future but the possibility of
 implementing the sliding sound effect in such a way is something to take not of
 especially due to the fickleness of sound loops in general.
 
-* Challenges
-- jonas
 * Outlook
 Regrettably we are still behind in terms of visuals as these are still on a rudimentary level.
 This means while we have a stable enough version of qubi that we could use for playtesting, we
