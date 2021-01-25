@@ -34,8 +34,8 @@ that require a specific side of the cube to be on the bottom/top in order to fin
 Lastly, with the highest amount of levels, we add the unfolding mechanic. These levels have 
 the most options to play with. 
 #+name: fig:level
-#+caption: This level shows one of many options with which levels can be designed using
-#+caption: all three gameplay mechanics.
+#+caption: In order to beat this level the cube must be unfolded to get the red and blue
+#+caption: segment to land on the corresponding finish tiles.
 #+attr_latex: :width 0.3\textwidth
 [[../images/24012021.png]]
 
@@ -57,29 +57,29 @@ not distract the player and offers the space to think about the puzzles. This is
 also due our expectation to inhibit possible frustration that can occur in
 puzzle games and especially in puzzle games in a subject of math that is
 considered difficult for the general population. At the same time the music
-should capture an etheral feeling, inspired by the soundtrack of the 2D
+should capture an ethereal feeling, inspired by the soundtrack of the 2D
 platformer game "GRIS", which focuses on simple piano melodies in the early
 levels. The main loop for our music also uses a simple repeating eletronic piano
 melody that tries to convey a light feeling and is thus written to decrease
 distraction. The drum beat is oriented on typical Lo-Fi beats that are currently
 very popular as a background music for studying (LoFi to relax and study). The
 kick, hihat and clap for the drumbeat were chosen to provide a necessary amount
-of rythmic texture for the otherwise repetetive melody loop. The general music
+of rhythmical texture for the otherwise repetetive melody loop. The general music
 loop is with 2 minutes playtime quite long but this allowed us to diversify the
-arrangement and spice up the composition with a sliding synth bass inbetween.
-The etheral component of the music was achieved by using a modular syntheziser
+arrangement and spice up the composition with a sliding synth bass in between.
+The ethereal component of the music was achieved by using a modular synthesizer
 plugin that in our opinion fits very well into settings of dreamy scenes and are
 very well suited to create a background layer similar to the use of foley
 samples in modern producing. The melody from the modular synthesizer is a
-reoccuring part of the music loop but is also the theme for the main menu
-screen. As the music in the main menu it prepares the setting for the game and
-is due its lack of rythm easily faded into the main loop that starts to play
-once the first level is loaded.
+reoccuring part of the music loop but is also the theme for the not yet 
+created main menu screen. As the music in the main menu it prepares the 
+setting for the game and is due its lack of rhythm easily faded into the main 
+loop that starts to play once the first level is loaded.
 ** Sound effects
 Sound effects are very important in games as they can provide audio feedback
 that let the player distinguish their interactions with the game mechanics. In
 {{{insert_game_name_here}}} sound effects mostly fulfill this role but there is
-also an additional to give an insight for the activation of an end tiles which
+also an addition to give an insight for the activation of an end tile which
 is used as a tutorial tool. The rest of the sound effects like sliding and the
 knock that is played when the cube flips work like conformations similar to
 tactile feedback for keyboards but in the audio world. Sound effects can also
@@ -89,7 +89,7 @@ which made the cube appear heavier then what we had imagined for its feel in the
 game world. This was adjusted by decreasing the lower frequencies and boosting
 the mids by using a multi-band compressor plugin. Something to note is that it
 was surprisingly difficult to find a sound sample for the slide that was also
-able to loop indefinitly and still had the satisfying sound effect that we
+able to loop indefinitely and still had the satisfying sound effect that we
 imagined during the playtesting of the physical prototype.
 * Implementation changes
 The first step towards the implementation of the undolding mechanic, was
@@ -166,9 +166,7 @@ satisfied. We also moved away from storing levels in a hashmap with their name
 as the key, as we want the levels to be loaded in order as the player plays
 through them. So now we just store them in an array list.
 
-
-* Engine Progress
-** Sound
+* Engine Progress - Sound
 We think that sound, especially in puzzle games is a major contributor to the
 overall feel of the game. As mentioned in the other project notebook chapters
 (e.g. Physical Prototype) one major focus for our development was to capture
@@ -176,14 +174,13 @@ the correct feeling of our vision as succinctly as possible so implementing a
 sound system was a high priority after the initial engine was work finished
 (even thought we forgot to add it to the layers of development in the first
 chapter).
-
-*** irrKlang Sound Engine
+** irrKlang Sound Engine
 For the sound eninge in this project we chose to use the irrKlang sound library.
 IrrKlang is a object oriented interface designed for games and supports all
 current sound formats such as .wav .flac and .mp3. It is able to run on Linux
 and Windows which was an important aspect to consider to ensure our cross
 platform compability.
-*** Additional work
+** Additional work
 Most of the basic function that irrKlang provides were enough for this game
 because our use for now will not exceed simple sound effects and background
 music. The only work on top of the irrKlang functions that was needed was the

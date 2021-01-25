@@ -1,0 +1,42 @@
+* Recap
+- puzzle game
+- different floor types (slippery, dry)
+- figuring out how to get to the finish
+
+* Unfolding
+- holding space will have the cube unfold
+- letting go of space will have the cube refold on the target location
+# insert image
+* Levels
+- so far there were slippery levels and dry levels
+- now: levels using all three gameplay mechanics
+- hardest to design
+- highest amount of options to play around with
+* Game Audio
+* Outlook
+- work on visuals
+- tutorials
+
+* Meta Data                                                        :noexport:
+#+title: qubi
+#+reveal_root: https://cdn.jsdelivr.net/npm/reveal.js
+
+** reveal settings
+#+options: toc:nil num:nil
+#+options: reveal_center:nil
+#+reveal_plugins: (notes zoom)
+#+reveal_theme: white
+#+reveal_extra_css: extrastyle.css
+#+reveal_title_slide_background: ../../images/title.png
+#+reveal_init_options: slideNumber:"c/t"
+
+** html templates
+#+reveal_title_slide:  <br><br><br><br><h1>%t</h1><h4>Felix Brendel<br>Jonas Helms<br>Van Minh Pham</h4>
+#+reveal_slide_header: <img class="tumlogo" src="../../images/tum.png"/>
+#+reveal_slide_footer: <ul><li>Felix Brendel, Jonas Helms, Van Minh Pham</li><li>Dec.23rd.2020</li></ul>
+
+** Macros
+#+macro: insertImage #+html: <figure><img style="$3" src="../../images/$1" alt="$1"><figcaption>$2</figcaption></figure>
+# usage: insertImage(pathToImage, imageCaption="", style="")
+# usage: insertVideo(pathToVid, imageCaption="", width="")
+#+macro: insertVideo #+html: <figure><video muted autoplay="true" loop width="$3"><source src="../../videos/$1" type="video/webm"></video><figcaption>$2</figcaption></figure>
