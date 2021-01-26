@@ -7,6 +7,26 @@
 - holding space will have the cube unfold
 - letting go of space will have the cube refold on the target location
 # insert image
+** Unfolding demo
+{{{insertVideo(un-refold.mp4,,80%)}}}
+
+** How it works
+- keep a list of not ~active~ cube segemnts
+- only flip the ones that are ~active~
+- flipping happens by parenting, animating and unparenting
+- segments facing down become not ~active~
+
+** How it works
+[[../../images/basic_animation.png]]
+
+** How it works
+[[../../images/chained_animation.png]]
+
+** Refold problems
+{{{insertVideo(wrong_refold.mp4,,80%)}}}
+
+** Refold problems
+{{{insertVideo(proper_refold.mp4,,80%)}}}
 * Levels
 - so far there were slippery levels and dry levels
 - now: levels using all three gameplay mechanics
@@ -33,7 +53,7 @@
 ** html templates
 #+reveal_title_slide:  <br><br><br><br><h1>%t</h1><h4>Felix Brendel<br>Jonas Helms<br>Van Minh Pham</h4>
 #+reveal_slide_header: <img class="tumlogo" src="../../images/tum.png"/>
-#+reveal_slide_footer: <ul><li>Felix Brendel, Jonas Helms, Van Minh Pham</li><li>Dec.23rd.2020</li></ul>
+#+reveal_slide_footer: <ul><li>Felix Brendel, Jonas Helms, Van Minh Pham</li><li>Jan.27rd.2021</li></ul>
 
 ** Macros
 #+macro: insertImage #+html: <figure><img style="$3" src="../../images/$1" alt="$1"><figcaption>$2</figcaption></figure>
