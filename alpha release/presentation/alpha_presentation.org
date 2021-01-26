@@ -1,8 +1,16 @@
 * Recap
 - puzzle game
 - different floor types (slippery, dry)
-- figuring out how to get to the finish
-
+- goal: figure out how to get to the finish
+* Progress
+- finished with gameplay mechanics
+- created sound effects & music
+- behind with visuals
+* Levels
+- so far there were slippery levels and dry levels
+- now: levels using all three gameplay mechanics
+- hardest to design
+- highest amount of options to play around with
 * Unfolding
 - holding space will have the cube unfold
 - letting go of space will have the cube refold on the target location
@@ -27,11 +35,6 @@
 
 ** Refold problems
 {{{insertVideo(proper_refold.mp4,,80%)}}}
-* Levels
-- so far there were slippery levels and dry levels
-- now: levels using all three gameplay mechanics
-- hardest to design
-- highest amount of options to play around with
 * Game Audio
 * Outlook
 - work on visuals
