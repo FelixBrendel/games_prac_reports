@@ -19,7 +19,7 @@
 {{{insertVideo(un-refold.mp4,,80%)}}}
 
 ** How it works
-- Keep a list of not ~active~ cube segemnts
+- Keep a list of not ~active~ cube segments
 - Only flip the ones that are ~active~
 - Flipping happens by parenting, animating and unparenting
 - Segments facing down become not ~active~
