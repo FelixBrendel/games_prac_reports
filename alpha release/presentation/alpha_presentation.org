@@ -39,12 +39,12 @@
 - Major contributor to a puzzle game
 - Used the irrKlang sound engine
 ** Sound Effects
+- Without sound effects the game feels empty
 - Provide feedback for the player
 - Contributes "information" about the game world
-- Without sound effects the game feels empty
 ** Music
 - Slow and soothing
-- Capture an ethereal&dreamy feeling
+- Capture an ethereal & dreamy feeling
 - Mix of electric piano with Lo-Fi beats and synths
 * Outlook
 - Work on visuals
