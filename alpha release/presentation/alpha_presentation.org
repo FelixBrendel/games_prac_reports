@@ -36,6 +36,16 @@
 ** Refold problems
 {{{insertVideo(proper_refold.mp4,,80%)}}}
 * Game Audio
+- major contributor to a puzzle game
+- used the irrKlang sound engine
+** Sound Effects
+- work as feedback for the player
+- loop sound sample indefinitely for sliding
+- adjust frequencies for flipping
+** Music
+- slow and soothing 
+- capture an ethereal feeling
+- mix of electric piano with Lo-Fi beats and synths
 * Outlook
 - work on visuals
 - tutorials
