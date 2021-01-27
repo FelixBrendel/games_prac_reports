@@ -38,14 +38,14 @@
 * Game Audio
 - Major contributor to a puzzle game
 - Used the irrKlang sound engine
-** Sound Effects
-- Without sound effects the game feels empty
-- Provide feedback for the player
-- Contributes "information" about the game world
 ** Music
 - Slow and soothing
 - Capture an ethereal & dreamy feeling
 - Mix of electric piano with Lo-Fi beats and synths
+** Sound Effects
+- Without sound effects the game feels empty
+- Provide feedback for the player
+- Contributes "information" about the game world
 * Outlook
 - Work on visuals
 - Tutorials
@@ -66,7 +66,7 @@
 ** html templates
 #+reveal_title_slide:  <br><br><br><br><h1>%t</h1><h4>Felix Brendel<br>Jonas Helms<br>Van Minh Pham</h4>
 #+reveal_slide_header: <img class="tumlogo" src="../../images/tum.png"/>
-#+reveal_slide_footer: <ul><li>Felix Brendel, Jonas Helms, Van Minh Pham</li><li>Jan.27rd.2021</li></ul>
+#+reveal_slide_footer: <ul><li>Felix Brendel, Jonas Helms, Van Minh Pham</li><li>Jan.27th.2021</li></ul>
 
 ** Macros
 #+macro: insertImage #+html: <figure><img style="$3" src="../../images/$1" alt="$1"><figcaption>$2</figcaption></figure>
