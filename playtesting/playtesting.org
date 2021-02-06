@@ -1,0 +1,34 @@
+* Playtesting approach
+
+** Qubi playtesting version
+*** Main Menu
+*** Level structure
+** Questionnaire
+** Play Matrix
+
+* Playtesting results
+** Demographic Data
+** Play Matrix
+** Questionnaire
+*** First impression
+*** Instructions & Objective of the game
+*** Controls
+*** Best aspect
+*** Worst aspect
+*** Suggestions
+** Important findings
+* Implementation changes
+
+* Outlook
+
+* Meta Info                                                        :noexport:
+#+startup: overview
+#+options: html-postamble:nil toc:nil title:nil
+#+OPTIONS: ^:{}
+#+macro: insert_game_name_here qubi
+#+macro: insert_team_name_here FünfKopf
+
+#+author: Felix Brendel, Jonas Helms, Van Minh Pham
+#+title: Alpha Release: {{{insert_game_name_here}}}
+
+#+latex_header: \input{latex.tex}
