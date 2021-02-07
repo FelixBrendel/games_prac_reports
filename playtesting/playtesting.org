@@ -1,8 +1,49 @@
 * Playtesting approach
-
 ** Qubi playtesting version
 *** Main Menu
+The main menu was created as an in-game level itself.
+Therefore players move the cube on the tiles (slippery and dry) to reach a 
+finish.
+As of writing this report, the main menu consists of two finishes,
+one tile that specifically starts the game with the first level and one tile
+that quits the game. These tiles were specifically equipped with corresponding
+textures.
+The idea was to offer a way for players to experiment with the basic controls 
+before they actually started playing the first level.
+
+#+caption: The player here can move the cube the start the first level or quit the game
+#+name: Fig:Menu
+#+attr_latex: :options [htbp] :width 0.6\textwidth
+ [[../images/menu.png]] 
+
+ 
+As can be observed in [[Fig:Menu]], this level can be extended with additional
+menu functions such as an options menu or a way to continue a previous session.
 *** Level structure
+In this version of qubi that we used to playtesting we featured a total of twelve
+different levels which we arranged in the following three sections:
+The first three levels only featured slippery tiles, obstacle tiles and a finish.
+We figured with the initial prompt of the movement instruction, this number of 
+levels would be sufficient to convey a basic understanding for the core mechanics.
+For the next six levels we added green dry tiles on which the cube would flip.
+Finishes also require a specific side of the cube to be on top/bottom.
+We did not add instructions here.
+The focus of the remaining three levels was the unfolding mechanic. For that
+we added one prompt to show which keys need to be pressed to unfold the cube.
+Should the player make a mistake we further added a prompt to undo actions.\\
+
+#+caption: The figure shows the first level with the unfolding mechanic.
+#+caption: Once the player is on the green dry tile, an instruction pops up.
+#+name: Fig:3p1
+#+attr_latex: :options [htbp] :width 0.6\textwidth
+ [[../images/3p1.png]] 
+
+As a main philosophy we wanted to keep instructions at a minimum. We
+believe that figuring these mechanics is part of the enjoyment of qubi.
+The playtest would determine if the amount of instructions we featured are enough
+or if they are too vague. In addition the representation of the different
+tile types is tested as well. We want to see if players understand the different
+tile types as they keep playing.
 ** Questionnaire
 ** Play Matrix
 
