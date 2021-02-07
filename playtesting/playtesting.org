@@ -1,24 +1,57 @@
 * Playtesting approach
 ** Qubi playtesting version
+
+To prepare the game to get into a shape where it can be played by our
+playtesters, it was time to make some changes to introduce new players to the
+game and improve the general usability of it. We did not have any kind of user
+interface or way of telling the player how to play the game, which we addressed
+in this first step of the playtesting phase.
+
+*** Changes to the renderer
+For the playtesting we did not want to interfer with the tester while they are
+playing. But since the game introduces mechanics on the fly that require the
+player to learn new keybindings, we wanted to implement image overlays that fade
+in to visually show the player images of the keys they need to press to discover
+new game mechanics.
+
+As a start we looked at [[https://github.com/ocornut/imgui][Dear ImGui]] to render any kind of user interface. It is
+an implementation of an immidiate mode graphical user interface. It outputs
+drawcalls to draw the requested UI. To use it, we created a second rendering
+pipeline and render pass for the UI and every frame let ImGui record the draw
+calls into command buffers to draw the UI.
+
+When doing this we observed a performance penalty of around 20% for the second
+render pass (from around 11.000 fps to around 9.000 fps on our machines). We
+also experimented with instead rendering the UI in a second subpass in the main
+render pass, and marking the main render pass as a subpass dependency for the UI
+subpass. We could not however not any performance improvement and reverted the
+changes, as rendering two separate render passes led to simpler code.
+
+We also used RenderDoc to take a look at the shaders and draw calls that ImGui
+generated for our simple image overlay. We noticed that ImGui only generates the
+shaders and draw calls that are needed to render the requested UI, so the shader
+only consisted of sampling the image. We decided, that was enough and left it
+like that. Because even if we decided to render the overlay completely
+ourselves, we would probably not see any performance benefit over using ImGui.
+
 *** Main Menu
-The main menu was created as an in-game level itself.
-Therefore players move the cube on the tiles (slippery and dry) to reach a 
-finish.
-As of writing this report, the main menu consists of two finishes,
-one tile that specifically starts the game with the first level and one tile
-that quits the game. These tiles were specifically equipped with corresponding
-textures.
-The idea was to offer a way for players to experiment with the basic controls 
-before they actually started playing the first level.
+The main menu was created as an in-game level itself. Therefore players move the
+cube on the tiles (slippery and dry) to reach a finish. As of writing this
+report, the main menu consists of two finishes, one tile that specifically
+starts the game with the first level and one tile that quits the game. These
+tiles were specifically equipped with corresponding textures. The idea was to
+offer a way for players to experiment with the basic controls before they
+actually started playing the first level.
 
 #+caption: The player here can move the cube the start the first level or quit the game
 #+name: Fig:Menu
-#+attr_latex: :options [htbp] :width 0.6\textwidth
+#+attr_latex: :width 0.6\textwidth
  [[../images/menu.png]] 
 
  
-As can be observed in [[Fig:Menu]], this level can be extended with additional
-menu functions such as an options menu or a way to continue a previous session.
+As can be observed in [[Fig:Menu]], this level can be extended with additional menu
+functions such as an options menu or a way to continue a previous session.
+
 *** Level structure
 In this version of qubi that we used to playtesting we featured a total of twelve
 different levels which we arranged in the following three sections:
@@ -35,7 +68,7 @@ Should the player make a mistake we further added a prompt to undo actions.\\
 #+caption: The figure shows the first level with the unfolding mechanic.
 #+caption: Once the player is on the green dry tile, an instruction pops up.
 #+name: Fig:3p1
-#+attr_latex: :options [htbp] :width 0.6\textwidth
+#+attr_latex: :width 0.6\textwidth
  [[../images/3p1.png]] 
 
 As a main philosophy we wanted to keep instructions at a minimum. We
@@ -133,12 +166,50 @@ Erst: wieso slidet man
 
 
 
-* Conclusion of the playtest - felix
-- Extra level before the first unfold to introduce mechanic in a simpler setting
-- dont introduce unfold, two finish and undo key in one level, introduce them one mechanic per level
-- Improve visual clarity of the finish tiles
-- Better communicate that player used Undo action, one would be playing the last animation backwards
-- Better textures
+* Conclusion of the playtest
+Even though all of the participants could identify the objective of the game
+correctly, it was very often the case, that the testers could not distinguish
+between different kinds of finishes. This includes both the difference between
+slippery and dry tiles, as well as the difference between differently colored
+finishes, where the cube has to has a certain orientation for the finish to
+activate. For the final release we will work on making the different finishes
+easier to distinguish. We are also thinking about using not colors but different
+sybols to distinguish between the different types of finishes, and also make it
+really clear to which side of the cube they correspond.
+
+The reason why we think most peoples struggled with the unfolding level -- even
+though the solution only consists of few moves -- is that we introduce too many
+aspects in this single level. They include the unfolding, the presence of
+multiple finish tiles whose win conditions all have to be satisfied at once and
+thirdly the undo funcionality that can be necessary in this level, as the
+players can reach a state where they cannont finish the level anymore. To
+mitigate the difficutly we will introduce these mechanics in separate levels, so
+not all concepts have to be aquired in one single level, which we believe
+overwhelmed the testers.
+
+Also we noticed that many players did not understand the undo functionallity as
+we only showed the keybind and no written instructions. Until now we just
+teleport the players back to the position they where before. It seems however,
+some players did not understand this intuitively and we believe this is because
+there is no visual feedback for the player to notice that we are setting their
+position to the previous one. There are some options we believe we have here.
+
+1. When introducing the player to the keybind for the undo, we could also add a
+   text next to the keybind that describes what it does. This violates our
+   philosophy to not communicate with the players with language, but might be
+   the easiest way to solve this problem.
+2. Another way could be, showing the player what is happening during an undo
+   action with the help of an image overlay. For example we could whow a symbol
+   \RewindToIndex for a short amount of time when the player pressed the undo
+   button.
+3. Finally, the best results would probably be archieved when the movement
+   animation would be played backwards to the position the cube was before.
+   While we believe this would lead to the most intuitive learning of the undo
+   functionallity, it is also the technically most challenging version to
+   implement, as a single move can consist of many animations which itself
+   consist of parenting, movement and unparenting actions, which would all need
+   to played backwards in reverse order.
+
 
 * Meta Info                                                        :noexport:
 #+startup: overview
