@@ -63,23 +63,53 @@ Finishes also require a specific side of the cube to be on top/bottom.
 We did not add instructions here.
 The focus of the remaining three levels was the unfolding mechanic. For that
 we added one prompt to show which keys need to be pressed to unfold the cube.
-Should the player make a mistake we further added a prompt to undo actions.\\
-
+Should the player make a mistake we further added a prompt to undo actions.
+We expected players to have the hardest time with these levels but also the
+most enjoyable time with all the different options.\\
 #+caption: The figure shows the first level with the unfolding mechanic.
 #+caption: Once the player is on the green dry tile, an instruction pops up.
 #+name: Fig:3p1
 #+attr_latex: :width 0.6\textwidth
  [[../images/3p1.png]] 
 
+# Minh to Felix: weiß nicht, dass könntest du auch zu UI hinkopieren
 As a main philosophy we wanted to keep instructions at a minimum. We
-believe that figuring these mechanics is part of the enjoyment of qubi.
+believe that figuring out these mechanics is part of the enjoyment of qubi.
 The playtest would determine if the amount of instructions we featured are enough
 or if they are too vague. In addition the representation of the different
-tile types is tested as well. We want to see if players understand the different
-tile types as they keep playing.
-** Questionnaire - minh
-** Play Matrix - minh
+tile types is tested as well. We want to see if players understand the meanings 
+of the different tile types as they play.
+** Procedure
+After welcoming the testers we made sure to remind them that we were testing
+the game, not their skill. We also requested for the testers to speak out loud 
+when playing qubi while we remained quiet.
+All of the 12 levels are rather short. This is why we let the testers play 
+through all 12 levels until they finished without interrupting them.
+As the testers were playing the game, we made sure to note our observations
+regarding their understanding/confusion of the game mechanics. 
+These observations helped us get more insight into possible target audiences.
+With the completion of the last level, we then discussed aspects of qubi with
+the testers in one on one conversations. 
+** Questions
+Starting off we asked testers for their first impression of qubi as well as 
+how much that first impression changed.
+To get a better understanding of the testers' knowledge of qubi,
+we further asked them to describe the objective of the game as well as the 
+gameplay mechanics. 
+Following that were technical questions as to how testers felt about the 
+controls and the minimalistic instructions that were featured.
+We then had them locate qubi on the play matrix and asked them if and where 
+they would move the game.
 
+#+caption: On the play matrix a game can characterized by its reliance on skill 
+#+caption: or chance as well as mental calculation or physical dexterity.
+#+name: Fig:Matrix
+#+attr_latex: :options :width 0.6\textwidth
+ [[../images/matrix.png]] 
+
+Afterwards testers told us about their view on the positive and negative aspects
+of qubi including their take on the music choice. 
+Finally they made suggestions regarding changes and/or additions to the game. 
 * Playtesting results
 ** Play Matrix - jonas
 ** Questionnaire - jonas
