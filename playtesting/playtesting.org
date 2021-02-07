@@ -51,14 +51,92 @@ tile types as they keep playing.
 ** Demographic Data
 ** Play Matrix
 ** Questionnaire
-*** First impression
 *** Instructions & Objective of the game
+- All of the participants described the objective consistently
+*** First impression
+- Minimalistic,
 *** Controls
+- meisten intuitiv bis 50/50
+- manche wollten lieber pfeiltasten
+*** Instructions clear enough
+- Den meisten waren die Anweisungen zu wenig
+- manche fandens ok
+- Visual clarity der Finish tiles ist zu gering
+*** Different type of players
+- Some players used trial and error from beginning
+- Some players had a strategic approach
+- Time to solve all levels was not affected by the player type
+*** In which situation would you play the game
+- During travels/wait times
+- Good puzzle game for mobile platfroms
+- Good
 *** Best aspect
+- Unfold mechanic is really cool and creative
+- Spatial puzzles are rare pepes and therefore good
+- Learning about the game mechanics was fun
 *** Worst aspect
-*** Suggestions
-** Important findings
-* Implementation changes
+- Frustrating to figure out what the goal is
+- Frustrating because spatial puzzles are hard
+
+- Some did understand that you had to reach both goals at the same time
+- Some persons(2) did not find anything frustrating
+- Felix parents: instructions not clear
+-
+*** Suggestions & what would you change
+- More mechanics also in 3rd dimensions, mid finishes, activator tiles
+- Achievment medals for finishing certain levels/thresholds
+- Max Step counter
+
+- More help and instructions
+- Demo video would motivate player
+- Show what the goal is in a level
+- more levels
+- Instruction for undo was not well understood
+- Better visual feedback for dry tiles that show that the cube will flip
+- Music too monotone after a certain time
+
+- better textures for more visual clarity
+- more complex and longer levels also in 3rd dimension
+- unlockable skins
+- Fx for sliding the cube
+- Erst super einfaches mini level um mechanic zu introduced
+*** Music
+- cozy and working in the background
+- not distracting
+- too repetetive
+Erst: wieso slidet man
+
+*** Notes
+- People tried to use mouse to click start game
+- Visual clarity not good
+- Undo button as restart button
+- When have intitial struggles with the level they default to trial and error
+- Some people were afraid to fall of the unbounded side of the level
+
+- sliding was understood quickly
+- brown is obstacles was understood quickly
+- flipping was understood quickly
+- undo was only understood by one person directly
+- multiple finish tiles was understood 50/50
+- Unfold was mostly used to turn cube which made some levels trivial
+- some ppl didnt understand why they could not unfold on ice, realized after trial and error
+
+- One person didnt understand animation lock instantly
+- Some were not able to distinguish whether finish tile is dry or not
+- Use of the space bar unfold not instantly understood
+- Color change due to misplaced light confused a player (misjudged the color)
+- Use of undo button was not 100% clear
+
+2 finish tiles level:
+- some people were faster to understand the unfold
+- Analysis paralysis because they dont understand what they had to do
+** Conclusion of the playtest
+- Extra level before the first unfold to introduce mechanic in a simpler setting
+- dont introduce unfold, two finish and undo key in one level, introduce them one mechanic per level
+- Improve visual clarity of the finish tiles
+- Better communicate that player used Undo action, one would be playing the last animation backwards
+- Better textures
+
 
 * Outlook
 
