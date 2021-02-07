@@ -44,13 +44,12 @@ The playtest would determine if the amount of instructions we featured are enoug
 or if they are too vague. In addition the representation of the different
 tile types is tested as well. We want to see if players understand the different
 tile types as they keep playing.
-** Questionnaire
-** Play Matrix
+** Questionnaire - minh
+** Play Matrix - minh
 
 * Playtesting results
-** Demographic Data
-** Play Matrix
-** Questionnaire
+** Play Matrix - jonas
+** Questionnaire - jonas
 *** Instructions & Objective of the game
 - All of the participants described the objective consistently
 *** First impression
@@ -106,7 +105,7 @@ tile types as they keep playing.
 - too repetetive
 Erst: wieso slidet man
 
-*** Notes
+*** Notes - jonas
 - People tried to use mouse to click start game
 - Visual clarity not good
 - Undo button as restart button
@@ -130,15 +129,16 @@ Erst: wieso slidet man
 2 finish tiles level:
 - some people were faster to understand the unfold
 - Analysis paralysis because they dont understand what they had to do
-** Conclusion of the playtest
+
+
+
+
+* Conclusion of the playtest - felix
 - Extra level before the first unfold to introduce mechanic in a simpler setting
 - dont introduce unfold, two finish and undo key in one level, introduce them one mechanic per level
 - Improve visual clarity of the finish tiles
 - Better communicate that player used Undo action, one would be playing the last animation backwards
 - Better textures
-
-
-* Outlook
 
 * Meta Info                                                        :noexport:
 #+startup: overview
