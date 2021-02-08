@@ -36,7 +36,7 @@ Should the player make a mistake we further added a prompt to undo actions.\\
 #+caption: Once the player is on the green dry tile, an instruction pops up.
 #+name: Fig:3p1
 #+attr_latex: :options [htbp] :width 0.6\textwidth
- [[../images/3p1.png]] 
+ [[../images/3p1.png]]
 
 As a main philosophy we wanted to keep instructions at a minimum. We
 believe that figuring these mechanics is part of the enjoyment of qubi.
@@ -48,91 +48,137 @@ tile types as they keep playing.
 ** Play Matrix - minh
 
 * Playtesting results
-** Play Matrix - jonas
-** Questionnaire - jonas
-*** Instructions & Objective of the game
-- All of the participants described the objective consistently
-*** First impression
-- Minimalistic,
+** Play Matrix
+The following play matrix displays how the participants of our playtesting
+session classified {{{insert_game_name_here}}}. As we expected
+{{{insert_game_name_here}}} was placed across the the top left quadrant that is
+representing skill and mental calculation. Most of the participants placed it
+close to the top left corner next to chess and Go. This makes sense for us as
+all moves in {{{insert_game_name_here}}} are deterministic so there is no chance
+involved and it also matches the vision of the game we had set out to create.
+
+#+caption: Classification of qubi in the play matrix from the playtesting participants
+#+name: Fig:3p1
+#+attr_latex: :options [htbp] :width 0.6\textwidth
+
+
+** Questionnaire results
+In the following question we will go over each question that we answered in our
+questionnaire and go over the results that we gathered from our playtesting
+group. For the test session of {{{insert_game_name_here}}} we gathered a group
+of 16 playtestern. The majority of our playtesters had a very high experience
+playing video games, although a small subset only had rudimentary knowledge of
+gaming.
+*** What is the objective of the game?
+All of the participants were able to describe the objective in simple terms
+leading us to believe that the goal was communicated intuitivly by the
+differently colored tiles without the need for any additional input.
+*** What were your first impressions of the game?
+Most testers noted the minimalistic design first and for some it even created an
+expectation of the type of game that was about to follow. For a few players it
+even came as a suprise that the cube was able to slide on the ice tiles and they
+expected a different kind of puzzle game.
 *** Controls
-- meisten intuitiv bis 50/50
-- manche wollten lieber pfeiltasten
-*** Instructions clear enough
-- Den meisten waren die Anweisungen zu wenig
-- manche fandens ok
-- Visual clarity der Finish tiles ist zu gering
+The controls were considered to be intuitiv by the majority of our playtester
+and were commended for being simple. This was probably due to a high number of
+experienced gamer that are very used to WASD based movement. Even though the
+controls were intuitive a few of the participants suggested to also implement
+control of the cube by using the arrow keys as it is fitting for these types of
+games.
+*** Were the Instructions clear enough?
+The instructions was one of the most critiqued elements during the playtest.
+About half of the testers thought that the instructions what the exact end goal
+is for each level were not communicated well enough. Additionally to this group
+some thought that the instructions for the mechanics were understandable but
+that the visual clarity of the finish tiles could be improved. There also was a
+smaller subset of our playtesters that enjoyed the explorative aspect of
+learning the game mechanics with a minimum of instructions provided. They mostly
+argued that figuring out what the goal was for a new level felt to them as part
+of the game and induced an intrinsic reward for finishing each level.
+*** How would rate the difficulty of the puzzles?
+The difficulty of the puzzles was judged to be good by the majority of the
+playtesters. The slight increase in difficulty was also noticed and was
+perceived as suitable. Most of the players considered the level introducing the
+unfolding mechanic, undo button and two finish tiles as the most difficult but
+argued that it was mainly due to lack of instruction. The difficulty for them
+was realizing how the new mechanics work exactly which was also observed as they
+managed to solve the following unfold level much quicker.
 *** Different type of players
-- Some players used trial and error from beginning
-- Some players had a strategic approach
-- Time to solve all levels was not affected by the player type
-*** In which situation would you play the game
-- During travels/wait times
-- Good puzzle game for mobile platfroms
-- Good
-*** Best aspect
-- Unfold mechanic is really cool and creative
-- Spatial puzzles are rare pepes and therefore good
-- Learning about the game mechanics was fun
-*** Worst aspect
-- Frustrating to figure out what the goal is
-- Frustrating because spatial puzzles are hard
+In terms of playing style three different types of players were observed:
+1) Players that used trial and error right from the start, which was decently
+   effective as the number of possible moves and level size/complexity is not at
+   the stage that we have envisioned
+2) Strategic players that were observing the complete level first and already
+   planning out a route. Some of these type of players suffered from an analysis
+   paralysis in the levels that introduced new mechanics such as the unfolding
+   and two finish tiles. The prompt for the unfolding of the cube was only shown
+   after moving the cube to a tile on which it could be unfolded. Players who
+   wanted to plan out their moves beforehand did not reach the tile for the
+   instruction and thus thought the level to be impossible to solve.
+3) The third type of player that we observed were a mix between the trial and
+   error and strategic. These players first tried to navigate the cube through
+   the level until there was an obstacle presented to them that they could not
+   solve directly. After that they switched to an analytical/strategic mode and
+   solved the levels in that manner.
 
-- Some did understand that you had to reach both goals at the same time
-- Some persons(2) did not find anything frustrating
-- Felix parents: instructions not clear
--
-*** Suggestions & what would you change
-- More mechanics also in 3rd dimensions, mid finishes, activator tiles
-- Achievment medals for finishing certain levels/thresholds
-- Max Step counter
-
-- More help and instructions
-- Demo video would motivate player
-- Show what the goal is in a level
-- more levels
-- Instruction for undo was not well understood
-- Better visual feedback for dry tiles that show that the cube will flip
-- Music too monotone after a certain time
-
-- better textures for more visual clarity
-- more complex and longer levels also in 3rd dimension
-- unlockable skins
-- Fx for sliding the cube
-- Erst super einfaches mini level um mechanic zu introduced
-*** Music
-- cozy and working in the background
-- not distracting
-- too repetetive
-Erst: wieso slidet man
-
-*** Notes - jonas
-- People tried to use mouse to click start game
-- Visual clarity not good
-- Undo button as restart button
-- When have intitial struggles with the level they default to trial and error
-- Some people were afraid to fall of the unbounded side of the level
-
-- sliding was understood quickly
-- brown is obstacles was understood quickly
-- flipping was understood quickly
-- undo was only understood by one person directly
-- multiple finish tiles was understood 50/50
-- Unfold was mostly used to turn cube which made some levels trivial
-- some ppl didnt understand why they could not unfold on ice, realized after trial and error
-
-- One person didnt understand animation lock instantly
-- Some were not able to distinguish whether finish tile is dry or not
-- Use of the space bar unfold not instantly understood
-- Color change due to misplaced light confused a player (misjudged the color)
-- Use of undo button was not 100% clear
-
-2 finish tiles level:
-- some people were faster to understand the unfold
-- Analysis paralysis because they dont understand what they had to do
-
-
-
-
+Interestingly none of the player types had a significant advantage in how fast
+they solved all of the playtest levels.
+*** In which situation would you play the game?
+Many of the playtesters argued that {{{insert_game_name_here}}} is perfect as a
+quick puzzle game while traveling long and short distances because the
+atmosphere is calming and the concept is simple. They also mentioned for this
+reason that porting {{{insert_game_name_here}}} to a mobile platform would
+greatly benefit the game.
+*** What was the best aspect of the game for you?
+The aspect that was considered the best for many of the testers was the unfold
+mechanic of the cube. Many argued that this gameplay element added a signifcant
+amount of creative depth to the already interesting puzzles and was something
+that they had not seen in any other games. Other parts of the game that were
+positively received was the fact that it was a spatial puzzle game, something
+that is not very common to see even for experienced gamers. Some players also
+mentioned that it was very fun to learn about the game and its mechanics was
+intrinsicly fun for them.
+*** What was the worst aspect of the game for you?
+Most of the testers considered the lack of clear direction and instruction the
+worst aspect of the game, especially in the level that introduced three new
+mechanics.
+*** How fitting was the music in your opinion?
+The music was rated generally well by the majority of participants although it
+was argued to be too loud. Some players also mentioned that the general style of
+music captured the cozy feeling very well and that it increased their focus on
+the puzzles while the music shifted to the background. On the other hand it was
+also mentioned by a few tester that the main music loop was becoming a little
+bit too repetetive after around 20 min - 30 min of play time.
+*** How would you rate the visuals of the game?
+Good
+*** What would you change about the game and do you have any other suggestions?
+For this question we wanted some free feedback and suggestions from the
+playtesters. The suggestions were relativly similar and we have compiled them
+into the following list:
+- Add more mechanics that also incorporate the 3rd dimension or intermediary finishe tiles
+- Increase the number of levels and the complexity/length of the levels
+- Including achievments for finishing certain levels or finishing them with a
+  limited amount of moves.
+- Unlockable map skins
+- A limit of how many moves are needed per level including a counter to make it
+  feel more like a puzzle game
+- Particle effects when moving the cube
+- Better visual clarity for the finish tiles
+- Embedding a demo video of the game in the main menu/pause screen to motivate
+  player
+*** Notes
+We also compiled some notes that we took during the observation of our
+playtesters into the following list:
+- Some people tried to use the mouse in the main menu to "click start game"
+- Undo button was used by some players as a restart button and the purpose was
+  generally not 100% clear
+- Some were afraid to let the cube fall of the unbounded side of the level
+- Unfold was by some only used to turn cube which made some levels trivial
+- It was not understood intuitivly why they could not unfold on ice, and only
+  realized after trial and error
+- Color change due to misplaced light confused a player to misjudged the color
+  need for the finish tile
+- The need to keept he space bar pressed while unfolding was not communicated directly enough and not intuitive for the majority of the testers
 * Conclusion of the playtest - felix
 - Extra level before the first unfold to introduce mechanic in a simpler setting
 - dont introduce unfold, two finish and undo key in one level, introduce them one mechanic per level
