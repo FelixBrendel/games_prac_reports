@@ -15,8 +15,8 @@ in to visually show the player images of the keys they need to press to discover
 new game mechanics.
 
 As a start we looked at [[https://github.com/ocornut/imgui][Dear ImGui]] to render any kind of user interface. It is
-an implementation of an immidiate mode graphical user interface. It outputs
-drawcalls to draw the requested UI. To use it, we created a second rendering
+an implementation of an immidiate mode graphical user interface. It outputs draw
+calls to draw the requested UI. To use it, we created a second rendering
 pipeline and render pass for the UI and every frame let ImGui record the draw
 calls into command buffers to draw the UI.
 
@@ -24,15 +24,16 @@ When doing this we observed a performance penalty of around 20% for the second
 render pass (from around 11.000 fps to around 9.000 fps on our machines). We
 also experimented with instead rendering the UI in a second subpass in the main
 render pass, and marking the main render pass as a subpass dependency for the UI
-subpass. We could not however not any performance improvement and reverted the
+subpass. We could however not see any performance improvement and reverted the
 changes, as rendering two separate render passes led to simpler code.
 
 We also used RenderDoc to take a look at the shaders and draw calls that ImGui
 generated for our simple image overlay. We noticed that ImGui only generates the
 shaders and draw calls that are needed to render the requested UI, so the shader
-only consisted of sampling the image. We decided, that was enough and left it
-like that. Because even if we decided to render the overlay completely
-ourselves, we would probably not see any performance benefit over using ImGui.
+only consisted of sampling the image. We decided, that was enough for our
+intended purposes and left it like that. Because even if we decided to render
+the overlay completely ourselves, we would probably not see any performance
+benefit over using ImGui.
 
 *** Main Menu
 The main menu was created as an in-game level itself. Therefore players move the
@@ -201,20 +202,20 @@ Even though all of the participants could identify the objective of the game
 correctly, it was very often the case, that the testers could not distinguish
 between different kinds of finishes. This includes both the difference between
 slippery and dry tiles, as well as the difference between differently colored
-finishes, where the cube has to has a certain orientation for the finish to
+finishes, where the cube has to have a certain orientation for the finish to
 activate. For the final release we will work on making the different finishes
 easier to distinguish. We are also thinking about using not colors but different
 sybols to distinguish between the different types of finishes, and also make it
 really clear to which side of the cube they correspond.
 
-The reason why we think most peoples struggled with the unfolding level -- even
+The reason why we think most people struggled with the unfolding level -- even
 though the solution only consists of few moves -- is that we introduce too many
 aspects in this single level. They include the unfolding, the presence of
 multiple finish tiles whose win conditions all have to be satisfied at once and
 thirdly the undo funcionality that can be necessary in this level, as the
 players can reach a state where they cannont finish the level anymore. To
 mitigate the difficutly we will introduce these mechanics in separate levels, so
-not all concepts have to be aquired in one single level, which we believe
+not all concepts have to be acquired in one single level, which we believe
 overwhelmed the testers.
 
 Also we noticed that many players did not understand the undo functionallity as
@@ -229,9 +230,9 @@ position to the previous one. There are some options we believe we have here.
    philosophy to not communicate with the players with language, but might be
    the easiest way to solve this problem.
 2. Another way could be, showing the player what is happening during an undo
-   action with the help of an image overlay. For example we could whow a symbol
-   \RewindToIndex for a short amount of time when the player pressed the undo
-   button.
+   action with the help of an image overlay. For example we could show a symbol
+   like \RewindToIndex for a short amount of time when the player pressed the
+   undo button.
 3. Finally, the best results would probably be archieved when the movement
    animation would be played backwards to the position the cube was before.
    While we believe this would lead to the most intuitive learning of the undo
