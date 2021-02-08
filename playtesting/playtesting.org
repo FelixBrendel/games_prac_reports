@@ -1,24 +1,58 @@
 * Playtesting approach
 ** Qubi playtesting version
+
+To prepare the game to get into a shape where it can be played by our
+playtesters, it was time to make some changes to introduce new players to the
+game and improve the general usability of it. We did not have any kind of user
+interface or way of telling the player how to play the game, which we addressed
+in this first step of the playtesting phase.
+
+*** Changes to the renderer
+For the playtesting we did not want to interfer with the tester while they are
+playing. But since the game introduces mechanics on the fly that require the
+player to learn new keybindings, we wanted to implement image overlays that fade
+in to visually show the player images of the keys they need to press to discover
+new game mechanics.
+
+As a start we looked at [[https://github.com/ocornut/imgui][Dear ImGui]] to render any kind of user interface. It is
+an implementation of an immidiate mode graphical user interface. It outputs draw
+calls to draw the requested UI. To use it, we created a second rendering
+pipeline and render pass for the UI and every frame let ImGui record the draw
+calls into command buffers to draw the UI.
+
+When doing this we observed a performance penalty of around 20% for the second
+render pass (from around 11.000 fps to around 9.000 fps on our machines). We
+also experimented with instead rendering the UI in a second subpass in the main
+render pass, and marking the main render pass as a subpass dependency for the UI
+subpass. We could however not see any performance improvement and reverted the
+changes, as rendering two separate render passes led to simpler code.
+
+We also used RenderDoc to take a look at the shaders and draw calls that ImGui
+generated for our simple image overlay. We noticed that ImGui only generates the
+shaders and draw calls that are needed to render the requested UI, so the shader
+only consisted of sampling the image. We decided, that was enough for our
+intended purposes and left it like that. Because even if we decided to render
+the overlay completely ourselves, we would probably not see any performance
+benefit over using ImGui.
+
 *** Main Menu
-The main menu was created as an in-game level itself.
-Therefore players move the cube on the tiles (slippery and dry) to reach a 
-finish.
-As of writing this report, the main menu consists of two finishes,
-one tile that specifically starts the game with the first level and one tile
-that quits the game. These tiles were specifically equipped with corresponding
-textures.
-The idea was to offer a way for players to experiment with the basic controls 
-before they actually started playing the first level.
+The main menu was created as an in-game level itself. Therefore players move the
+cube on the tiles (slippery and dry) to reach a finish. As of writing this
+report, the main menu consists of two finishes, one tile that specifically
+starts the game with the first level and one tile that quits the game. These
+tiles were specifically equipped with corresponding textures. The idea was to
+offer a way for players to experiment with the basic controls before they
+actually started playing the first level.
 
 #+caption: The player here can move the cube the start the first level or quit the game
 #+name: Fig:Menu
-#+attr_latex: :options [htbp] :width 0.6\textwidth
- [[../images/menu.png]] 
+#+attr_latex: :width 0.6\textwidth
+ [[../images/menu.png]]
 
  
-As can be observed in [[Fig:Menu]], this level can be extended with additional
-menu functions such as an options menu or a way to continue a previous session.
+As can be observed in [[Fig:Menu]], this level can be extended with additional menu
+functions such as an options menu or a way to continue a previous session.
+
 *** Level structure
 In this version of qubi that we used to playtesting we featured a total of twelve
 different levels which we arranged in the following three sections:
@@ -30,23 +64,53 @@ Finishes also require a specific side of the cube to be on top/bottom.
 We did not add instructions here.
 The focus of the remaining three levels was the unfolding mechanic. For that
 we added one prompt to show which keys need to be pressed to unfold the cube.
-Should the player make a mistake we further added a prompt to undo actions.\\
-
+Should the player make a mistake we further added a prompt to undo actions.
+We expected players to have the hardest time with these levels but also the
+most enjoyable time with all the different options.\\
 #+caption: The figure shows the first level with the unfolding mechanic.
 #+caption: Once the player is on the green dry tile, an instruction pops up.
 #+name: Fig:3p1
-#+attr_latex: :options [htbp] :width 0.6\textwidth
- [[../images/3p1.png]]
+#+attr_latex: :width 0.6\textwidth
+ [[../images/3p1.png]] 
 
+# Minh to Felix: weiß nicht, dass könntest du auch zu UI hinkopieren
 As a main philosophy we wanted to keep instructions at a minimum. We
-believe that figuring these mechanics is part of the enjoyment of qubi.
+believe that figuring out these mechanics is part of the enjoyment of qubi.
 The playtest would determine if the amount of instructions we featured are enough
 or if they are too vague. In addition the representation of the different
-tile types is tested as well. We want to see if players understand the different
-tile types as they keep playing.
-** Questionnaire - minh
-** Play Matrix - minh
+tile types is tested as well. We want to see if players understand the meanings 
+of the different tile types as they play.
+** Procedure
+After welcoming the testers we made sure to remind them that we were testing
+the game, not their skill. We also requested for the testers to speak out loud 
+when playing qubi while we remained quiet.
+All of the 12 levels are rather short. This is why we let the testers play 
+through all 12 levels until they finished without interrupting them.
+As the testers were playing the game, we made sure to note our observations
+regarding their understanding/confusion of the game mechanics. 
+These observations helped us get more insight into possible target audiences.
+With the completion of the last level, we then discussed aspects of qubi with
+the testers in one on one conversations. 
+** Questions
+Starting off we asked testers for their first impression of qubi as well as 
+how much that first impression changed.
+To get a better understanding of the testers' knowledge of qubi,
+we further asked them to describe the objective of the game as well as the 
+gameplay mechanics. 
+Following that were technical questions as to how testers felt about the 
+controls and the minimalistic instructions that were featured.
+We then had them locate qubi on the play matrix and asked them if and where 
+they would move the game.
 
+#+caption: On the play matrix a game can characterized by its reliance on skill 
+#+caption: or chance as well as mental calculation or physical dexterity.
+#+name: Fig:Matrix
+#+attr_latex: :options :width 0.6\textwidth
+ [[../images/matrix.png]]
+
+Afterwards testers told us about their view on the positive and negative aspects
+of qubi including their take on the music choice. 
+Finally they made suggestions regarding changes and/or additions to the game. 
 * Playtesting results
 ** Play Matrix
 The following play matrix displays how the participants of our playtesting
@@ -58,10 +122,9 @@ all moves in {{{insert_game_name_here}}} are deterministic so there is no chance
 involved and it also matches the vision of the game we had set out to create.
 
 #+caption: Classification of qubi in the play matrix from the playtesting participants
-#+name: Fig:3p1
+#+name: Fig:PlayMatrix
 #+attr_latex: :options [htbp] :width 0.6\textwidth
-
-
+ [[../images/PlayMatrix.png]]
 ** Questionnaire results
 In the following question we will go over each question that we answered in our
 questionnaire and go over the results that we gathered from our playtesting
@@ -78,7 +141,7 @@ Most testers noted the minimalistic design first and for some it even created an
 expectation of the type of game that was about to follow. For a few players it
 even came as a suprise that the cube was able to slide on the ice tiles and they
 expected a different kind of puzzle game.
-*** Controls
+*** How would you rate the controls of the game?
 The controls were considered to be intuitiv by the majority of our playtester
 and were commended for being simple. This was probably due to a high number of
 experienced gamer that are very used to WASD based movement. Even though the
@@ -142,6 +205,13 @@ intrinsicly fun for them.
 Most of the testers considered the lack of clear direction and instruction the
 worst aspect of the game, especially in the level that introduced three new
 mechanics.
+*** How would you rate the visuals of the game?
+Many thought that the simplistic visualy helped them in their understanding of
+the puzzles but criticized the bland colors and lack of textures of the tiles.
+Another point of critique for a few of the testers was the already mentioned
+lack of clarity of the finish tiles. It was difficult for most of the testers to
+deduce what the color combination on the finish tiles tried to convey to the
+players.
 *** How fitting was the music in your opinion?
 The music was rated generally well by the majority of participants although it
 was argued to be too loud. Some players also mentioned that the general style of
@@ -149,8 +219,6 @@ music captured the cozy feeling very well and that it increased their focus on
 the puzzles while the music shifted to the background. On the other hand it was
 also mentioned by a few tester that the main music loop was becoming a little
 bit too repetetive after around 20 min - 30 min of play time.
-*** How would you rate the visuals of the game?
-Good
 *** What would you change about the game and do you have any other suggestions?
 For this question we wanted some free feedback and suggestions from the
 playtesters. The suggestions were relativly similar and we have compiled them
@@ -178,13 +246,52 @@ playtesters into the following list:
   realized after trial and error
 - Color change due to misplaced light confused a player to misjudged the color
   need for the finish tile
-- The need to keept he space bar pressed while unfolding was not communicated directly enough and not intuitive for the majority of the testers
-* Conclusion of the playtest - felix
-- Extra level before the first unfold to introduce mechanic in a simpler setting
-- dont introduce unfold, two finish and undo key in one level, introduce them one mechanic per level
-- Improve visual clarity of the finish tiles
-- Better communicate that player used Undo action, one would be playing the last animation backwards
-- Better textures
+- The need to keept he space bar pressed while unfolding was not communicated
+  directly enough and not intuitive for the majority of the testers
+* Conclusion of the playtest
+Even though all of the participants could identify the objective of the game
+correctly, it was very often the case, that the testers could not distinguish
+between different kinds of finishes. This includes both the difference between
+slippery and dry tiles, as well as the difference between differently colored
+finishes, where the cube has to have a certain orientation for the finish to
+activate. For the final release we will work on making the different finishes
+easier to distinguish. We are also thinking about using not colors but different
+sybols to distinguish between the different types of finishes, and also make it
+really clear to which side of the cube they correspond.
+
+The reason why we think most people struggled with the unfolding level -- even
+though the solution only consists of few moves -- is that we introduce too many
+aspects in this single level. They include the unfolding, the presence of
+multiple finish tiles whose win conditions all have to be satisfied at once and
+thirdly the undo funcionality that can be necessary in this level, as the
+players can reach a state where they cannont finish the level anymore. To
+mitigate the difficutly we will introduce these mechanics in separate levels, so
+not all concepts have to be acquired in one single level, which we believe
+overwhelmed the testers.
+
+Also we noticed that many players did not understand the undo functionallity as
+we only showed the keybind and no written instructions. Until now we just
+teleport the players back to the position they where before. It seems however,
+some players did not understand this intuitively and we believe this is because
+there is no visual feedback for the player to notice that we are setting their
+position to the previous one. There are some options we believe we have here.
+
+1. When introducing the player to the keybind for the undo, we could also add a
+   text next to the keybind that describes what it does. This violates our
+   philosophy to not communicate with the players with language, but might be
+   the easiest way to solve this problem.
+2. Another way could be, showing the player what is happening during an undo
+   action with the help of an image overlay. For example we could show a symbol
+   like \RewindToIndex for a short amount of time when the player pressed the
+   undo button.
+3. Finally, the best results would probably be archieved when the movement
+   animation would be played backwards to the position the cube was before.
+   While we believe this would lead to the most intuitive learning of the undo
+   functionallity, it is also the technically most challenging version to
+   implement, as a single move can consist of many animations which itself
+   consist of parenting, movement and unparenting actions, which would all need
+   to played backwards in reverse order.
+
 
 * Meta Info                                                        :noexport:
 #+startup: overview
