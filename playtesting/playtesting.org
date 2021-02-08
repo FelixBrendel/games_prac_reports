@@ -282,7 +282,7 @@ position to the previous one. There are some options we believe we have here.
    the easiest way to solve this problem.
 2. Another way could be, showing the player what is happening during an undo
    action with the help of an image overlay. For example we could show a symbol
-   like \RewindToIndex for a short amount of time when the player pressed the
+   like for a short amount of time when the player pressed the
    undo button.
 3. Finally, the best results would probably be archieved when the movement
    animation would be played backwards to the position the cube was before.
