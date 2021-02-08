@@ -1,17 +1,22 @@
-* Recap
+* Recap qubi
 - Puzzle game
 - Different floor types (slippery, dry)
 - Goal: figure out how to get to the finish
-* Playtesting Questionnaire
+* UI
+* qubi: Playtest Version 
+- 12 levels
+- Keep instructions at a minimum
+  -> let players figure that out themselves
+* Procedure
+- Intro
+- Observe testers during session
+- Conversation after session
 * Playtesting Results
 ** Demographic
 ** Play Matrix
 ** Questionnaire
 * Important findings
-
 * Outlook
-- Work on visuals
-- Tutorials
 
 * Meta Data                                                        :noexport:
 #+title: qubi
@@ -29,7 +34,7 @@
 ** html templates
 #+reveal_title_slide:  <br><br><br><br><h1>%t</h1><h4>Felix Brendel<br>Jonas Helms<br>Van Minh Pham</h4>
 #+reveal_slide_header: <img class="tumlogo" src="../../images/tum.png"/>
-#+reveal_slide_footer: <ul><li>Felix Brendel, Jonas Helms, Van Minh Pham</li><li>Jan.27th.2021</li></ul>
+#+reveal_slide_footer: <ul><li>Felix Brendel, Jonas Helms, Van Minh Pham</li><li>Feb.10th.2021</li></ul>
 
 ** Macros
 #+macro: insertImage #+html: <figure><img style="$3" src="../../images/$1" alt="$1"><figcaption>$2</figcaption></figure>
