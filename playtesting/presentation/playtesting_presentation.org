@@ -11,12 +11,57 @@
 - Intro
 - Observe testers during session
 - Conversation after session
+* Questionnaire
+- How much instructions do the players need?
+- Is the difficulty appropiate?
+- Assess the atmosphere of the game
+- Gather suggestions & aspects we might have overlooked
 * Playtesting Results
-** Demographic
 ** Play Matrix
-** Questionnaire
-* Important findings
-* Outlook
+[[../../images/Playmatrix.png]]
+** What were your first impressions of the game?
+- Enjoyed minimal design
+- Some expected a different type of puzzle game after the main menu
+- Visuals suggested familiarity for some players
+** What did you think about the style, both visual and audio?
+- Audiovisuals were considered fitting and atmospheric
+- Many commended minimalistic art style...
+- ...even though it was not on purpose
+- Music was by many thought to be not distracting
+- but it was also a too repetetive
+** Are the controls intuitiv?
+- For the majority, yes but.....
+- Majority of the testers had plenty of gaming experience
+- Some suggested additional controls with arrow keys
+** Were the instructions clear enough?
+- For the most part: No
+- Most critiqued aspect of the whole playtest
+- The level that introduced the unfolding was particulary bad
+- Several mechanics introduced in one level: BIG SAD!
+- Visual clarity of the finish tiles not good enough
+** How would you rate the difficulty of the puzzles?
+- Difficulty was rated fitting by the majority
+- The increase in complexity was deemed good
+- Except for that one frustrating level...
+- Levels after that were solved faster
+** In which situation would you play the game?
+- Very similar answers by almost all of the participants
+- Chill game for traveling
+- Long or Short travels
+- Mobile port is sought after
+** What was the best aspect of the game for you?
+- Unfolding mechanic was deemed very creative
+- Spatial puzzles were also considered to be new & refreshing
+** What was the worst aspect?
+- Unclear instructions
+- Spatial puzzles....again?
+- Many players are not used to spatial puzzles, can be frustrating
+** Suggestions from the playtesters
+- More levels
+- Complexer levels
+- Limit amount of moves per map
+- ....Achievments & Unlockable Skins
+* Conclusion of the playtest
 
 * Meta Data                                                        :noexport:
 #+title: qubi
