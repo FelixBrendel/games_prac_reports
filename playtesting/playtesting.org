@@ -123,10 +123,10 @@ involved and it also matches the vision of the game we had set out to create.
 
 #+caption: Classification of qubi in the play matrix from the playtesting participants
 #+name: Fig:PlayMatrix
-#+attr_latex: :options [htbp] :width 0.6\textwidth
+#+attr_latex: :options :width 0.6\textwidth
  [[../images/PlayMatrix.png]]
 ** Questionnaire results
-In the following question we will go over each question that we answered in our
+In the following section we will go over each question that we answered in our
 questionnaire and go over the results that we gathered from our playtesting
 group. For the test session of {{{insert_game_name_here}}} we gathered a group
 of 16 playtestern. The majority of our playtesters had a very high experience
@@ -301,6 +301,6 @@ position to the previous one. There are some options we believe we have here.
 #+macro: insert_team_name_here FünfKopf
 
 #+author: Felix Brendel, Jonas Helms, Van Minh Pham
-#+title: Alpha Release: {{{insert_game_name_here}}}
+#+title: Playtesting: {{{insert_game_name_here}}}
 
 #+latex_header: \input{latex.tex}
