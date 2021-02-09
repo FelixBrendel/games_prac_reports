@@ -3,12 +3,18 @@
 - Different floor types (slippery, dry)
 - Goal: figure out how to get to the finish
 * UI
+[[../../images/menu.png]]
 * qubi: Playtest Version 
+- Main menu
 - 12 levels
+  - 3 purely slippery levels
+  - 6 levels with dry tiles
+  - 3 levels with unfolding
 - Keep instructions at a minimum
-  -> let players figure that out themselves
+- Let players figure mechanics out themselves
 * Procedure
 - Intro
+- Let testers play through all levels
 - Observe testers during session
 - Conversation after session
 * Questionnaire
@@ -17,7 +23,8 @@
 - Assess the atmosphere of the game
 - Gather suggestions & aspects we might have overlooked
 * Playtesting Results
-** Play Matrix
+# ** Play Matrix
+- Play Matrix
 [[../../images/Playmatrix.png]]
 ** What were your first impressions of the game?
 - Enjoyed minimal design
@@ -29,7 +36,7 @@
 - ...even though it was not on purpose
 - Music was by many thought to be not distracting
 - but it was also a too repetetive
-** Are the controls intuitiv?
+** Are the controls intuitive?
 - For the majority, yes but.....
 - Majority of the testers had plenty of gaming experience
 - Some suggested additional controls with arrow keys

@@ -8,7 +8,7 @@ interface or way of telling the player how to play the game, which we addressed
 in this first step of the playtesting phase.
 
 *** Changes to the renderer
-For the playtesting we did not want to interfer with the tester while they are
+For the playtesting we did not want to interfere with the tester while they are
 playing. But since the game introduces mechanics on the fly that require the
 player to learn new keybindings, we wanted to implement image overlays that fade
 in to visually show the player images of the keys they need to press to discover
