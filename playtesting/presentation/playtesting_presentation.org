@@ -1,21 +1,16 @@
-* COMMENT Recap qubi
-- Puzzle game
-- Different floor types (slippery, dry)
-- Goal: figure out how to get to the finish
-
 * UI
-- necessary to communicate controls to the players
-- but dont use written language
+- Necessary to communicate controls to the players
+- But don't use written language
 
 ** Main menu
 {{{insertVideo(controls1.mp4, , width="80%")}}}
 
-** More conrols
+** More controls
 {{{insertVideo(controls2.mp4, , width="80%")}}}
 
 ** How it works
 - Second renderpass necessary
-- use Dear ImGui to record draw calls
+- Use Dear ImGui to record draw calls
 - Submit it to the GPU
 
 ** RenderDoc
@@ -48,38 +43,37 @@
 - 16 Playtesters in total
 - Play Matrix
 {{{insertImage(Playmatrix.png, ,width:60%)}}}
-** What were your first impressions?
+** First Impressions
 - Enjoyed minimal design
 - Some expected a different type of puzzle game after the main menu
 - Visuals suggested familiarity for some players
-** How did you like the visuals and audio?
+** Visuals and Audio
 - Audiovisuals were considered fitting and atmospheric
 - Many commended minimalistic art style...
 - ...even though it was not on purpose
 - Music was by many thought to be not distracting
-- but it was also a too repetetive
+- but it was also a bit too repetetive
 
-** Are the controls intuitive?
-- The majority answered yes but.....
+** Controls
+- The majority rated them intuitiv  but.....
 - Most of the testers had plenty of gaming experience
 - Some suggested additional controls with arrow keys
 
-** Were the instructions clear enough?
+** Clarity of Instructions
 - No, most critiqued aspect of the whole playtest
 - The level that introduced the unfolding was particulary bad
 - Several mechanics introduced in one level
 - Visual clarity of the finish tiles not good enough
 # {{{insertImage("../../images/3p1.png",, 50%)}}}
 
-** Were the instructions clear enough?
+** Clarity of Instructions
 # [[../../images/3p1.png]
 {{{insertVideo(qubi_lerwis_playtest.mp4,,80%)}}}
-** How would you rate the difficulty of the puzzles?
+** Difficulty
 - Difficulty was rated fitting by the majority
 - The increase in complexity was deemed good
 - Except for that one frustrating level...
 - Levels after that were solved faster
-
 ** In which situation would you play the game?
 - Very similar answers by almost all of the participants
 - Chill game for traveling
@@ -90,7 +84,8 @@
 - Spatial puzzles were also considered to be new & refreshing
 ** Worst aspect of the game?
 - Unclear instructions
-- Many players are not used to spatial puzzles, can be frustrating
+- Some players are not used to spatial puzzles, can be frustrating
+- Lighting made the color of the cube sometimes unclear
 
 ** Suggestions from the playtesters
 - More levels
@@ -104,7 +99,7 @@
  - 📈
 
 ** Finish tiles
-- Make them clearer to distinguish
+- Make them easier to distinguish
 - Maybe use symbols instead of only colors
 
 ** Unfolding level
