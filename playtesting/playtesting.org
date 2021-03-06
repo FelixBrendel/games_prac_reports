@@ -264,7 +264,7 @@ though the solution only consists of few moves -- is that we introduce too many
 aspects in this single level. They include the unfolding, the presence of
 multiple finish tiles whose win conditions all have to be satisfied at once and
 thirdly the undo funcionality that can be necessary in this level, as the
-players can reach a state where they cannont finish the level anymore. To
+players can reach a state where they cannot finish the level anymore. To
 mitigate the difficutly we will introduce these mechanics in separate levels, so
 not all concepts have to be acquired in one single level, which we believe
 overwhelmed the testers.

@@ -17,7 +17,6 @@
 - *Result*: minimal necessary shaders and draw calls generated
 {{{insertImage(renderdoc.png, , width: 80%)}}}
 
-
 * qubi: Playtest Version 
 - Main menu
 - 12 levels

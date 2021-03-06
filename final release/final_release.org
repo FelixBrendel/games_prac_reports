@@ -1,0 +1,38 @@
+* Final Version of qubi
+** Technical Aspects
+# shortly about additions since alpha release/playtest ver.
+# MSAA
+# Mipmapping
+# Shadow Mapping
+# ASSets
+# shaders
+# sound effects etc.
+** Content
+# 21 levels + 1 menu
+# gameplay mechanics were already done before
+# added arrow keys
+
+* Experience During The Class
+# How well did your initial design ideas materialize into the final game?
+# how did we meet the project plan and milestones? deviation from dev schedule
+# how did project structure influence progress?
+
+* Verdict
+# impression of working with the theme (too restrictive?)
+# biggest technical difficulty
+# greatest success
+# are we satisfied with the result? pros & cons
+# expectations met? regrets.
+# improvements for course organization
+
+* Meta Info                                                        :noexport:
+#+startup: overview
+#+options: html-postamble:nil toc:nil title:nil
+#+OPTIONS: ^:{}
+#+macro: insert_game_name_here qubi
+#+macro: insert_team_name_here FünfKopf
+
+#+author: Felix Brendel, Jonas Helms, Van Minh Pham
+#+title: Playtesting: {{{insert_game_name_here}}}
+
+#+latex_header: \input{latex.tex}
