@@ -1,17 +1,48 @@
 * Final Version of qubi
+Since the conclusion of the playtests we have added a plethora of aspects to 
+qubi.
+In the following we will cover the additions in regards to technical aspects and
+content.
 ** Technical Aspects
-# shortly about additions since alpha release/playtest ver.
-# MSAA
-# Mipmapping
+# keeping it short i guess
+# MSAA, images?
+During development we noticed aliasing artifacts at the edges of tiles. To 
+counteract these we implemented multisample anti-aliasing. The number of samples
+that would be used per pixel was determined by picking the highest sample
+count that is supported by the used graphics card.
+# Mipmapping, images?
+Additionally to deal with artifacts in textures, especially for written text, 
+we implemented mipmapping. The number of levels in the mip chain for each 
+texture was calculated using its resolution.
 # Shadow Mapping
 # ASSets
 # shaders
 # sound effects etc.
 ** Content
-# 21 levels + 1 menu
-# gameplay mechanics were already done before
-# added arrow keys
-
+# gameplay mechanics were already done before but added arrow keys
+In qubi players have to maneuver a cube through tile-based levels filled with 
+obstacles to reach the finish. On slippery tiles the cube will slide until it 
+encounters a wall, obstacle or dry tile on which the cube would flip.
+In certain levels finishes require a specific side of the cube to land on 
+prompting the player to use the dry tiles to reorient the cube. 
+In later levels the cube can be unfolded on dry tiles. As a result finish tiles 
+can be reached now which otherwise would be impossible to get to.
+Furthermore levels can also feature multiple finish tiles on which the cube has 
+to land on a specific side by using the unfold mechanic.
+As it was a common suggestion during playtests, we have added the arrow keys for 
+controlling the movement of the cube (apart from the WASD keys).
+# 21 levels + 1 menu, structure, hopefully better introductions
+In total qubi consists of 21 levels for players to traverse through. 
+Initial levels only consist of slippery and obstacle tiles. Later on dry tiles 
+are added as well as finish tiles requiring a specific cube side. In the final
+portion of the game we introduce the unfold mechanic along with the option to 
+undo an action. 
+For the playtests we introduced both these mechanics in the same level. This was
+also the level that our testers struggled with the most.
+Because of this we added more introductory levels for these gameplay mechanics.\\
+Additionally we added a menu level in which players maneuver the cube to finish
+tiles that start a brand new game, continue or quit the game. This menu level
+can also be accessed by pressing the escape key.
 * Experience During The Class
 # How well did your initial design ideas materialize into the final game?
 # how did we meet the project plan and milestones? deviation from dev schedule
