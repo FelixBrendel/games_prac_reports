@@ -15,7 +15,7 @@ Additionally to deal with artifacts in textures, especially for written text,
 we implemented mipmapping. The number of levels in the mip chain for each 
 texture was calculated using its resolution.
 # Shadow Mapping
-# ASSets
+# ASSets, blender greatness
 # shaders
 # sound effects etc.
 ** Content
@@ -43,18 +43,44 @@ Because of this we added more introductory levels for these gameplay mechanics.\
 Additionally we added a menu level in which players maneuver the cube to finish
 tiles that start a brand new game, continue or quit the game. This menu level
 can also be accessed by pressing the escape key.
+# TODO: images
 * Experience During The Class
 # How well did your initial design ideas materialize into the final game?
+qubi was designed to be a cozy puzzle game that could be enjoyed every now and 
+then. We wanted the game to show the fundamental instructions but still 
+require players to experiment with the game to fully understand the mechanics. 
+All in all we believe that we did a decent job with this game.
+The three gameplay mechanics themselves are simple. The instructions are enough
+to give players a spark to get started but not reveal everything about the 
+game's mechanics.
+The levels ramp up in difficulty as the three mechanics are progressively added.
+And finally the music and sound effects are satisfying and calming.
 # how did we meet the project plan and milestones? deviation from dev schedule
 # how did project structure influence progress?
 
-* Verdict
+* Personal Impressions
 # impression of working with the theme (too restrictive?)
+The theme "wet & slippery" at first seemed a little daunting to us.
+However the idea of a cube sliding on ice already seemed fulfill the theme.
+We were then able to be more creative with working out more mechanics.
+As a result the theme was not as restrictive as we initially thought.
 # biggest technical difficulty
+The biggest technical difficulty would be building our engine while developing
+the game. We had to implement features for game development that would be 
+taken for granted in an existing engine. 
+Thanks to the simplicity of our game we were able to juggle both the development 
+of our engine and game. As the engine was made specifically for qubi, we were 
+able to leave out features that were not needed (e.g. a graphics engine).
 # greatest success
 # are we satisfied with the result? pros & cons
 # expectations met? regrets.
 # improvements for course organization
+In regards to the course organization we feel that how the milestones and their 
+deadlines were handled were a little confusing. We feel that the project 
+structure document in the course materials for one should be updated again as
+at some points it seems to contradict itself. The deadlines for the milestones 
+could further be communicated better.
+
 
 * Meta Info                                                        :noexport:
 #+startup: overview
