@@ -9,7 +9,7 @@ content.
 During development we noticed aliasing artifacts at the edges of tiles. To 
 counteract these we implemented multisample anti-aliasing. The number of samples
 that would be used per pixel was determined by picking the highest sample
-count that is supported by the used graphics card.
+count that is supported by the used graphics card (up to 8).
 #+caption: Initially there are only slippery tiles and obstacles. Players have to 
 #+caption: maneuver the cube to reach the finish.
 #+attr_latex: :width 0.6\textwidth
@@ -18,8 +18,23 @@ count that is supported by the used graphics card.
 Additionally to deal with artifacts in textures, especially for written text, 
 we implemented mipmapping. The number of levels in the mip chain for each 
 texture was calculated using its resolution.
+
 # Shadow Mapping
+To make the game feel more alive, we also added a directional sun light that
+casts shadows into the scene. This is done using shadow mapping, and rendering
+the scene from the lights perspective into a depth image in the first render
+pass and when shading the actual scene in the second render pass, use in the
+depth image to determine if a fragment is in shadow. Furthermore to smooth the
+shadows a bit we sample the texels around the corresponding one in the depth
+image (PCF) to archieve a smoother transition from shadow to lit surfaces.
+
 # ASSets, blender greatness
+The scenes were designed in Blender and we wrote a custom exporter that exports
+the while scene into a format that can easily be used for our game. It proved to
+be very convenient to design the scenes in a 3D program and with the push of a
+button be able to export the scene into a format that can be used by the game
+right away.
+
 # shaders
 # sound effects etc.
 ** Content
