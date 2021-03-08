@@ -10,6 +10,10 @@ During development we noticed aliasing artifacts at the edges of tiles. To
 counteract these we implemented multisample anti-aliasing. The number of samples
 that would be used per pixel was determined by picking the highest sample
 count that is supported by the used graphics card.
+#+caption: Initially there are only slippery tiles and obstacles. Players have to 
+#+caption: maneuver the cube to reach the finish.
+#+attr_latex: :width 0.6\textwidth
+ [[../images/final_release/level1.png]]
 # Mipmapping, images?
 Additionally to deal with artifacts in textures, especially for written text, 
 we implemented mipmapping. The number of levels in the mip chain for each 
@@ -25,13 +29,20 @@ obstacles to reach the finish. On slippery tiles the cube will slide until it
 encounters a wall, obstacle or dry tile on which the cube would flip.
 In certain levels finishes require a specific side of the cube to land on 
 prompting the player to use the dry tiles to reorient the cube. 
-In later levels the cube can be unfolded on dry tiles. As a result finish tiles 
-can be reached now which otherwise would be impossible to get to.
+#+caption: Moving onto and from green dry tiles will have the cube flip. 
+#+caption: In these levels finishes require a specific side of the cube to land. 
+#+caption: Here the red side of the cube is required.
+#+attr_latex: :width 0.6\textwidth
+ [[../images/final_release/level2.png]]
+# 21 levels + 1 menu, structure, hopefully better introductions
+Later on levels require the cube to be unfolded on dry tiles which can be performed
+by holding the space bar. Letting go will have the cube refold on the last reached tile.
+As a result finish tiles can be reached now which otherwise would be impossible to get to.
 Furthermore levels can also feature multiple finish tiles on which the cube has 
 to land on a specific side by using the unfold mechanic.
+Actions can further be undone by pressing 'U'.
 As it was a common suggestion during playtests, we have added the arrow keys for 
 controlling the movement of the cube (apart from the WASD keys).
-# 21 levels + 1 menu, structure, hopefully better introductions
 In total qubi consists of 21 levels for players to traverse through. 
 Initial levels only consist of slippery and obstacle tiles. Later on dry tiles 
 are added as well as finish tiles requiring a specific cube side. In the final
@@ -40,10 +51,10 @@ undo an action.
 For the playtests we introduced both these mechanics in the same level. This was
 also the level that our testers struggled with the most.
 Because of this we added more introductory levels for these gameplay mechanics.\\
-Additionally we added a menu level in which players maneuver the cube to finish
-tiles that start a brand new game, continue or quit the game. This menu level
+Additionally there is a starting level in which players maneuver the cube to 
+tiles that start a brand new game, continue or quit the game. This level
 can also be accessed by pressing the escape key.
-# TODO: images
+
 * Experience During The Class
 # How well did your initial design ideas materialize into the final game?
 qubi was designed to be a cozy puzzle game that could be enjoyed every now and 
@@ -53,10 +64,21 @@ All in all we believe that we did a decent job with this game.
 The three gameplay mechanics themselves are simple. The instructions are enough
 to give players a spark to get started but not reveal everything about the 
 game's mechanics.
+#+caption: For levels that feature multiple finishes, holding down the space bar
+#+caption: will have the cube unfold. This mechanic can only be used on dry tiles.
+#+attr_latex: :width 0.6\textwidth
+ [[../images/final_release/level3.png]]
 The levels ramp up in difficulty as the three mechanics are progressively added.
 And finally the music and sound effects are satisfying and calming.
 # how did we meet the project plan and milestones? deviation from dev schedule
+Since we were working on the engine and qubi at the same time, we had to set priorities.
+To meet milestones we put functionality above everything else during development.
+Therefore for the most time qubi looked rather minimalistic. Once we were done with
+that, we started adding assets to our game.
 # how did project structure influence progress?
+As we initially anticipated, the development process did not always go according to plan.
+Features constantly had to be revised and delayed. Ultimately we used the milestones and
+deadlines to set goals and then worked our way through.
 
 * Personal Impressions
 # impression of working with the theme (too restrictive?)
@@ -64,16 +86,19 @@ The theme "wet & slippery" at first seemed a little daunting to us.
 However the idea of a cube sliding on ice already seemed fulfill the theme.
 We were then able to be more creative with working out more mechanics.
 As a result the theme was not as restrictive as we initially thought.
-# biggest technical difficulty
+# biggest technical difficulty, expectations met? regrets.
 The biggest technical difficulty would be building our engine while developing
-the game. We had to implement features for game development that would be 
+the game. We had to implement features for game development that are 
 taken for granted in an existing engine. 
 Thanks to the simplicity of our game we were able to juggle both the development 
 of our engine and game. As the engine was made specifically for qubi, we were 
 able to leave out features that were not needed (e.g. a graphics engine).
-# greatest success
-# are we satisfied with the result? pros & cons
-# expectations met? regrets.
+As qubi is more of a casual game, we wanted to port the game the mobile devices.
+Unfortunately due time restrictions we were not able to achieve this. Therefore qubi
+is strictly a PC game. Of course there were several other ideas we had for the game,
+such as different worlds, a reward system or verticality. But with the time restrictions
+we made the decision to focus on refining the mechanics we had instead of creating more 
+aspects half-heartedly.
 # improvements for course organization
 In regards to the course organization we feel that how the milestones and their 
 deadlines were handled were a little confusing. We feel that the project 
