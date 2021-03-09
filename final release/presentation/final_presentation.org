@@ -1,0 +1,60 @@
+* Project Progression
+- juggling engine work and game development
+- functionality above everything
+- only then add sounds and visuals
+{{{insertImage(lvl1.png, ,width:60%)}}}
+* Time Management
+- mainly used milestones as orientation
+- timeline faded into the background
+* Content
+- 21 levels
+- one start/main menu
+- music/sfx
+- additional assets
+* Content
+{{{insertImage(final_release/menu.png, ,width:80%)}}}
+* Additions Since Playtests
+- arrow keys for inputs
+- more introductory levels for unfolding
+* Technical Additions
+- Anti-Aliasing (MSAA)
+- Mipmapping
+- Shadow Mapping
+- Assets
+* Technical Aspects
+{{{insertImage(final_release/level1.png, ,width:80%)}}}
+* Achievements
+- created engine and game
+- game fleshed out
+- cozy atmosphere
+- instructions show enough to get started
+* Regrets
+- no mobile port
+- multiple features:
+     - verticality
+     - reward system
+     - ...
+
+* Meta Data                                                        :noexport:
+#+title: qubi
+#+reveal_root: https://cdn.jsdelivr.net/npm/reveal.js
+
+** reveal settings
+#+options: toc:nil num:nil
+#+options: reveal_center:nil
+#+reveal_plugins: (notes zoom)
+#+reveal_theme: white
+#+reveal_extra_css: extrastyle.css
+#+reveal_title_slide_background: ../../images/title.png
+#+reveal_init_options: slideNumber:"c/t"
+
+** html templates
+#+reveal_title_slide:  <br><br><br><br><h1>%t</h1><h4>Felix Brendel<br>Jonas Helms<br>Van Minh Pham</h4>
+#+reveal_slide_header: <img class="tumlogo" src="../../images/tum.png"/>
+#+reveal_slide_footer: <ul><li>Felix Brendel, Jonas Helms, Van Minh Pham</li><li>Mar.9th.2021</li></ul>
+
+** Macros
+#+macro: insertImage #+html: <figure><img style="$3" src="../../images/$1" alt="$1"><figcaption>$2</figcaption></figure>
+# usage: insertImage(pathToImage, imageCaption="", style="")
+# usage: insertVideo(pathToVid, imageCaption="", width="")
+#+macro: insertVideo #+html: <figure><video muted autoplay="true" loop width="$3"><source src="../../videos/$1" type="video/webm"></video><figcaption>$2</figcaption></figure>
