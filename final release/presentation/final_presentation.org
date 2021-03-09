@@ -1,7 +1,7 @@
 * Project Progression
 - Juggling engine work and game development
 - Functionality above everything
-- Only then add sounds and visuals
+- Only afterwards sound and visuals were added
 {{{insertImage(lvl1.png, ,width:60%)}}}
 * Time Management
 - Mainly used milestones as orientation
@@ -9,13 +9,15 @@
 * Content
 - 21 levels
 - One start/main menu
-- Music/sfx
+- Cozy music and sfx
 - Additional assets
 * Content
 {{{insertImage(final_release/menu.png, ,width:80%)}}}
-* Additions Since Playtests
-- arrow keys for inputs
-- more introductory levels for unfolding
+* Additions from Playtests
+- Arrow keys for inputs
+- More introductory levels for unfolding
+- Added better understandable finish tiles
+- Improved instruction overlays
 * Technical Additions
 - Anti-Aliasing (MSAA)
 - Mipmapping
@@ -25,15 +27,15 @@
 {{{insertImage(final_release/level1.png, ,width:80%)}}}
 * Achievements
 - Created engine and game
-- Game fleshed out
-- Cozy atmosphere
-- Instructions show enough to get started
-* Regrets
+- Stand alone finished version
+- Captured the intended atmosphere
+- Minimal amount of instructions
+* Regrets & Outlook
 - Missing  mobile port
-- Multiple features:
-     - Verticality
+- Multiple potential features:
+     - Vertical levels
      - Reward system
-     - ...
+     - Additional mode with limited moves
 
 * Meta Data                                                        :noexport:
 #+title: qubi
