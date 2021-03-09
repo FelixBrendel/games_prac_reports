@@ -1,16 +1,16 @@
 * Project Progression
-- juggling engine work and game development
-- functionality above everything
-- only then add sounds and visuals
+- Juggling engine work and game development
+- Functionality above everything
+- Only then add sounds and visuals
 {{{insertImage(lvl1.png, ,width:60%)}}}
 * Time Management
-- mainly used milestones as orientation
-- timeline faded into the background
+- Mainly used milestones as orientation
+- Timeline faded into the background
 * Content
 - 21 levels
-- one start/main menu
-- music/sfx
-- additional assets
+- One start/main menu
+- Music/sfx
+- Additional assets
 * Content
 {{{insertImage(final_release/menu.png, ,width:80%)}}}
 * Additions Since Playtests
@@ -24,15 +24,15 @@
 * Technical Aspects
 {{{insertImage(final_release/level1.png, ,width:80%)}}}
 * Achievements
-- created engine and game
-- game fleshed out
-- cozy atmosphere
-- instructions show enough to get started
+- Created engine and game
+- Game fleshed out
+- Cozy atmosphere
+- Instructions show enough to get started
 * Regrets
-- no mobile port
-- multiple features:
-     - verticality
-     - reward system
+- Missing  mobile port
+- Multiple features:
+     - Verticality
+     - Reward system
      - ...
 
 * Meta Data                                                        :noexport:
