@@ -20,7 +20,7 @@
 - Anti-Aliasing (MSAA)
 - Mipmapping
 - Shadow Mapping
-- Assets
+- Blender scene export script
 * Technical Aspects
 {{{insertImage(final_release/level1.png, ,width:80%)}}}
 * Achievements
