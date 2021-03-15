@@ -1,9 +1,24 @@
+* Additions from Playtests
+- Arrow keys for inputs
+- More introductory levels for unfolding
+- Added better understandable finish tiles
+- Improved instruction overlays
 * Overview render pipeline - Jonas
 * Latest additions to render pipeline
 ** Shadowmapping - Jonas
-** MSAA - Minh
-** Mipmapping - Minh
-* Gamestate & continue - Minh
+** MSAA
+- number of samples is extracted from GPU properties
+- create new buffer storing samples
+- buffer then used in the pipeline
+{{{insertImage(final_release/msaa.png, ,width:50%)}}}
+** Mipmapping
+- number of mip levels is obtained from the dimensions of texture images
+- vulkan fills mip levels with different resolutions of textures
+{{{insertImage(final_release/mipmap.png, ,width:50%)}}}
+* Gamestate & continue
+- pressing Esc opens the main menu level
+- continue tile -> current level, position, orientation
+{{{insertImage(final_release/menu2.png, ,width:70%)}}}
 * Exporting blender scenes - Jonas
 * Animation System - Felix
 * Meta Data                                                        :noexport:
@@ -22,7 +37,7 @@
 ** html templates
 #+reveal_title_slide:  <br><br><br><br><h1>%t</h1><h4>Felix Brendel<br>Jonas Helms<br>Van Minh Pham</h4>
 #+reveal_slide_header: <img class="tumlogo" src="../../images/tum.png"/>
-#+reveal_slide_footer: <ul><li>Felix Brendel, Jonas Helms, Van Minh Pham</li><li>Mar.9th.2021</li></ul>
+#+reveal_slide_footer: <ul><li>Felix Brendel, Jonas Helms, Van Minh Pham</li><li>Mar.16th.2021</li></ul>
 
 ** Macros
 #+macro: insertImage #+html: <figure><img style="$3" src="../../images/$1" alt="$1"><figcaption>$2</figcaption></figure>
