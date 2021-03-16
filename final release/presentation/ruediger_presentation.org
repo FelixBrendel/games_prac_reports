@@ -20,13 +20,174 @@
 - continue tile -> current level, position, orientation
 {{{insertImage(final_release/menu2.png, ,width:70%)}}}
 * Exporting blender scenes - Jonas
-* Animation System - Felix
+* Animation System
+- Deterministic procedural animations
+- With the help of the scheduler/agenda:
+  - Ability to animate any variable
+  - Ability to schedule any piece of code to
+    run at any given time later
+
+- Usually not seen in games (to our knowledge)
+- One of our best technical archievemets
+
+** Scheduler Iterface
+#+begin_src c++
+auto schedule_animation(Scheduled_Animation_Create_Info aci)
+    -> Scheduled_Animation*;
+auto schedule_action(Scheduled_Action_Create_Info aci)
+    -> Scheduled_Action*;
+
+auto chain_action(Scheduled_Animation* existing_animation,
+                  Action_Create_Info aci)
+    -> Action*;
+auto chain_action(Action* existing_action,
+                  Action_Create_Info aci)
+    -> Action*;
+
+auto update_all(f32 delta_time) -> void;
+auto reset() -> void;
+#+end_src
+
+** Scheduler - update_all
+#+begin_src c++
+auto update_all(f32 delta_time) -> void;
+#+end_src
+- In the end, all logic happens here
+- Called every frame
+  - Updates all active animations
+  - Runs due actions
+
+** Scheduler Example - Level finish
+
+#+begin_src c++
+Scheduler::schedule_animation({
+    .seconds_to_start = 0,
+    .seconds_to_end   = 1,
+    .interpolant      = &(Active_Scene::camera_fov),
+    .interpolant_type = Interpolant_Type::F32,
+    .from = &fov_start,
+    .to   = &fov_end,
+    .interpolation_type = Interpolation_Type::Ease_In,
+});
+Scheduler::schedule_action({
+    .seconds_to_run = 1,
+    .action {
+        .lambda = load_next_scene,
+    }
+});
+#+end_src
+
+** Scheduler - Complications
+Despite the simple interface many things have to be considered
+
+** Scheduler - Complications
+*If multiple actions are due, they have to be run in order.*
+
+Because they assume actions scheduled before already ran.
+
+** Scheduler - Complications
+*Actions themself might reset the scheduler.* For example =finish_check=.
+
+If reset is called in an action:
+ - Don't actually reset the scheduler,
+ - do so after the iteration
+   - otherwise other actions are not run
+ - and also run all other actions that are scheduled
+
+** Scheduler - Complications
+*Actions themself might reset the scheduler. And then schedule more things*
+
+#+begin_src c++
+auto load_scene(u32 index) -> void {
+    Scheduler::reset();
+
+    // schedule intro animation
+    Scheduler::schedule_animation({...});
+    // chain animation unlock
+    Scheduler::chain_action({...});
+}
+#+end_src
+
+This code by itself is fine, but when run as an action...
+
+** Scheduler - Complications
+#+begin_src c++
+auto load_scene(u32 index) -> void {      // <<<<
+    Scheduler::reset();
+
+    // schedule intro animation
+    Scheduler::schedule_animation({...});
+    // chain animation unlock
+    Scheduler::chain_action({...});
+}
+#+end_src
+
+| =load_scene=            |
+| =Scheduler::update_all= |
+| =game_loop=             |
+
+** Scheduler - Complications
+#+begin_src c++
+auto load_scene(u32 index) -> void {
+    Scheduler::reset();                   // <<<<
+
+    // schedule intro animation
+    Scheduler::schedule_animation({...});
+    // chain animation unlock
+    Scheduler::chain_action({...});
+}
+#+end_src
+
+| =Scheduler::reset=      |
+| =load_scene=            |
+| =Scheduler::update_all= |
+| =game_loop=             |
+
+** Scheduler - Complications
+#+begin_src c++
+auto load_scene(u32 index) -> void {
+    Scheduler::reset();
+
+    // schedule intro animation
+    Scheduler::schedule_animation({...});  // <<<<
+    // chain animation unlock
+    Scheduler::chain_action({...});
+}
+#+end_src
+
+| =Scheduler::schedule_animation= |
+| =load_scene=                    |
+| =Scheduler::update_all=         |
+| =game_loop=                     |
+
+** Scheduler - Solution
+
+#+begin_src c++
+// PING
+Bucket_Allocator<Scheduled_Animation> active_animations_1;
+Bucket_Allocator<Scheduled_Action>    scheduled_actions_1;
+Bucket_Allocator<Action>              chained_actions_1;
+// PONG
+Bucket_Allocator<Scheduled_Animation> active_animations_2;
+Bucket_Allocator<Scheduled_Action>    scheduled_actions_2;
+Bucket_Allocator<Action>              chained_actions_2;
+
+Bucket_Allocator<Scheduled_Animation>* active_animations;
+Bucket_Allocator<Scheduled_Action>*    scheduled_actions;
+Bucket_Allocator<Action>*              chained_actions;
+
+Bucket_Allocator<Scheduled_Animation>* future_active_animations;
+Bucket_Allocator<Scheduled_Action>*    future_scheduled_actions;
+Bucket_Allocator<Action>*              future_chained_actions;
+#+end_src
+
+
 * Meta Data                                                        :noexport:
 #+title: qubi
 #+reveal_root: https://cdn.jsdelivr.net/npm/reveal.js
 
 ** reveal settings
-#+options: toc:nil num:nil
+#+options: toc:nil num:nil ^:nil
 #+options: reveal_center:nil
 #+reveal_plugins: (notes zoom)
 #+reveal_theme: white

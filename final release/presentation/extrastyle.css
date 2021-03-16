@@ -22,7 +22,13 @@ br {
     text-transform: none;
     text-align: center;
 }
-
+.reveal pre {
+    width: 95%;
+    margin: 10px auto;
+}
+.reveal pre code {
+    max-height: unset;
+}
 .reveal h1 {
     font-size: 4em;
     color: #113D1E;
