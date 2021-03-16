@@ -1,25 +1,69 @@
-* Additions from Playtests
+* Additions after the playtesting
 - Arrow keys for inputs
 - More introductory levels for unfolding
 - Added better understandable finish tiles
 - Improved instruction overlays
-* Overview render pipeline - Jonas
+{{{insertImage(final_release/menu2.png, ,width:50%)}}}
 * Latest additions to render pipeline
-** Shadowmapping - Jonas
+- Important graphical aspects had to be added
+- Levels designed with assets that make use of improved graphics
+{{{insertImage(final_release/level2.png, ,width:50%)}}}
 ** MSAA
-- number of samples is extracted from GPU properties
-- create new buffer storing samples
-- buffer then used in the pipeline
+- Number of samples is extracted from GPU properties
+- Create new buffer storing samples
+- Buffer then used in the pipeline
 {{{insertImage(final_release/msaa.png, ,width:50%)}}}
 ** Mipmapping
-- number of mip levels is obtained from the dimensions of texture images
-- vulkan fills mip levels with different resolutions of textures
+- Number of mip levels is obtained from the dimensions of texture images
+- Vulkan fills mip levels with different resolutions of textures
 {{{insertImage(final_release/mipmap.png, ,width:50%)}}}
+** Shadows
+- Very important aspect for realism
+- Shadow mapping: Pipeline needs additional render target
+- Overlay to adjust light attributes
+{{{insertImage(final_release/Light_controls.png, ,width:40%)}}}
+** Shadow mapping enhancements
+- Adjusting FoV of the light to the visible scene
+- Resolution of shadow map only used for visible area
+- Crisper shadows
+{{{insertImage(final_release/Light_FoV.png, ,width:50%)}}}
+** Shadow mapping enhancements
+- Exact depth information
+- Float imprecision
+- Near and far plane adjustable for each level
+{{{insertImage(final_release/Shadow_float_imprecision.png, ,width:40%)}}}
+** Shadow mapping enhancements
+- Shadow color is the sky color for more realism
+- Shadowmap sampled 5x5 around pixel: PCF
+- PCF results in a float that is interpolated
+{{{insertImage(final_release/PCF.png, ,width:50%)}}}
+* Exporting blender scene
+- Designing scenes in engine was deemed not feasible
+- Solution: design scenes in blender and export to engine representation
+- Set of assets that was agreed upon beforehand
+{{{insertImage(final_release/blender_main_menu.png, ,width:40%)}}}
+** Export Script
+- Iterate over all objects in the blender scene
+- Adjust names of objects to create mesh & mat names
+#+BEGIN_SRC python
+  outfile.write(f"""
+        {{
+            .mesh = {mesh_name},
+            .material  = {mat_name},
+            .transform {{
+                .position    =
+                    glm::vec3{{ {pos_x}f, {pos_y}f, {pos_z}f }},
+                .orientation =
+                    get_quat_from_XYZ({rot_x}f, {rot_y}f, {rot_z}f),
+                .scale       =
+                    glm::vec3{{ {scale_x}f,{scale_y}f,{scale_z}f }},
+            }}
+        }},""")
+#+END_SRC
 * Gamestate & continue
-- pressing Esc opens the main menu level
-- continue tile -> current level, position, orientation
+- Pressing Esc opens the main menu level
+- Continue tile -> current level, position, orientation
 {{{insertImage(final_release/menu2.png, ,width:70%)}}}
-* Exporting blender scenes - Jonas
 * Animation System
 - Deterministic procedural animations
 - With the help of the scheduler/agenda:
@@ -28,7 +72,7 @@
     run at any given time later
 
 - Usually not seen in games (to our knowledge)
-- One of our best technical archievemets
+- Major technical archievement of the project
 
 ** Scheduler Iterface
 #+begin_src c++
